@@ -10,5 +10,5 @@ package com.mycompany.rubricatelefonica;
  * @author Mario Stanco
  */
 public class Main {
-    
+    public int numero;
 }
