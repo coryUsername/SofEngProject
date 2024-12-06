@@ -7,7 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @brief The ContactList class Represents a collection of contacts stored in a linked list.
+ * @file ContactList.java
+ * @brief Represents a collection of contacts stored in a linked list.
  */
 public class ContactList {
     
@@ -38,7 +39,7 @@ public class ContactList {
      * @param substring The name or surname to search for.
      * @return A Contact object that matches the search query, or null if no match is found.
      */
-    public Contact search(String substring){
+    public LinkedList<Contact> search(String substring){
         // To be implemented
         return null; 
     };

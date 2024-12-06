@@ -5,12 +5,13 @@ import Model.*;
 import java.util.LinkedList;
  
 /**
- * @brief Controller class to manage contact list operations and interactions with views.
+ * @file Controller.java
+ * @brief Represents contact list operations and interactions with views.
  */
 public class Controller {
     
     private ContactList contactList; 
-    private Contact contact; 
+    
     private MainView mainView;
     private ContactView contactView;
     private ContactFormView contactFormView;

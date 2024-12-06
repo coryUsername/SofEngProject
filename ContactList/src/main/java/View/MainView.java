@@ -6,10 +6,14 @@ import java.awt.Button;
 import java.util.LinkedList;
 
 /**
- * @brief The MainView class represents the main view for the contact list.
+ * @file MainView.java
+ * @brief Represents the main view for the contact list.
  */
 public class MainView {
     
+    /// Table to display the contacts.
+    private TableView contacts; 
+
     /// Buttons for various actions.
     private Button search; 
     private Button filterByNumber; 
