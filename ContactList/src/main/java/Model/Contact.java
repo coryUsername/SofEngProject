@@ -4,9 +4,8 @@ import java.util.List;
 
 
 /**
- * @brief The Contact class represents an individual contact in the contact book.
- * It stores personal information such as name, surname, phone numbers, emails, 
- * and other relevant details of a contact.
+ * @file Contact.java
+ * @brief Represents an individual contact in the contact book.
  */
 public class Contact {
     
@@ -17,10 +16,10 @@ public class Contact {
     private String surname; 
     
     /// A list of phone numbers associated with the contact.
-    private List<String> phoneNumbers; 
+    private LinkedList<String> phoneNumbers; 
     
     /// A list of email addresses associated with the contact.
-    private List<String> emails; 
+    private LinkedList<String> emails; 
     
     /// The company the contact works for.
     private String company; 

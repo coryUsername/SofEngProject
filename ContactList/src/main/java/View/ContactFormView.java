@@ -6,7 +6,8 @@ import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
 /**
- *@brief The ContactFormView class represents the view for creating or modifying a contact.
+ * @file ContactFormView.java
+ * @brief Represents the view for creating or modifying a contact.
  */
 public class ContactFormView {
     

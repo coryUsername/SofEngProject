@@ -5,7 +5,8 @@ import java.awt.Button;
 import java.awt.Label;
 
 /**
- *@brief The ContactView class represents the view for displaying details of a single contact.
+ * @file ContactView.java
+ * @brief Represents the view for displaying details of a single contact.
  */
 public class ContactView {
     
