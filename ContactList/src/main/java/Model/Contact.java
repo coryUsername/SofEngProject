@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.List;
+import java.util.LinkedList;
 
 /**
  * @file Contact.java
@@ -41,17 +42,233 @@ public class Contact {
   /**
    * @brief Default constructor for the Contact class.
    * Initializes a new Contact object.
+  * @param name The contact's name.
+   * @param surname The contact's surname.
+   * @param company The contact's company.
+   * @param IBAN The contact's IBAN.
+   * @param address The contact's address.
+   * @param website The contact's website.
+   * @param notes Additional notes for the contact.
+   * @param favorite Indicates whether the contact is marked as a favorite.
    */
-  public Contact() {
-    // To be implemented
+   
+  public Contact(String name, String surname, String company, String IBAN, String address, String website, String notes, boolean favorite) {
+this.name=name;
+this.surname=surname;
+phoneNumbers = new LinkedList <>();
+emails = new LinkedList<>();
+this.company=company;
+this.IBAN=IBAN;
+this.address=address;
+this.website=website;
+this.notes=notes;
+this.favorite=favorite;
+check();
+}
+
+/**
+ * @brief Checks if the contact has a name or a surname.
+ * @throws IllegalArgumentException if both name and surname are empty or null.
+ */
+public void check(){
+if((name==null|| name.isEmpty()) && (surname== null|| surname.isEmpty())){
+throw new IllegalArgumentException("Please enter a name and a surname");
+}
+}
+
+
+/**
+ * @brief Getter method to return the name of the contact.
+ * @return The name of the contact.
+ */
+public String  getName(){
+return name;
+}
+
+/**
+ * @brief Getter method to return the surname of the contact.
+ * @return The surname of the contact.
+ */
+public String getSurname(){
+return surname;
+}
+
+/**
+ * @brief Getter method to return the company of the contact.
+ * @return The company of the contact.
+ */
+public String getCompany(){
+return company;
+}
+
+/**
+ * @brief Getter method to return the IBAN of the contact.
+ * @return The IBAN of the contact.
+ */
+public String getIBAN(){
+return IBAN;
+}
+
+/**
+ * @brief Getter method to return the address of the contact.
+ * @return The address of the contact.
+ */
+public String getAddress(){
+return address;
+}
+
+/**
+ * @brief Getter method to return the website of the contact.
+ * @return The website of the contact.
+ */
+public String getWebsite(){
+return website;
+}
+
+/**
+ * @brief Getter method to return the notes of the contact.
+ * @return The notes of the contact.
+ */
+public String getNotes(){
+return notes;
+}
+
+/**
+ * @brief Setter method to set the name of the contact.
+ * @param name The name to be set for the contact.
+ */
+public void setName(String name) {
+this.name=name;
+}
+
+/**
+ * @brief Setter method to set the surname of the contact.
+ * @param surname The surname to be set for the contact.
+ */
+public void setSurname(String surname) {
+this.surname=surname;
+}
+ 
+ /**
+  * @brief Setter method to set the company of the contact.
+  * @param company The company to be set for the contact.
+  */
+ public void setCompany(String company) {
+this.company=company;
+}
+
+/** 
+ * @brief Setter method to set the IBAN of the contact.
+ * @param IBAN The IBAN to be set for the contact.
+ */
+public void setIBAN(String IBAN) {
+this.IBAN=IBAN;
+}
+
+/**
+ * @brief Setter method to set the address of the contact.
+ * @param address The address to be set for the contact.
+ */
+public void setAddress(String address) {
+this.address=address;
+}
+
+/**
+ * @brief Setter method to set the website of the contact.
+ * @param website The website to be set for the contact.
+ */
+public void setWebsite(String website) {
+this.website=website;
+}
+
+/**
+ * @brief Setter method to set the notes of the contact.
+ * @param notes The notes to be set for the contact.
+ */
+public void setNotes(String notes) {
+this.notes=notes;
+}
+ 
+ /**
+  * @brief Adds a phone number to the contact's list of phone numbers.
+  * @param phoneNumber The phone number to be added to the contact's list.
+  */
+ public void addPhoneNumber(String phoneNumber) {
+  if (phoneNumbers.size() >= 3) {
+            throw new IllegalStateException("Error: A contact can have a maximum of 3 phone numbers.");
+        }
+    phoneNumbers.add(phoneNumber);
   }
 
-  /**
+/**
+ * @brief Adds an email address to the contact's list of email addresses.
+ * @param email The email address to be added to the contact's list.
+ */
+public void addEmail(String email) {
+  if (emails.size() >= 3) {
+            throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
+        }
+    emails.add(email);
+  }
+
+/**
+ * @brief Removes a phone number from the contact's list of phone numbers.
+ * @param phoneNumber The phone number to be removed from the contact's list.
+ */
+public void removePhoneNumber(String phoneNumber) {
+    phoneNumbers.remove(phoneNumber);
+  }
+
+/**
+ * @brief Removes an email address from the contact's list of email addresses.
+ * @param email The email address to be removed from the contact's list.
+ */
+public void removeEmail(String email) {
+    emails.remove(email);
+  }
+
+/**
+ * @brief Sets the favorite status of the contact.
+ * @param favorite The favorite status to be set for the contact.
+ */
+public void setFavorite(boolean favorite) {
+ this.favorite=favorite;
+}
+
+/**
    * Returns whether the contact is marked as a favorite or not.
    * @return true if the contact is marked as a favorite, false otherwise.
    */
   public boolean isFavourite() {
-    // To be implemented
-    return false;
+    return favorite;
+}
+
+
+/**
+ * @brief Checks if two contacts are equal based on their phone numbers and email addresses.
+ * @param o The object to compare with the contact.
+ * @return true if the objects are equal, false otherwise.
+ */
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Contact contact = (Contact) o;
+    return phoneNumbers.equals(contact.phoneNumbers) && emails.equals(contact.emails);
+  }
+
+/**
+ * @brief Computes the hash code for the contact based on its phone numbers and email addresses.
+ * @return The hash code for the contact.
+ */
+  public int hashCode() {
+    return phoneNumbers.hashCode() + emails.hashCode();}
+
+/**
+ * @brief Returns a string representation of the contact.
+ * @return A string representation of the contact.
+ */
+public String toString() {
+    return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favorite;
   }
 }
