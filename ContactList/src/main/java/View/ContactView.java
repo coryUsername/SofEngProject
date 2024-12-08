@@ -30,7 +30,7 @@ public class ContactView {
   private Label address;
   private Label website;
   private Label notes;
-  private Label favorite;
+  private Label favourite;
 
   /**
    * Constructor for the ContactView class.
