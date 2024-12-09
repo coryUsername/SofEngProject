@@ -57,9 +57,10 @@ public class ContactList {
     if(criteria.equals("favourite")){
       return new LinkedList<>(contacts.stream().filter(contact -> contact.isFavourite()).toList());
     }else if(criteria.equals("number")){
-      return new LinkedList<>(contacts.stream().filter(contact -> contact.getNumber()!=null).toList());
+      return new LinkedList<>(contacts.stream().filter(contact ->( contact.getPhoneNumber1()|| contact.getPhoneNumber2()|| contact.getPhoneNumber3()  )!=null).toList());
+
     }else if(criteria.equals("email")){
-      return new LinkedList<>(contacts.stream().filter(contact -> contact.getEmail()!=null).toList());
+      return new LinkedList<>(contacts.stream().filter(contact -> (contact.getEmail1()|| contact.getEmail2|| contact.getEmail3())!=null).toList());
     } 
     
     return new LinkedList<>();
