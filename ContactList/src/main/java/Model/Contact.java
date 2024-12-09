@@ -55,6 +55,9 @@ private String phoneNumber3;
    * Initializes a new Contact object.
   * @param name The contact's name.
    * @param surname The contact's surname.
+   * @param email1 The contact's primary email address.
+   * @param email2 The contact's secondary email address.
+   * @param email3 The contact's tertiary email address.
    * @param company The contact's company.
    * @param IBAN The contact's IBAN.
    * @param address The contact's address.
@@ -63,6 +66,7 @@ private String phoneNumber3;
    * @param favourite Indicates whether the contact is marked as a favorite.
    */
    
+<<<<<<< HEAD
   public Contact(String name, String surname, String phoneNumber1, String phoneNumber2, String phoneNumber3, String email1, String email2, String email3,String company, String IBAN, String address, String website, String notes, boolean favourite) {
 this.name=name;
 this.surname=surname;
@@ -72,6 +76,16 @@ this.phoneNumber3=phoneNumber3;
 this.email1=email1;
 this.email2=email2;
 this.email3=email3;
+=======
+  public Contact(String name, String surname, String email1, String email2, String email3, String company, String IBAN, String address, String website, String notes, boolean favorite) {
+this.name=name;
+this.surname=surname;
+this.email1=email1;
+this.email2=email2;
+this.email3=email3;
+phoneNumbers = new LinkedList <>();
+//emails = new LinkedList<>();
+>>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 this.company=company;
 this.IBAN=IBAN;
 this.address=address;
@@ -107,6 +121,21 @@ return name;
 public String getSurname(){
 return surname;
 }
+
+/**
+ * @brief Getter method to return the emails of the contact.
+ * @return emails of the contact.
+ */
+public String getEmail1(){
+return email1;
+}
+public String getEmail2(){
+return email2;
+}
+public String getEmail3(){
+return email3;
+}
+
 
 /**
  * @brief Getter method to return the company of the contact.
@@ -175,6 +204,22 @@ this.name=name;
 public void setSurname(String surname) {
 this.surname=surname;
 }
+
+/**
+ * @brief Setter method to set the emails of the contact.
+ * @param email1 The emails to be set for the contact.
+ * @param email2 The emails to be set for the contact.
+ * @param email3 The emails to be set for the contact.
+ */
+public void setEmail1(String email1) {
+this.email1=email1;
+}
+public void setEmail2(String email2) {  
+this.email2=email2;
+}
+public void setEmail3(String email3) {
+this.email3=email3;
+}
  
  /**
   * @brief Setter method to set the company of the contact.
@@ -216,10 +261,40 @@ public void setNotes(String notes) {
 this.notes=notes;
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * @brief Adds an email address to the contact's list of email addresses.
+ * @param email The email address to be added to the contact's list.
+ */
+/*public void addEmail(String email) {
+  if (emails.size() >= 3) {
+            throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
+        }
+    emails.add(email);
+  }*/
+>>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 
 
+<<<<<<< HEAD
 public void setPhoneNumber1(String phoneNumber1) {
  this.phoneNumber1=phoneNumber1;
+=======
+/**
+ * @brief Removes an email address from the contact's list of email addresses.
+ * @param email The email address to be removed from the contact's list.
+ */
+/*public void removeEmail(String email) {
+                                                                                                                                                                                                                                emails.remove(email);
+  }*/
+
+/**
+ * @brief Sets the favorite status of the contact.
+ * @param favorite The favorite status to be set for the contact.
+ */
+public void setFavorite(boolean favorite) {
+ this.favorite=favorite;
+>>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 }
 
     public void setPhoneNumber2(String phoneNumber2) {
@@ -283,20 +358,20 @@ public void setPhoneNumber1(String phoneNumber1) {
  * @param o The object to compare with the contact.
  * @return true if the objects are equal, false otherwise.
  */
-@Override
+/*@Override
 public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Contact contact = (Contact) o;
     return phoneNumbers.equals(contact.phoneNumbers) && emails.equals(contact.emails);
-  }
+  }*/
 
 /**
  * @brief Computes the hash code for the contact based on its phone numbers and email addresses.
  * @return The hash code for the contact.
  */
-  public int hashCode() {
-    return phoneNumbers.hashCode() + emails.hashCode();}
+  /*public int hashCode() {
+    return phoneNumbers.hashCode() + emails.hashCode();} */
 
 /**
  * @brief Returns a string representation of the contact.
