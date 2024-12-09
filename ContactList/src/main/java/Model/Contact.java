@@ -225,7 +225,7 @@ this.email3=email3;
 this.company=company;
 }
 
-/** 
+/**
  * @brief Setter method to set the IBAN of the contact.
  * @param IBAN The IBAN to be set for the contact.
  */

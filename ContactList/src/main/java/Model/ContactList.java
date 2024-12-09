@@ -1,12 +1,8 @@
 package Model;
 
-import Controller.*;
-import View.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
-
+import java.util.stream.Collectors;
 /**
  * @file ContactList.java
  * @brief Represents a collection of contacts stored in a linked list.
@@ -48,22 +44,43 @@ public class ContactList {
     return null;
   }
 
-  /**
-   * Filters the contact list based on a specific criterion.
-   * @param criteria The filtering criterion (e.g., favorite status, company, etc.).
+  
+  /* * Filters the contact list based on a specific criterion.
+   * @param criteria The filtering criterion (e.g. favourite, number or email).
    * @return A list of contacts that match the filtering criterion.
    */
   public LinkedList<Contact> filter(String criteria) {
-    // To be implemented
+    if(criteria.equals("favourite")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(Contact::isFavourite)
+                .collect(Collectors.toList()));
+    } else if (criteria.equals("number")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(contact -> contact.getPhoneNumber1() != null 
+                        || contact.getPhoneNumber2() != null 
+                        || contact.getPhoneNumber3() != null)
+                .collect(Collectors.toList()));
+    } else if (criteria.equals("email")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(contact -> contact.getEmail1() != null 
+                        || contact.getEmail2() != null 
+                        || contact.getEmail3() != null)
+                .collect(Collectors.toList()));
+    }
     return new LinkedList<>();
-  }
+}
+
 
   /**
    * Sorts the contact list based on a given criterion.
    * @param criteria The criterion by which to sort (e.g., by name, surname, or company).
    */
   public void sort(String criteria) {
-    // To be implemented
+  if(criteria.equals("name")){
+    contacts.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+  }else if(criteria.equals("surname")){
+    contacts.sort((o1, o2) -> o1.getSurname().compareTo(o2.getSurname()));
+  }
   }
 
   /**
@@ -72,8 +89,8 @@ public class ContactList {
    * @return true if the contact was successfully deleted, false otherwise.
    */
   public boolean delete(Contact contact) {
-    // To be implemented
-    return false;
+contacts.remove(contact);
+    return true;
   }
 
   /**
