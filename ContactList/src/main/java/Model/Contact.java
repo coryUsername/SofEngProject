@@ -16,10 +16,21 @@ public class Contact {
   private String surname;
 
   /// A list of phone numbers associated with the contact.
-  private LinkedList<String> phoneNumbers;
+  //private LinkedList<String> phoneNumbers;
+
+
+// the emails associated with the contact
+  private String email1;
+  private String email2;
+  private String email3;
+
+//the phone numbers associated with the contact
+private String phoneNumber1;
+private String phoneNumber2;
+private String phoneNumber3;  
 
   /// A list of email addresses associated with the contact.
-  private LinkedList<String> emails;
+ // private LinkedList<String> emails;
 
   /// The company the contact works for.
   private String company;
@@ -224,7 +235,7 @@ public void removePhoneNumber(String phoneNumber) {
  * @param email The email address to be removed from the contact's list.
  */
 public void removeEmail(String email) {
-    emails.remove(email);
+                                                                                                                                                                                                                                emails.remove(email);
   }
 
 /**
