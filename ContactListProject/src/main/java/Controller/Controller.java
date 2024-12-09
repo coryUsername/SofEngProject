@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,27 +24,39 @@ import javafx.scene.control.TextField;
 public class Controller implements Initializable {
 
     @FXML
-    private Button add;
+    private Button back;
     @FXML
-    private TextField search;
+    private Button modify;
     @FXML
-    private Button importBtn;
+    private Button delete;
     @FXML
-    private Button sortByName;
+    private CheckBox favourite;
     @FXML
-    private Button sortBySurname;
+    private Label name;
     @FXML
-    private Button filerByFavourite;
+    private Label Surname;
     @FXML
-    private Button filerByNumber;
+    private Label phoneNumber1;
     @FXML
-    private Button filerByEmail;
+    private Label phoneNumber2;
     @FXML
-    private TableView<?> contacts;
+    private Label phoneNumber3;
     @FXML
-    private TableColumn<?, ?> contactName;
+    private Label email1;
     @FXML
-    private TableColumn<?, ?> contactSurname;
+    private Label email2;
+    @FXML
+    private Label email3;
+    @FXML
+    private Label company;
+    @FXML
+    private Label IBAN;
+    @FXML
+    private Label address;
+    @FXML
+    private Label website;
+    @FXML
+    private Label notes;
 
     /**
      * Initializes the controller class.
