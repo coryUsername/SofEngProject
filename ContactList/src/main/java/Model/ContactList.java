@@ -3,6 +3,7 @@ package Model;
 import Controller.*;
 import View.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,15 +24,18 @@ public class ContactList {
    * Constructor for the ContactList class.
    */
   public ContactList() {
-    // To be implemented
+      contacts= new LinkedList<>();
   }
 
   /**
    * Adds a new contact to the contact list.
    * @param contact The contact to be added to the list.
    */
-  public void addContact(Contact contact) {
-    // To be implemented
+  public void addContact(Contact contact) throws IOException{
+    if (contacts.size()<10000){
+       contacts.add(contact);
+        }
+    else throw new IOException("La rubrica è piena!");
   }
 
   /**
