@@ -1,11 +1,8 @@
 package Model;
 
-import Controller.*;
-import View.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @file ContactList.java
@@ -54,17 +51,26 @@ public class ContactList {
    * @return A list of contacts that match the filtering criterion.
    */
   public LinkedList<Contact> filter(String criteria) {
-    if(criteria.equals("favourite")){
-      return new LinkedList<>(contacts.stream().filter(contact -> contact.isFavourite()).toList());
-    }else if(criteria.equals("number")){
-      return new LinkedList<>(contacts.stream().filter(contact ->( contact.getPhoneNumber1()|| contact.getPhoneNumber2()|| contact.getPhoneNumber3()  )!=null).toList());
-
-    }else if(criteria.equals("email")){
-      return new LinkedList<>(contacts.stream().filter(contact -> (contact.getEmail1()|| contact.getEmail2|| contact.getEmail3())!=null).toList());
-    } 
-    
+    if(criteria.equals("favourite")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(Contact::isFavourite)
+                .collect(Collectors.toList()));
+    } else if (criteria.equals("number")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(contact -> contact.getPhoneNumber1() != null 
+                        || contact.getPhoneNumber2() != null 
+                        || contact.getPhoneNumber3() != null)
+                .collect(Collectors.toList()));
+    } else if (criteria.equals("email")) {
+        return new LinkedList<>(contacts.stream()
+                .filter(contact -> contact.getEmail1() != null 
+                        || contact.getEmail2() != null 
+                        || contact.getEmail3() != null)
+                .collect(Collectors.toList()));
+    }
     return new LinkedList<>();
-  }
+}
+
 
   /**
    * Sorts the contact list based on a given criterion.
