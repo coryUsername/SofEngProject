@@ -66,8 +66,8 @@ private String phoneNumber3;
    * @param favourite Indicates whether the contact is marked as a favorite.
    */
    
-<<<<<<< HEAD
-  public Contact(String name, String surname, String phoneNumber1, String phoneNumber2, String phoneNumber3, String email1, String email2, String email3,String company, String IBAN, String address, String website, String notes, boolean favourite) {
+
+ public Contact(String name, String surname, String phoneNumber1, String phoneNumber2, String phoneNumber3, String email1, String email2, String email3,String company, String IBAN, String address, String website, String notes, boolean favourite) {
 this.name=name;
 this.surname=surname;
 this.phoneNumber1=phoneNumber1;
@@ -76,16 +76,6 @@ this.phoneNumber3=phoneNumber3;
 this.email1=email1;
 this.email2=email2;
 this.email3=email3;
-=======
-  public Contact(String name, String surname, String email1, String email2, String email3, String company, String IBAN, String address, String website, String notes, boolean favorite) {
-this.name=name;
-this.surname=surname;
-this.email1=email1;
-this.email2=email2;
-this.email3=email3;
-//phoneNumbers = new LinkedList <>();
-//emails = new LinkedList<>();
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 this.company=company;
 this.IBAN=IBAN;
 this.address=address;
@@ -122,6 +112,17 @@ public String getSurname(){
 return surname;
 }
 
+ public String getPhoneNumber1() {
+        return phoneNumber1;
+    }
+
+ public String getPhoneNumber2() {
+        return phoneNumber2;
+    }
+
+ public String getPhoneNumber3() {
+        return phoneNumber3;
+    }
 /**
  * @brief Getter method to return the emails of the contact.
  * @return emails of the contact.
@@ -135,7 +136,6 @@ return email2;
 public String getEmail3(){
 return email3;
 }
-
 
 /**
  * @brief Getter method to return the company of the contact.
@@ -177,22 +177,6 @@ public String getNotes(){
 return notes;
 }
 
-
-
-/**
- * Getter method to return the phone numbers of the contact.
- * @return The phone numbers of the contact.
- */
- public String getPhoneNumber1() {
-        return phoneNumber1;
-    }
- public String getPhoneNumber2() {
-        return phoneNumber2;
-    }
- public String getPhoneNumber3() {
-        return phoneNumber3;
-    }
-
 /**
  * @brief Setter method to set the name of the contact.
  * @param name The name to be set for the contact.
@@ -209,6 +193,14 @@ public void setSurname(String surname) {
 this.surname=surname;
 }
 
+public void setPhoneNumber1(String phoneNumber1) {
+ this.phoneNumber1=phoneNumber1;}
+ public void setPhoneNumber2(String phoneNumber2) {
+        this.phoneNumber2 = phoneNumber2;
+    }
+    public void setPhoneNumber3(String phoneNumber3) {
+        this.phoneNumber3 = phoneNumber3;
+    }
 /**
  * @brief Setter method to set the emails of the contact.
  * @param email1 The emails to be set for the contact.
@@ -265,8 +257,27 @@ public void setNotes(String notes) {
 this.notes=notes;
 }
 
-<<<<<<< HEAD
-=======
+public void setFavorite(boolean favorite) {
+ this.favourite=favourite;
+
+}
+
+/**
+   * Returns whether the contact is marked as a favorite or not.
+   * @return true if the contact is marked as a favorite, false otherwise.
+   */
+  public boolean isFavourite() {
+    return favourite;
+}
+
+public String toString() {
+    return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favourite;
+  }
+}
+
+
+
+
 /**
  * @brief Adds an email address to the contact's list of email addresses.
  * @param email The email address to be added to the contact's list.
@@ -277,45 +288,8 @@ this.notes=notes;
         }
     emails.add(email);
   }*/
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 
 
-
-=======
-/**
- * @brief Removes an email address from the contact's list of email addresses.
- * @param email The email address to be removed from the contact's list.
- */
-/*public void removeEmail(String email) {
-                                                                                                                                                                                                                                emails.remove(email);
-  }*/
-
-/**
- * @brief Sets the favorite status of the contact.
- * @param favorite The favorite status to be set for the contact.
- */
-public void setFavorite(boolean favorite) {
- this.favorite=favorite;
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
-}
-
-
-
-/**
- * @brief Setter method to set the phone number of the contact.
- * @param phoneNumber1 The phone number to be set for the contact.
- * @param phoneNumber2 The phone number to be set for the contact.
- * @param phoneNumber3 The phone number to be set for the contact.
- */
-public void setPhoneNumber1(String phoneNumber1) {
- this.phoneNumber1=phoneNumber1;
-}
-public void setPhoneNumber2(String phoneNumber2) {
-        this.phoneNumber2 = phoneNumber2;
-    }
- public void setPhoneNumber3(String phoneNumber3) {
-        this.phoneNumber3 = phoneNumber3;
-    }
     /**
      * @brief Adds a phone number to the contact's list of phone numbers.
      * @param phoneNumber The phone number to be added to the contact's list.
@@ -353,19 +327,6 @@ public void setPhoneNumber2(String phoneNumber2) {
      */
 
 
-    public void setFavorite(boolean favorite) {
-        this.favourite=favorite;
-    }
-
-/**
-   * Returns whether the contact is marked as a favorite or not.
-   * @return true if the contact is marked as a favorite, false otherwise.
-   */
-  public boolean isFavourite() {
-    return favourite;
-}
-
-
 /**
  * @brief Checks if two contacts are equal based on their phone numbers and email addresses.
  * @param o The object to compare with the contact.
@@ -390,7 +351,3 @@ public boolean equals(Object o) {
  * @brief Returns a string representation of the contact.
  * @return A string representation of the contact.
  */
-public String toString() {
-    return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favorite;
-  }
-}
