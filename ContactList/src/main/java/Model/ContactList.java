@@ -63,7 +63,7 @@ public class ContactList {
    * @param criteria The criterion by which to sort (e.g., by name, surname, or company).
    */
   public void sort(String criteria) {
-    // To be implemented
+  if
   }
 
   /**
@@ -72,8 +72,8 @@ public class ContactList {
    * @return true if the contact was successfully deleted, false otherwise.
    */
   public boolean delete(Contact contact) {
-    // To be implemented
-    return false;
+contacts.remove(contact);
+    return true;
   }
 
   /**
