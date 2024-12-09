@@ -1,0 +1,4 @@
+Model\Contact.class
+Model\ContactList.class
+Controller\MainViewController.class
+View\App.class

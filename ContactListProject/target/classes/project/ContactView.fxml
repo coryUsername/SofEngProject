@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ContactViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="← Go back" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="modify" mnemonicParsing="false" text="Modify contact">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="delete" mnemonicParsing="false" text="Delete Contact">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="481.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="141.0" text="Name and Surname">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="favourite" mnemonicParsing="false" text="Favourite">
+                     <HBox.margin>
+                        <Insets left="200.0" top="15.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="name" prefHeight="41.0" prefWidth="99.0" text="Nome" />
+                  <Label fx:id="Surname" prefHeight="41.0" prefWidth="96.0" text="Surname" />
+               </children>
+            </HBox>
+            <Label text="Phone numbers" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="phoneNumber1" prefWidth="140.0" text="phoneNumber 1" />
+                  <Label fx:id="phoneNumber2" prefWidth="140.0" text="phoneNumber 2">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="phoneNumber3" prefWidth="140.0" text="phoneNumber 3">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <Label text="E-mail:" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="email1" prefHeight="17.0" prefWidth="140.0" text="E-mail 1" />
+                  <Label fx:id="email2" prefHeight="17.0" prefWidth="140.0" text="E-mail 2">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="email3" prefHeight="17.0" prefWidth="140.0" text="Email 3">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="458.0">
+               <children>
+                  <Label text="Company:" />
+                  <Label text="IBAN:">
+                     <HBox.margin>
+                        <Insets left="105.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="company" text="company" />
+                  <Label fx:id="IBAN" text="IBAN">
+                     <HBox.margin>
+                        <Insets left="110.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Label text="Address:" />
+                  <Label text="Website:">
+                     <HBox.margin>
+                        <Insets left="110.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="address" text="address" />
+                  <Label fx:id="website" text="website">
+                     <HBox.margin>
+                        <Insets left="115.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <Label text="Notes:">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <Label fx:id="notes" prefHeight="120.0" prefWidth="476.0" style="-fx-background-color: #BFC9C2;" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+</HBox>
