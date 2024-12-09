@@ -54,6 +54,13 @@ public class ContactList {
    * @return A list of contacts that match the filtering criterion.
    */
   public LinkedList<Contact> filter(String criteria) {
+    if(criteria.equals("favourite")){
+      return new LinkedList<>(contacts.stream().filter(contact -> contact.isFavourite()).toList());
+    }else if(criteria.equals("number")){
+      return new LinkedList<>(contacts.stream().filter(contact -> contact.getNumber()!=null).toList());
+    }else if(criteria.equals("email")){
+      return new LinkedList<>(contacts.stream().filter(contact -> contact.getEmail()!=null).toList());
+    } 
     
     return new LinkedList<>();
   }
