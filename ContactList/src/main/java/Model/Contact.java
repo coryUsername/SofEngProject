@@ -55,6 +55,9 @@ private String phoneNumber3;
    * Initializes a new Contact object.
   * @param name The contact's name.
    * @param surname The contact's surname.
+   * @param email1 The contact's primary email address.
+   * @param email2 The contact's secondary email address.
+   * @param email3 The contact's tertiary email address.
    * @param company The contact's company.
    * @param IBAN The contact's IBAN.
    * @param address The contact's address.
