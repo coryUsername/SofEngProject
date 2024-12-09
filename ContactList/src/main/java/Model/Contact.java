@@ -66,7 +66,7 @@ private String phoneNumber3;
    * @param favourite Indicates whether the contact is marked as a favorite.
    */
    
-<<<<<<< HEAD
+
   public Contact(String name, String surname, String phoneNumber1, String phoneNumber2, String phoneNumber3, String email1, String email2, String email3,String company, String IBAN, String address, String website, String notes, boolean favourite) {
 this.name=name;
 this.surname=surname;
@@ -76,7 +76,7 @@ this.phoneNumber3=phoneNumber3;
 this.email1=email1;
 this.email2=email2;
 this.email3=email3;
-=======
+
   public Contact(String name, String surname, String email1, String email2, String email3, String company, String IBAN, String address, String website, String notes, boolean favorite) {
 this.name=name;
 this.surname=surname;
@@ -85,7 +85,7 @@ this.email2=email2;
 this.email3=email3;
 //phoneNumbers = new LinkedList <>();
 //emails = new LinkedList<>();
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
+
 this.company=company;
 this.IBAN=IBAN;
 this.address=address;
@@ -265,8 +265,7 @@ public void setNotes(String notes) {
 this.notes=notes;
 }
 
-<<<<<<< HEAD
-=======
+
 /**
  * @brief Adds an email address to the contact's list of email addresses.
  * @param email The email address to be added to the contact's list.
@@ -277,11 +276,10 @@ this.notes=notes;
         }
     emails.add(email);
   }*/
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 
 
 
-=======
+
 /**
  * @brief Removes an email address from the contact's list of email addresses.
  * @param email The email address to be removed from the contact's list.
@@ -296,7 +294,6 @@ this.notes=notes;
  */
 public void setFavorite(boolean favorite) {
  this.favorite=favorite;
->>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 }
 
 
