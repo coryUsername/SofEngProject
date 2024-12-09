@@ -5,8 +5,11 @@
  */
 package Controller;
 
+import View.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,39 +27,27 @@ import javafx.scene.control.TextField;
 public class Controller implements Initializable {
 
     @FXML
-    private Button back;
+    private Button add;
     @FXML
-    private Button modify;
+    private TextField search;
     @FXML
-    private Button delete;
+    private Button importBtn;
     @FXML
-    private CheckBox favourite;
+    private Button sortByName;
     @FXML
-    private Label name;
+    private Button sortBySurname;
     @FXML
-    private Label Surname;
+    private Button filerByFavourite;
     @FXML
-    private Label phoneNumber1;
+    private Button filerByNumber;
     @FXML
-    private Label phoneNumber2;
+    private Button filerByEmail;
     @FXML
-    private Label phoneNumber3;
+    private TableView<?> contacts;
     @FXML
-    private Label email1;
+    private TableColumn<?, ?> contactName;
     @FXML
-    private Label email2;
-    @FXML
-    private Label email3;
-    @FXML
-    private Label company;
-    @FXML
-    private Label IBAN;
-    @FXML
-    private Label address;
-    @FXML
-    private Label website;
-    @FXML
-    private Label notes;
+    private TableColumn<?, ?> contactSurname;
 
     /**
      * Initializes the controller class.
@@ -65,5 +56,10 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleAddContact(ActionEvent event) throws IOException {
+        App.setRoot("ContactFormView");
+    }
     
 }

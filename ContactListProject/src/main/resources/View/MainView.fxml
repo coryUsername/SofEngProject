@@ -72,7 +72,7 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="41.0" prefWidth="600.0" spacing="15.0">
                      <children>
-                        <Button fx:id="add" mnemonicParsing="false" text="Add Contact">
+                        <Button fx:id="add" mnemonicParsing="false" onAction="#handleAddContact" text="Add Contact">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>

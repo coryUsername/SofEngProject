@@ -21,8 +21,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-    static void setRoot(String fxml) throws IOException {
+//aggiornato a public per consentire accesso al controlle da package esterno
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
