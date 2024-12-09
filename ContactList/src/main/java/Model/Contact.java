@@ -48,7 +48,7 @@ private String phoneNumber3;
   private String notes;
 
   /// A flag indicating whether the contact is marked as a favorite.
-  private boolean favorite;
+  private boolean favourite;
 
   /**
    * @brief Default constructor for the Contact class.
@@ -60,20 +60,24 @@ private String phoneNumber3;
    * @param address The contact's address.
    * @param website The contact's website.
    * @param notes Additional notes for the contact.
-   * @param favorite Indicates whether the contact is marked as a favorite.
+   * @param favourite Indicates whether the contact is marked as a favorite.
    */
    
-  public Contact(String name, String surname, String company, String IBAN, String address, String website, String notes, boolean favorite) {
+  public Contact(String name, String surname, String phoneNumber1, String phoneNumber2, String phoneNumber3, String email1, String email2, String email3,String company, String IBAN, String address, String website, String notes, boolean favourite) {
 this.name=name;
 this.surname=surname;
-phoneNumbers = new LinkedList <>();
-emails = new LinkedList<>();
+this.phoneNumber1=phoneNumber1;
+this.phoneNumber2=phoneNumber2;
+this.phoneNumber3=phoneNumber3;
+this.email1=email1;
+this.email2=email2;
+this.email3=email3;
 this.company=company;
 this.IBAN=IBAN;
 this.address=address;
 this.website=website;
 this.notes=notes;
-this.favorite=favorite;
+this.favourite=favourite;
 check();
 }
 
@@ -144,6 +148,18 @@ public String getNotes(){
 return notes;
 }
 
+ public String getPhoneNumber1() {
+        return phoneNumber1;
+    }
+
+ public String getPhoneNumber2() {
+        return phoneNumber2;
+    }
+
+ public String getPhoneNumber3() {
+        return phoneNumber3;
+    }
+
 /**
  * @brief Setter method to set the name of the contact.
  * @param name The name to be set for the contact.
@@ -199,59 +215,66 @@ this.website=website;
 public void setNotes(String notes) {
 this.notes=notes;
 }
- 
- /**
-  * @brief Adds a phone number to the contact's list of phone numbers.
-  * @param phoneNumber The phone number to be added to the contact's list.
-  */
- public void addPhoneNumber(String phoneNumber) {
-  if (phoneNumbers.size() >= 3) {
-            throw new IllegalStateException("Error: A contact can have a maximum of 3 phone numbers.");
-        }
-    phoneNumbers.add(phoneNumber);
-  }
 
-/**
- * @brief Adds an email address to the contact's list of email addresses.
- * @param email The email address to be added to the contact's list.
- */
-public void addEmail(String email) {
-  if (emails.size() >= 3) {
-            throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
-        }
-    emails.add(email);
-  }
 
-/**
- * @brief Removes a phone number from the contact's list of phone numbers.
- * @param phoneNumber The phone number to be removed from the contact's list.
- */
-public void removePhoneNumber(String phoneNumber) {
-    phoneNumbers.remove(phoneNumber);
-  }
 
-/**
- * @brief Removes an email address from the contact's list of email addresses.
- * @param email The email address to be removed from the contact's list.
- */
-public void removeEmail(String email) {
-                                                                                                                                                                                                                                emails.remove(email);
-  }
-
-/**
- * @brief Sets the favorite status of the contact.
- * @param favorite The favorite status to be set for the contact.
- */
-public void setFavorite(boolean favorite) {
- this.favorite=favorite;
+public void setPhoneNumber1(String phoneNumber1) {
+ this.phoneNumber1=phoneNumber1;
 }
+
+    public void setPhoneNumber2(String phoneNumber2) {
+        this.phoneNumber2 = phoneNumber2;
+    }
+    public void setPhoneNumber3(String phoneNumber3) {
+        this.phoneNumber3 = phoneNumber3;
+    }
+    /**
+     * @brief Adds a phone number to the contact's list of phone numbers.
+     * @param phoneNumber The phone number to be added to the contact's list.
+    public void addPhoneNumber(String phoneNumber) {
+    if (phoneNumbers.size() >= 3) {
+    throw new IllegalStateException("Error: A contact can have a maximum of 3 phone numbers.");
+    }
+    phoneNumbers.add(phoneNumber);
+    }
+    /**
+     * @brief Adds an email address to the contact's list of email addresses.
+     * @param email The email address to be added to the contact's list.
+    public void addEmail(String email) {
+    if (emails.size() >= 3) {
+    throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
+    }
+    emails.add(email);
+    }
+     * @brief Removes a phone number from the contact's list of phone numbers.
+     * @param phoneNumber The phone number to be removed from the contact's list.
+     *
+    public void removePhoneNumber(String phoneNumber) {
+    phoneNumbers.remove(phoneNumber);
+    }
+    /**
+     * @brief Removes an email address from the contact's list of email addresses.
+     * @param email The email address to be removed from the contact's list.
+     *
+    public void removeEmail(String email) {
+    emails.remove(email);
+    }
+    /**
+     * @brief Sets the favorite status of the contact.
+     * @param favorite The favorite status to be set for the contact.
+     */
+
+
+    public void setFavorite(boolean favorite) {
+        this.favourite=favorite;
+    }
 
 /**
    * Returns whether the contact is marked as a favorite or not.
    * @return true if the contact is marked as a favorite, false otherwise.
    */
   public boolean isFavourite() {
-    return favorite;
+    return favourite;
 }
 
 
