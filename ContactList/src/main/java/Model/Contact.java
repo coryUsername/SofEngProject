@@ -83,7 +83,7 @@ this.surname=surname;
 this.email1=email1;
 this.email2=email2;
 this.email3=email3;
-phoneNumbers = new LinkedList <>();
+//phoneNumbers = new LinkedList <>();
 //emails = new LinkedList<>();
 >>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 this.company=company;
@@ -177,14 +177,18 @@ public String getNotes(){
 return notes;
 }
 
+
+
+/**
+ * Getter method to return the phone numbers of the contact.
+ * @return The phone numbers of the contact.
+ */
  public String getPhoneNumber1() {
         return phoneNumber1;
     }
-
  public String getPhoneNumber2() {
         return phoneNumber2;
     }
-
  public String getPhoneNumber3() {
         return phoneNumber3;
     }
@@ -276,9 +280,7 @@ this.notes=notes;
 >>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 
 
-<<<<<<< HEAD
-public void setPhoneNumber1(String phoneNumber1) {
- this.phoneNumber1=phoneNumber1;
+
 =======
 /**
  * @brief Removes an email address from the contact's list of email addresses.
@@ -297,10 +299,21 @@ public void setFavorite(boolean favorite) {
 >>>>>>> 4929e2739affc76984660cced744ad8ef7ed9121
 }
 
-    public void setPhoneNumber2(String phoneNumber2) {
+
+
+/**
+ * @brief Setter method to set the phone number of the contact.
+ * @param phoneNumber1 The phone number to be set for the contact.
+ * @param phoneNumber2 The phone number to be set for the contact.
+ * @param phoneNumber3 The phone number to be set for the contact.
+ */
+public void setPhoneNumber1(String phoneNumber1) {
+ this.phoneNumber1=phoneNumber1;
+}
+public void setPhoneNumber2(String phoneNumber2) {
         this.phoneNumber2 = phoneNumber2;
     }
-    public void setPhoneNumber3(String phoneNumber3) {
+ public void setPhoneNumber3(String phoneNumber3) {
         this.phoneNumber3 = phoneNumber3;
     }
     /**
