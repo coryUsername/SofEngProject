@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Contact;
+import Model.ContactList;
 import View.App;
 import java.io.IOException;
 import java.net.URL;
@@ -19,11 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author Mario Stanco
- */
+
+
 public class Controller implements Initializable {
 
     @FXML
@@ -43,18 +42,30 @@ public class Controller implements Initializable {
     @FXML
     private Button filerByEmail;
     @FXML
-    private TableView<?> contacts;
+    private TableView<Contact> contacts;
     @FXML
-    private TableColumn<?, ?> contactName;
+    private TableColumn<Contact, String> contactName;
     @FXML
-    private TableColumn<?, ?> contactSurname;
+    private TableColumn<Contact, String> contactSurname;
 
-    /**
-     * Initializes the controller class.
-     */
+    
+    private ContactList contactList = new ContactList();
+   
+
+    /*
+    Inizializza i dati presenti all'interno delle colonne della tabella. 
+    Il metodo che viene chiamato sulle colonne specifica i passi dell'operazione di
+    prelievo dei dati da un contatto: cellData contiene quindi i dati della riga che
+    si sta andando a leggere, ciò avviene creando una propietà osservabile che aggiorna
+    automaticamente gli oggetti all'interno della tabella quando vengono modificati.
+    */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize() {
+        
+        contactName.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getName()));
+
+        contactSurname.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getSurname()));
+
     }    
 
     @FXML
