@@ -63,7 +63,11 @@ public class ContactList {
    * @param criteria The criterion by which to sort (e.g., by name, surname, or company).
    */
   public void sort(String criteria) {
-  if
+  if(criteria.equals("name")){
+    contacts.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+  }else if(criteria.equals("surname")){
+    contacts.sort((o1, o2) -> o1.getSurname().compareTo(o2.getSurname()));
+  }
   }
 
   /**
