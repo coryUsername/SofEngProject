@@ -4,6 +4,7 @@ import Controller.*;
 import Model.*;
 import java.awt.Button;
 import java.util.LinkedList;
+import javafx.scene.control.TableView;
 
 /**
  * @file MainView.java

@@ -2,7 +2,6 @@ package Model;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
 
 /**
  * @file ContactList.java
@@ -49,7 +48,7 @@ public class ContactList {
    * Filters the contact list based on a specific criterion.
    * @param criteria The filtering criterion (e.g. favourite, number or email).
    * @return A list of contacts that match the filtering criterion.
-   */
+   *
   public LinkedList<Contact> filter(String criteria) {
     if(criteria.equals("favourite")) {
         return new LinkedList<>(contacts.stream()
@@ -69,8 +68,12 @@ public class ContactList {
                 .collect(Collectors.toList()));
     }
     return new LinkedList<>();
+<<<<<<< HEAD
 }
 
+=======
+  
+>>>>>>> b53a86bde5ae331e4afaede44636b2ae3ef0cbd1
 
   /**
    * Sorts the contact list based on a given criterion.
