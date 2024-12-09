@@ -50,11 +50,11 @@ public class ContactList {
 
   /**
    * Filters the contact list based on a specific criterion.
-   * @param criteria The filtering criterion (e.g., favorite status, company, etc.).
+   * @param criteria The filtering criterion (e.g. favourite, number or email).
    * @return A list of contacts that match the filtering criterion.
    */
   public LinkedList<Contact> filter(String criteria) {
-    // To be implemented
+    
     return new LinkedList<>();
   }
 
