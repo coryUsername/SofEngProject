@@ -63,11 +63,14 @@ private String phoneNumber3;
    * @param favorite Indicates whether the contact is marked as a favorite.
    */
    
-  public Contact(String name, String surname, String company, String IBAN, String address, String website, String notes, boolean favorite) {
+  public Contact(String name, String surname, String email1, String email2, String email3, String company, String IBAN, String address, String website, String notes, boolean favorite) {
 this.name=name;
 this.surname=surname;
+this.email1=email1;
+this.email2=email2;
+this.email3=email3;
 phoneNumbers = new LinkedList <>();
-emails = new LinkedList<>();
+//emails = new LinkedList<>();
 this.company=company;
 this.IBAN=IBAN;
 this.address=address;
@@ -103,6 +106,21 @@ return name;
 public String getSurname(){
 return surname;
 }
+
+/**
+ * @brief Getter method to return the emails of the contact.
+ * @return emails of the contact.
+ */
+public String getEmail1(){
+return email1;
+}
+public String getEmail2(){
+return email2;
+}
+public String getEmail3(){
+return email3;
+}
+
 
 /**
  * @brief Getter method to return the company of the contact.
@@ -158,6 +176,22 @@ this.name=name;
  */
 public void setSurname(String surname) {
 this.surname=surname;
+}
+
+/**
+ * @brief Setter method to set the emails of the contact.
+ * @param email1 The emails to be set for the contact.
+ * @param email2 The emails to be set for the contact.
+ * @param email3 The emails to be set for the contact.
+ */
+public void setEmail1(String email1) {
+this.email1=email1;
+}
+public void setEmail2(String email2) {  
+this.email2=email2;
+}
+public void setEmail3(String email3) {
+this.email3=email3;
 }
  
  /**
@@ -215,12 +249,12 @@ this.notes=notes;
  * @brief Adds an email address to the contact's list of email addresses.
  * @param email The email address to be added to the contact's list.
  */
-public void addEmail(String email) {
+/*public void addEmail(String email) {
   if (emails.size() >= 3) {
             throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
         }
     emails.add(email);
-  }
+  }*/
 
 /**
  * @brief Removes a phone number from the contact's list of phone numbers.
@@ -234,9 +268,9 @@ public void removePhoneNumber(String phoneNumber) {
  * @brief Removes an email address from the contact's list of email addresses.
  * @param email The email address to be removed from the contact's list.
  */
-public void removeEmail(String email) {
+/*public void removeEmail(String email) {
                                                                                                                                                                                                                                 emails.remove(email);
-  }
+  }*/
 
 /**
  * @brief Sets the favorite status of the contact.
@@ -260,20 +294,20 @@ public void setFavorite(boolean favorite) {
  * @param o The object to compare with the contact.
  * @return true if the objects are equal, false otherwise.
  */
-@Override
+/*@Override
 public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Contact contact = (Contact) o;
     return phoneNumbers.equals(contact.phoneNumbers) && emails.equals(contact.emails);
-  }
+  }*/
 
 /**
  * @brief Computes the hash code for the contact based on its phone numbers and email addresses.
  * @return The hash code for the contact.
  */
-  public int hashCode() {
-    return phoneNumbers.hashCode() + emails.hashCode();}
+  /*public int hashCode() {
+    return phoneNumbers.hashCode() + emails.hashCode();} */
 
 /**
  * @brief Returns a string representation of the contact.
