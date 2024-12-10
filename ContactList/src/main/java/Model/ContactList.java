@@ -1,8 +1,11 @@
 package Model;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+
+import jdk.javadoc.internal.doclets.toolkit.taglets.snippet.Style;
 /**
  * @file ContactList.java
  * @brief Represents a collection of contacts stored in a linked list.
@@ -106,8 +109,18 @@ contacts.remove(contact);
    * Exports the contact list to a destination (e.g., file, database).
    * @return true if the contacts are successfully exported, false otherwise.
    */
-  public boolean exportContacts() {
-    // To be implemented
-    return false;
+  public boolean exportContacts(String fileName, LinkedList<Contact> contacts) {
+  try(PrintWriter o = new PrintWriter(
+          new BufferedWriter(
+                  new FileWriter(fileName)))){
+      for(Contact c: contacts) {
+          o.print(c.getName()+";"+c.getSurname()+";"+c.getPhoneNumber1()+";"+c.getPhoneNumber2()+";"+c.getPhoneNumber3()+";"+
+          c.getEmail1()+";"+c.getEmail2()+";"+c.getEmail3()+";"+c.getCompany()+";"+c.getIBAN()+";"+c.getAddress()+";"+c.getWebsite()+";"+c.getNote()+";"+c.isFavourite()+";\n");
+      }
+  } catch(Exception e) {
+      System.out.println("error");
   }
+  return true;
 }
+}
+
