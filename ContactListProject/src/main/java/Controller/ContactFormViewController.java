@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import View.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,7 +20,6 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author corys
  */
 public class ContactFormViewController implements Initializable {
 
@@ -65,10 +66,16 @@ public class ContactFormViewController implements Initializable {
 
     @FXML
     private void handleSave(ActionEvent event) {
+        
+        
+        
     }
 
     @FXML
-    private void handleBack(ActionEvent event) {
+    private void handleBack(ActionEvent event) throws IOException {
+    
+        App.setRoot("MainView");
+        
     }
     
 }

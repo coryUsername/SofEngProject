@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ContactFormViewController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" spacing="5.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
          <children>
-            <Button fx:id="save" mnemonicParsing="false" onAction="#handleSave" prefHeight="70.0" prefWidth="100.0" text="Save contact" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="save" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Save contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -25,7 +25,7 @@
                </font>
             </Button>
             <Region prefHeight="404.0" prefWidth="122.0" />
-            <Button fx:id="noSave" mnemonicParsing="false" onAction="#handleBack" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="noSave" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -52,7 +52,7 @@
                   </Label>
                   <CheckBox fx:id="isFavourite" mnemonicParsing="false" text="Favourite">
                      <HBox.margin>
-                        <Insets left="220.0" top="10.0" />
+                        <Insets left="200.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -65,8 +65,8 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="name" promptText="Name" />
-                  <TextField fx:id="surname" layoutX="10.0" layoutY="10.0" promptText="Surname">
+                  <TextField promptText="Name" />
+                  <TextField layoutX="10.0" layoutY="10.0" promptText="Surname">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -77,22 +77,22 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="number1" prefHeight="39.0" prefWidth="190.0" promptText="Phone number 1" />
-                  <TextField fx:id="number2" layoutX="10.0" layoutY="14.0" prefWidth="190.0" promptText="Phone number 2" />
-                  <TextField fx:id="number3" layoutX="234.0" layoutY="14.0" prefWidth="190.0" promptText="Phone number 3" />
+                  <TextField promptText="Phone number 1" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="Phone number 2" />
+                  <TextField layoutX="234.0" layoutY="14.0" promptText="Phone number 3" />
                </children>
             </HBox>
             <Label prefHeight="39.0" prefWidth="97.0" text="E-mail:" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="email1" prefWidth="190.0" promptText="Email 1" />
-                  <TextField fx:id="email2" layoutX="10.0" layoutY="14.0" prefWidth="190.0" promptText="Email 2" />
-                  <TextField fx:id="email3" layoutX="234.0" layoutY="14.0" prefWidth="190.0" promptText="Email 3" />
+                  <TextField promptText="Email 1" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="Email 2" />
+                  <TextField layoutX="234.0" layoutY="14.0" promptText="Email 3" />
                </children>
             </HBox>
             <HBox prefHeight="33.0" prefWidth="458.0">
@@ -112,8 +112,8 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="company" promptText="Company" />
-                  <TextField fx:id="IBAN" layoutX="10.0" layoutY="14.0" promptText="IBAN">
+                  <TextField promptText="Company" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="IBAN">
                      <HBox.margin>
                         <Insets left="40.0" />
                      </HBox.margin>
@@ -137,8 +137,8 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="address" promptText="Address" />
-                  <TextField fx:id="website" promptText="Website">
+                  <TextField promptText="Address" />
+                  <TextField promptText="Website">
                      <HBox.margin>
                         <Insets left="40.0" />
                      </HBox.margin>
@@ -152,7 +152,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <TextArea fx:id="notes" prefHeight="200.0" prefWidth="200.0">
+            <TextArea prefHeight="200.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets bottom="10.0" right="10.0" />
                </VBox.margin>

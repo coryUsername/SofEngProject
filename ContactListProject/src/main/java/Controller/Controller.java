@@ -91,20 +91,20 @@ public class Controller implements Initializable{
         contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
     }  
-<<<<<<< Updated upstream
+    
     /*va messo nel controller della contact fomr view
      @FXML
     private void addContact(ActionEvent event) {
         contactControllerList.add();
     }
     */
-=======
+    
     
     /*
     private void addStudent(ActionEvent event) {
         contactControllerList.add(ora );
     }*/
->>>>>>> Stashed changes
+    
     
      private void updateTableView(LinkedList<Contact> contactsList) {
         ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);

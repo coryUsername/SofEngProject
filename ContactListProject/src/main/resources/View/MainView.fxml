@@ -108,10 +108,10 @@
                               <Insets />
                            </HBox.margin>
                         </TextField>
-                        <Region prefHeight="58.0" prefWidth="234.0" />
+                        <Region prefHeight="58.0" prefWidth="251.0" />
                         <Button fx:id="add" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddContact" prefHeight="45.0" prefWidth="45.0" style="-fx-background-radius: 90;" text="+" textAlignment="CENTER" wrapText="true">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets />
                            </HBox.margin>
                            <font>
                               <Font name="System Bold" size="20.0" />

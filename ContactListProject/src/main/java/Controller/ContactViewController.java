@@ -19,7 +19,6 @@ import javafx.scene.control.Label;
 /**
  * FXML Controller class
  *
- * @author corys
  */
 public class ContactViewController implements Initializable {
 
