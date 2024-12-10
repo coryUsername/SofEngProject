@@ -120,7 +120,7 @@ contacts.remove(contact);
           c.getEmail1()+";"+c.getEmail2()+";"+c.getEmail3()+";"+c.getCompany()+";"+c.getIBAN()+";"+c.getAddress()+";"+c.getWebsite()+";"+c.getNote()+";"+c.isFavourite()+";\n");
       }
   } catch(Exception e) {
-      System.out.println("errore");
+      System.out.println("error");
   }
   return true;
 }
