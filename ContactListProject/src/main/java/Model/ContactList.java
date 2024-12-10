@@ -43,6 +43,9 @@ public class ContactList {
    * @param contact The contact to be added to the list.
    */
   public void addContact(Contact contact) throws IOException{
+      if (contact == null) {
+        throw new IllegalArgumentException("Compila i campi del contatto.");
+    }
     if (contacts.size()<10000){
        contacts.add(contact);
         }
@@ -112,8 +115,8 @@ public class ContactList {
    * @return true if the contact was successfully deleted, false otherwise.
    */
   public boolean delete(Contact contact) {
-contacts.remove(contact);
-    return true;
+        return contacts.remove(contact);
+    
   }
 
   /**
@@ -129,17 +132,15 @@ contacts.remove(contact);
    * Exports the contact list to a destination (e.g., file, database).
    * @return true if the contacts are successfully exported, false otherwise.
    */
-   public boolean exportContacts(String fileName, LinkedList<Contact> contacts) {
-  try(PrintWriter o = new PrintWriter(
-          new BufferedWriter(
-                  new FileWriter(fileName)))){
+   public boolean exportContacts() {
+  try(PrintWriter  writer= new PrintWriter(new BufferedWriter(new FileWriter("contactList.csv")))){
       for(Contact c: contacts) {
-          o.print(c.getName()+";"+c.getSurname()+";"+c.getPhoneNumber1()+";"+c.getPhoneNumber2()+";"+c.getPhoneNumber3()+";"+
+          writer.print(c.getName()+";"+c.getSurname()+";"+c.getPhoneNumber1()+";"+c.getPhoneNumber2()+";"+c.getPhoneNumber3()+";"+
           c.getEmail1()+";"+c.getEmail2()+";"+c.getEmail3()+";"+c.getCompany()+";"+c.getIBAN()+";"+c.getAddress()+";"+c.getWebsite()+";"+c.getNotes()+";"+c.isFavourite()+";\n");
       }
-  } catch(Exception e) {
-      System.out.println("errore");
-      System.out.println("error");
+        System.out.println("Contacts successfully exported.");
+    } catch(Exception e) {
+      System.err.println("Error occurred while exporting contacts!");
   }
   return true;
 }

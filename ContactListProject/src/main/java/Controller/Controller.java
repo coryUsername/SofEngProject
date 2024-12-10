@@ -78,7 +78,7 @@ public class Controller implements Initializable{
     
      @FXML
     private void addStudent(ActionEvent event) {
-        contactControllerList.add(///)
+        contactControllerList.add();
     }
     
     @FXML
