@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -7,43 +12,59 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" spacing="5.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
          <children>
-            <Button fx:id="back" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="← Go back" textAlignment="CENTER" wrapText="true">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="modify" mnemonicParsing="false" text="Modify contact">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="delete" mnemonicParsing="false" text="Delete Contact">
+            <Button fx:id="modify" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Modify contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="delete" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" text="Delete Contact" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Region prefHeight="309.0" prefWidth="122.0" />
+            <Button fx:id="back" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
             </Button>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="481.0">
+      <VBox prefHeight="550.0" prefWidth="625.0" spacing="5.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="24.0" prefWidth="141.0" text="Name and Surname">
+                  <Label prefHeight="27.0" prefWidth="265.0" text="Name and Surname">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
                   </Label>
                   <CheckBox fx:id="favourite" mnemonicParsing="false" text="Favourite">
                      <HBox.margin>
-                        <Insets left="200.0" top="15.0" />
+                        <Insets left="200.0" top="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
                   </CheckBox>
                </children>
                <opaqueInsets>
@@ -56,7 +77,10 @@
                   <Label fx:id="Surname" prefHeight="41.0" prefWidth="96.0" text="Surname" />
                </children>
             </HBox>
-            <Label text="Phone numbers" />
+            <Label prefHeight="27.0" prefWidth="211.0" text="Phone numbers" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label fx:id="phoneNumber1" prefWidth="140.0" text="phoneNumber 1" />
@@ -70,7 +94,10 @@
                      </HBox.margin></Label>
                </children>
             </HBox>
-            <Label text="E-mail:" />
+            <Label prefHeight="39.0" prefWidth="97.0" text="E-mail:" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label fx:id="email1" prefHeight="17.0" prefWidth="140.0" text="E-mail 1" />
@@ -86,11 +113,17 @@
             </HBox>
             <HBox prefHeight="33.0" prefWidth="458.0">
                <children>
-                  <Label text="Company:" />
-                  <Label text="IBAN:">
+                  <Label text="Company:" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <Label prefHeight="27.0" prefWidth="74.0" text="IBAN:">
                      <HBox.margin>
-                        <Insets left="105.0" />
-                     </HBox.margin></Label>
+                        <Insets left="180.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -98,17 +131,23 @@
                   <Label fx:id="company" text="company" />
                   <Label fx:id="IBAN" text="IBAN">
                      <HBox.margin>
-                        <Insets left="110.0" />
+                        <Insets left="195.0" />
                      </HBox.margin></Label>
                </children>
             </HBox>
             <HBox prefHeight="24.0" prefWidth="458.0">
                <children>
-                  <Label text="Address:" />
+                  <Label text="Address:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
                   <Label text="Website:">
                      <HBox.margin>
-                        <Insets left="110.0" />
-                     </HBox.margin></Label>
+                        <Insets left="195.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -116,14 +155,17 @@
                   <Label fx:id="address" text="address" />
                   <Label fx:id="website" text="website">
                      <HBox.margin>
-                        <Insets left="115.0" />
+                        <Insets left="205.0" />
                      </HBox.margin></Label>
                </children>
             </HBox>
             <Label text="Notes:">
                <VBox.margin>
                   <Insets />
-               </VBox.margin></Label>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
             <Label fx:id="notes" prefHeight="120.0" prefWidth="476.0" style="-fx-background-color: #BFC9C2;" wrapText="true">
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -132,6 +174,9 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <HBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </HBox.margin>
       </VBox>
    </children>
 </HBox>
