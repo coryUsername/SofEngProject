@@ -1,16 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
-      <ButtonBar layoutX="192.0" layoutY="304.0" prefHeight="40.0" prefWidth="200.0">
-        <buttons>
-          <Button mnemonicParsing="false" text="Button" />
-        </buttons>
-      </ButtonBar>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" spacing="5.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
+         <children>
+            <Button fx:id="save" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Save contact" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Region prefHeight="404.0" prefWidth="122.0" />
+            <Button fx:id="noSave" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox prefHeight="550.0" prefWidth="625.0" spacing="5.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="265.0" text="Name and Surname">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="isFavourite" mnemonicParsing="false" text="Favourite">
+                     <HBox.margin>
+                        <Insets left="200.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField promptText="Name" />
+                  <TextField layoutX="10.0" layoutY="10.0" promptText="Surname">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Label prefHeight="27.0" prefWidth="211.0" text="Phone numbers" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField promptText="Phone number 1" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="Phone number 2" />
+                  <TextField layoutX="234.0" layoutY="14.0" promptText="Phone number 3" />
+               </children>
+            </HBox>
+            <Label prefHeight="39.0" prefWidth="97.0" text="E-mail:" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField promptText="Email 1" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="Email 2" />
+                  <TextField layoutX="234.0" layoutY="14.0" promptText="Email 3" />
+               </children>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="458.0">
+               <children>
+                  <Label text="Company:" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <Label prefHeight="27.0" prefWidth="74.0" text="IBAN:">
+                     <HBox.margin>
+                        <Insets left="180.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField promptText="Company" />
+                  <TextField layoutX="10.0" layoutY="14.0" promptText="IBAN">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Label text="Address:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <Label text="Website:">
+                     <HBox.margin>
+                        <Insets left="195.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField promptText="Address" />
+                  <TextField promptText="Website">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Label text="Notes:">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <TextArea prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </HBox.margin>
+      </VBox>
    </children>
-</AnchorPane>
+</HBox>
