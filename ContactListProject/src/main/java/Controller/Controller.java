@@ -115,7 +115,7 @@ public class Controller implements Initializable{
     private void handleAddContact(ActionEvent event) throws IOException {
         App.setRoot("ContactFormView");
     }
-    
+    //non sarebbe meglio un binding?
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
