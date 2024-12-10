@@ -76,6 +76,11 @@ public class Controller implements Initializable{
 
     }  
     
+     @FXML
+    private void addStudent(ActionEvent event) {
+        contactControllerList.add(///)
+    }
+    
     @FXML
      private void updateTableView(LinkedList<Contact> contactsList) {
         ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);
