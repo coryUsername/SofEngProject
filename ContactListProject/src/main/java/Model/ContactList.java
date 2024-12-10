@@ -50,12 +50,16 @@ public class ContactList {
   public ObservableList<Contact> search(String substring) {
     if (substring==null || substring.isEmpty()){
         return FXCollections.observableArrayList(contacts);
-        
+    }
         String lowSub=substring.toLowerCase();
         
-        ObservableList<Contact> searchResult= FXCollections.ObservableArrayList((contacts.stream().filter(contact->contact.getName().contains(lowSub))||(contact->contact.getSurname().contains(lowSub))));
-    }
-    return null;
+        ObservableList<Contact> searchResult= FXCollections.observableArrayList(
+        contacts.stream()
+            .filter(contact -> contact.getName().toLowerCase().contains(lowSub) || 
+                               contact.getSurname().toLowerCase().contains(lowSub))
+            .collect(Collectors.toList()));
+        return searchResult;
+
   }
 
     /* * Filters the contact list based on a specific criterion.
