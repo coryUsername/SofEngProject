@@ -75,11 +75,12 @@ public class Controller implements Initializable{
         contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
     }  
-    
+    /*va messo nel controller della contact fomr view
      @FXML
-    private void addStudent(ActionEvent event) {
-        contactControllerList.add(ora );
+    private void addContact(ActionEvent event) {
+        contactControllerList.add();
     }
+    */
     
     @FXML
      private void updateTableView(LinkedList<Contact> contactsList) {
