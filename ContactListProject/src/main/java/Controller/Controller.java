@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,8 +53,7 @@ public class Controller implements Initializable{
     private TableColumn<Contact, String> contactSurname;
 
     
-    private ContactList contactList = new ContactList();
-   
+    private ObservableList <Contact> contactList;
 
     /*
     Inizializza i dati presenti all'interno delle colonne della tabella. 
@@ -64,10 +64,11 @@ public class Controller implements Initializable{
     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        contactList=FXCollections.observableArrayList();
         
-        contactName.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getName()));
-
-        contactSurname.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getSurname()));
+        contacts.setItems(contactList);
+        contactName.setCellValueFactory(c -> {return new SimpleStringProperty (c.getValue().getName());});
+        contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
     }  
     
