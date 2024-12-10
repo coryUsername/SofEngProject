@@ -52,8 +52,9 @@ public class Controller implements Initializable{
     @FXML
     private TableColumn<Contact, String> contactSurname;
 
-    
-    private ObservableList <Contact> contactList;
+    //creazione di un oggetto di tipo ContactList
+
+    private ContactList contactList;
 
     /*
     Inizializza i dati presenti all'interno delle colonne della tabella. 
@@ -64,9 +65,12 @@ public class Controller implements Initializable{
     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        contactList=FXCollections.observableArrayList();
         
-        contacts.setItems(contactList);
+        ///inutile poichè viene inizializzato nel costruttore della classe ContactList
+        //contactList=FXCollections.observableArrayList();
+        contactList=new ContactList();
+        
+        contacts.setItems(contactList.getContacts());
         contactName.setCellValueFactory(c -> {return new SimpleStringProperty (c.getValue().getName());});
         contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
