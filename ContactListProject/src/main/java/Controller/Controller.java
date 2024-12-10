@@ -10,7 +10,10 @@ import Model.ContactList;
 import View.App;
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +26,7 @@ import javafx.scene.control.TextField;
 
 
 
-public class Controller implements Initializable {
+public class Controller implements Initializable{
 
     @FXML
     private Button add;
@@ -60,17 +63,59 @@ public class Controller implements Initializable {
     automaticamente gli oggetti all'interno della tabella quando vengono modificati.
     */
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle rb) {
         
         contactName.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getName()));
 
         contactSurname.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getSurname()));
 
-    }    
-
+    }  
+    
+    @FXML
+     private void updateTableView(LinkedList<Contact> contactsList) {
+        ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);
+        contacts.setItems(observableList);
+    }
+    
+    
     @FXML
     private void handleAddContact(ActionEvent event) throws IOException {
         App.setRoot("ContactFormView");
     }
     
+     @FXML
+    private void handleSearch(ActionEvent event) {
+        String substring = search.getText();
+        if (substring != null && !substring.isEmpty()) {
+            ObservableList<Contact> searchResults=contactList.search(substring);
+            contacts.setItems(searchResults); // Aggiorna i dati della TableView
+    } else {
+        // Se la barra di ricerca è vuota, mostra tutti i contatti
+        contacts.setItems(contactList.getContacts());
+        }
+    }
+    
+    @FXML
+    private void handleSortByName(ActionEvent event) {
+        contactList.sort("name");
+      contacts.setItems(contactList.getContacts());  }
+
+    @FXML
+    private void handleSortBySurname(ActionEvent event) {
+        contactList.sort("surname");
+      contacts.setItems(contactList.getContacts());  }
+
+    @FXML
+    private void handleFilterByFavourite(ActionEvent event) {
+        contacts.setItems(contactList.filter("favourite"));
+    }
+
+    @FXML
+    private void handleFilterByNumber(ActionEvent event) {
+        contacts.setItems(contactList.filter("number"));
+    }
+     @FXML
+    private void handleFilterByEmail(ActionEvent event) {
+        contacts.setItems(contactList.filter("email"));
+    }
 }

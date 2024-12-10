@@ -3,6 +3,8 @@ package Model;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  * @file ContactList.java
  * @brief Represents a collection of contacts stored in a linked list.
@@ -14,15 +16,21 @@ public class ContactList {
    * @details
    * This is a linked list of contacts. Each contact is stored as a Contact object.
    */
-  private LinkedList<Contact> contacts;
+  private ObservableList<Contact> contacts;
 
   /**
    * Constructor for the ContactList class.
    */
   public ContactList() {
-      contacts= new LinkedList<>();
+      this.contacts= FXCollections.observableArrayList();
   }
 
+    public ObservableList<Contact> getContacts() {
+        return contacts;
+    }
+  
+  
+  
   /**
    * Adds a new contact to the contact list.
    * @param contact The contact to be added to the list.
@@ -39,7 +47,7 @@ public class ContactList {
    * @param substring The name or surname to search for.
    * @return A Contact object that matches the search query, or null if no match is found.
    */
-  public LinkedList<Contact> search(String substring) {
+  public ObservableList<Contact> search(String substring) {
     // To be implemented
     return null;
   }
@@ -49,25 +57,25 @@ public class ContactList {
    * @param criteria The filtering criterion (e.g. favourite, number or email).
    * @return A list of contacts that match the filtering criterion.
    */
-  public LinkedList<Contact> filter(String criteria) {
+  public ObservableList<Contact> filter(String criteria) {
     if(criteria.equals("favourite")) {
-        return new LinkedList<>(contacts.stream()
+        return  FXCollections.observableArrayList(contacts.stream()
                 .filter(Contact::isFavourite)
                 .collect(Collectors.toList()));
     } else if (criteria.equals("number")) {
-        return new LinkedList<>(contacts.stream()
+        return FXCollections.observableArrayList(contacts.stream()
                 .filter(contact -> contact.getPhoneNumber1() != null 
                         || contact.getPhoneNumber2() != null 
                         || contact.getPhoneNumber3() != null)
                 .collect(Collectors.toList()));
     } else if (criteria.equals("email")) {
-        return new LinkedList<>(contacts.stream()
+        return FXCollections.observableArrayList(contacts.stream()
                 .filter(contact -> contact.getEmail1() != null 
                         || contact.getEmail2() != null 
                         || contact.getEmail3() != null)
                 .collect(Collectors.toList()));
     }
-    return new LinkedList<>();
+    return FXCollections.observableArrayList();
 }
 
 
