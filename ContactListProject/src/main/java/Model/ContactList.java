@@ -3,6 +3,8 @@ package Model;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * @file ContactList.java
@@ -24,7 +26,7 @@ public class ContactList {
       this.contacts= FXCollections.observableArrayList();
   }
 
-    public ObservableList<Contact> getContacts() {
+ public ObservableList<Contact> getContacts() {
         return contacts;
     }
 
@@ -46,7 +48,13 @@ public class ContactList {
    * @return A Contact object that matches the search query, or null if no match is found.
    */
   public ObservableList<Contact> search(String substring) {
-    // To be implemented
+    if (substring==null || substring.isEmpty()){
+        return FXCollections.observableArrayList(contacts);
+        
+        String lowSub=substring.toLowerCase();
+        
+        ObservableList<Contact> searchResult= FXCollections.ObservableArrayList((contacts.stream().filter(contact->contact.getName().contains(lowSub))||(contact->contact.getSurname().contains(lowSub))));
+    }
     return null;
   }
 

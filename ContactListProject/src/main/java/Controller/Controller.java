@@ -53,7 +53,7 @@ public class Controller implements Initializable{
     private TableColumn<Contact, String> contactSurname;
 
     
-    private ObservableList <Contact> contactList;
+    private ObservableList <Contact> contactControllerList;
 
     /*
     Inizializza i dati presenti all'interno delle colonne della tabella. 
@@ -64,13 +64,18 @@ public class Controller implements Initializable{
     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        contactList=FXCollections.observableArrayList();
+        contactControllerList=FXCollections.observableArrayList();
         
-        contacts.setItems(contactList);
+        contacts.setItems(contactControllerList);
         contactName.setCellValueFactory(c -> {return new SimpleStringProperty (c.getValue().getName());});
         contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
     }  
+    
+     @FXML
+    private void addStudent(ActionEvent event) {
+        contactControllerList.add(///)
+    }
     
     @FXML
      private void updateTableView(LinkedList<Contact> contactsList) {
