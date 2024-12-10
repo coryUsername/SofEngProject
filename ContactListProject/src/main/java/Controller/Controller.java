@@ -29,32 +29,48 @@ import javafx.scene.control.TextField;
 
 public class Controller implements Initializable{
 
-    @FXML
-    private Button add;
-    @FXML
     private TextField search;
-    @FXML
-    private Button importBtn;
-    @FXML
-    private Button sortByName;
-    @FXML
-    private Button sortBySurname;
-    @FXML
-    private Button filerByFavourite;
-    @FXML
-    private Button filerByNumber;
-    @FXML
-    private Button filerByEmail;
-    @FXML
     private TableView<Contact> contacts;
-    @FXML
     private TableColumn<Contact, String> contactName;
-    @FXML
     private TableColumn<Contact, String> contactSurname;
 
     //creazione di un oggetto di tipo ContactList
 
     private ContactList contactList;
+    @FXML
+    private Button modify;
+    @FXML
+    private Button delete;
+    @FXML
+    private Button back;
+    @FXML
+    private CheckBox favourite;
+    @FXML
+    private Label name;
+    @FXML
+    private Label Surname;
+    @FXML
+    private Label phoneNumber1;
+    @FXML
+    private Label phoneNumber2;
+    @FXML
+    private Label phoneNumber3;
+    @FXML
+    private Label email1;
+    @FXML
+    private Label email2;
+    @FXML
+    private Label email3;
+    @FXML
+    private Label company;
+    @FXML
+    private Label IBAN;
+    @FXML
+    private Label address;
+    @FXML
+    private Label website;
+    @FXML
+    private Label notes;
 
     /*
     Inizializza i dati presenti all'interno delle colonne della tabella. 
@@ -75,26 +91,31 @@ public class Controller implements Initializable{
         contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
 
     }  
+<<<<<<< Updated upstream
     /*va messo nel controller della contact fomr view
      @FXML
     private void addContact(ActionEvent event) {
         contactControllerList.add();
     }
     */
+=======
     
-    @FXML
+    /*
+    private void addStudent(ActionEvent event) {
+        contactControllerList.add(ora );
+    }*/
+>>>>>>> Stashed changes
+    
      private void updateTableView(LinkedList<Contact> contactsList) {
         ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);
         contacts.setItems(observableList);
     }
     
     
-    @FXML
     private void handleAddContact(ActionEvent event) throws IOException {
         App.setRoot("ContactFormView");
     }
     
-     @FXML
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
@@ -106,26 +127,21 @@ public class Controller implements Initializable{
         }
     }
     
-    @FXML
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
       contacts.setItems(contactList.getContacts());  }
 
-    @FXML
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
       contacts.setItems(contactList.getContacts());  }
 
-    @FXML
     private void handleFilterByFavourite(ActionEvent event) {
         contacts.setItems(contactList.filter("favourite"));
     }
 
-    @FXML
     private void handleFilterByNumber(ActionEvent event) {
         contacts.setItems(contactList.filter("number"));
     }
-     @FXML
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }

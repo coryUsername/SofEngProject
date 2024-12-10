@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ContactViewController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" spacing="5.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
          <children>
-            <Button fx:id="modify" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Modify contact" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="modify" mnemonicParsing="false" onAction="#handleModify" prefHeight="70.0" prefWidth="100.0" text="Modify contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="delete" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" text="Delete Contact" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="80.0" prefWidth="100.0" text="Delete Contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -33,7 +33,7 @@
                </font>
             </Button>
             <Region prefHeight="309.0" prefWidth="122.0" />
-            <Button fx:id="back" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -60,7 +60,7 @@
                   </Label>
                   <CheckBox fx:id="favourite" mnemonicParsing="false" text="Favourite">
                      <HBox.margin>
-                        <Insets left="200.0" top="10.0" />
+                        <Insets left="220.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -81,7 +81,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Label fx:id="phoneNumber1" prefWidth="140.0" text="phoneNumber 1" />
                   <Label fx:id="phoneNumber2" prefWidth="140.0" text="phoneNumber 2">
@@ -98,7 +98,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Label fx:id="email1" prefHeight="17.0" prefWidth="140.0" text="E-mail 1" />
                   <Label fx:id="email2" prefHeight="17.0" prefWidth="140.0" text="E-mail 2">
