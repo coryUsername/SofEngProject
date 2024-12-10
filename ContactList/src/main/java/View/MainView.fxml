@@ -7,57 +7,55 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0">
+      <BorderPane layoutX="1.0" prefHeight="800.0" prefWidth="1000.0">
          <left>
-            <VBox prefHeight="317.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="690.0" prefWidth="122.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="17.0" prefWidth="42.0" text="Sort by">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button fx:id="sortByName" mnemonicParsing="false" text="name">
+                  <Label text="Filter by">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                  </Button>
-                  <Button fx:id="sortBySurname" mnemonicParsing="false" text="surname">
-                     <VBox.margin>
-                        <Insets top="7.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Label prefHeight="17.0" prefWidth="52.0" text="Filter by">
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
                   </Label>
-                  <Button fx:id="filerByFavourite" mnemonicParsing="false" text="favourites">
+                  <Button fx:id="filerByFavourite" mnemonicParsing="false" text="Favourites" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="filerByNumber" mnemonicParsing="false" text="number">
+                  <Button fx:id="filerByNumber" mnemonicParsing="false" text="Number" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="filerByEmail" mnemonicParsing="false" text="e-mail">
+                  <Button fx:id="filerByEmail" mnemonicParsing="false" text="E-mail" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
+                  </Button>
+                  <Region prefHeight="234.0" prefWidth="122.0" />
+                  <Button fx:id="importBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" text="Import contacts" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" prefHeight="70.0" text="Export contacts" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
                   </Button>
                </children>
                <BorderPane.margin>
-                  <Insets left="15.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
                </BorderPane.margin>
             </VBox>
          </left>
          <top>
             <VBox prefHeight="83.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="30.0" prefWidth="160.0" text="Contact List">
+                  <Label prefHeight="30.0" prefWidth="955.0" text="Contact List">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -65,27 +63,31 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="41.0" prefWidth="600.0" spacing="15.0">
+                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="53.0" prefWidth="980.0" spacing="15.0">
                      <children>
-                        <Button fx:id="add" mnemonicParsing="false" text="Add Contact">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                        <TextField fx:id="search" prefHeight="25.0" prefWidth="159.0" promptText="Search contact">
+                        <Region prefHeight="53.0" prefWidth="109.0" />
+                        <TextField fx:id="search" prefHeight="39.0" prefWidth="430.0" promptText="Search contact">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button fx:id="importBtn" mnemonicParsing="false" prefHeight="22.0" prefWidth="100.0" text="Import contacts">
-                           <HBox.margin>
-                              <Insets left="70.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Export contacts">
+                        <MenuButton mnemonicParsing="false" prefHeight="39.0" prefWidth="167.0" text="Sort by">
+                           <items>
+                              <MenuItem fx:id="sortByName" mnemonicParsing="false" text="Name" />
+                              <MenuItem fx:id="sortBySurname" mnemonicParsing="false" text="Surname" />
+                           </items>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </MenuButton>
+                        <Region prefHeight="53.0" prefWidth="139.0" />
+                        <Button fx:id="add" alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-radius: 90;" text="+" textAlignment="CENTER" wrapText="true">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font name="Bodoni MT Black Italic" size="18.0" />
+                           </font>
                         </Button>
                      </children>
                      <opaqueInsets>
@@ -93,17 +95,23 @@
                      </opaqueInsets>
                   </HBox>
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
             </VBox>
          </top>
          <center>
-            <TableView fx:id="contacts" prefHeight="317.0" prefWidth="456.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="contacts" prefHeight="687.0" prefWidth="785.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="contactName" prefWidth="75.0" text="Nome" />
-                  <TableColumn fx:id="contactSurname" prefWidth="75.0" text="Cognome" />
+                <TableColumn fx:id="contactName" prefWidth="300.0" text="Nome" />
+                  <TableColumn fx:id="contactSurname" prefWidth="300.0" text="Cognome" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </BorderPane.margin>
             </TableView>
          </center>
       </BorderPane>
