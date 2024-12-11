@@ -298,8 +298,25 @@ public class Contact {
     //@Override(?) + ci serve un to string particolare per l'export?
     public String toString() {
         return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favourite;
+    
+    
+    
     }
+
+
+    
+  @Override
+  public boolean equals(Object obj) {
+      if (this == obj) return true;
+      if (obj == null || getClass() != obj.getClass()) return false;
+      Contact contact = (Contact) obj;
+      return name.equalsIgnoreCase(contact.name) &&
+             surname.equalsIgnoreCase(contact.surname);
+  }
+
+
 }
+
 
 /**
  * @brief Adds an email address to the contact's list of email addresses.

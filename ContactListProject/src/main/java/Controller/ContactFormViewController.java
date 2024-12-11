@@ -22,7 +22,6 @@ import javafx.stage.Stage;
  */
 public class ContactFormViewController implements Initializable {
 
-    
     @FXML
     private TextField nameField;
     @FXML
@@ -57,8 +56,7 @@ public class ContactFormViewController implements Initializable {
     private Button saveBtn;
     
     private Contact contact;
-    
-    
+    private boolean isModification;
 
     /**
      * Initializes the controller class.
@@ -66,6 +64,7 @@ public class ContactFormViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         contact = new Contact();
+        isModification = false;
     }
 
     @FXML
@@ -77,10 +76,9 @@ public class ContactFormViewController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        
     }
     
-    private void clearFields(){
+    private void clearFields() {
         nameField.setText("");
         surnameField.setText("");
         phone1Field.setText("");
@@ -94,12 +92,10 @@ public class ContactFormViewController implements Initializable {
         addressField.setText("");
         notesField.setText("");
         favouriteCheck.setSelected(false);
-        
     }
 
     @FXML
     private void handleSave(ActionEvent event) throws IOException {
-     
         String name = nameField.getText();
         String surname = surnameField.getText();
         String phoneNumber1 = phone1Field.getText();
@@ -115,19 +111,31 @@ public class ContactFormViewController implements Initializable {
         String notes = notesField.getText();
         boolean favourite = favouriteCheck.isSelected();
 
-   
-        contact = new Contact(name, surname, phoneNumber1, phoneNumber2, phoneNumber3,
-                email1, email2, email3, company, IBAN, address, website, notes, favourite);
+        contact.setName(name);
+        contact.setSurname(surname);
+        contact.setPhoneNumber1(phoneNumber1);
+        contact.setPhoneNumber2(phoneNumber2);
+        contact.setPhoneNumber3(phoneNumber3);
+        contact.setEmail1(email1);
+        contact.setEmail2(email2);
+        contact.setEmail3(email3);
+        contact.setCompany(company);
+        contact.setIBAN(IBAN);
+        contact.setAddress(address);
+        contact.setWebsite(website);
+        contact.setNotes(notes);
+        contact.setFavorite(favourite);
 
-        MainViewController.contactList.addContact(contact);
-        
+        if (!isModification && !MainViewController.contactList.contains(contact)) {
+            MainViewController.contactList.addContact(contact);
+        }
+
         Parent root = FXMLLoader.load(getClass().getResource("/View/MainView.fxml"));
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 
     public void setContactForm(Contact contact) {
         this.contact = contact;
@@ -145,9 +153,11 @@ public class ContactFormViewController implements Initializable {
         websiteField.setText(contact.getWebsite());
         notesField.setText(contact.getNotes());
         favouriteCheck.setSelected(contact.isFavourite());
-      }
+    }
 
-
-
-
+    public void setContact(Contact contact, boolean isModification) {
+        setContactForm(contact);
+        this.isModification = isModification;
+    }
 }
+

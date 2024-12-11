@@ -127,10 +127,10 @@ public class MainViewController implements Initializable {
 
     private void showContactDetails(Contact contact) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactFormView.fxml"));
         Parent root = loader.load(); 
-        ContactViewController controller = loader.getController();
-        controller.setContact(contact);
+        ContactFormViewController controller = loader.getController();
+        controller.setContact(contact, true);
         Stage stage = (Stage) contacts.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

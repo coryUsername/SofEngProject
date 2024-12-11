@@ -38,6 +38,16 @@ public class ContactList {
     return contacts;
   }
 
+  
+  public boolean contains(Contact contact) {
+    return contacts.stream().anyMatch(c -> c.equals(contact));
+}
+
+
+
+
+
+
   /**
    * Adds a new contact to the contact list.
    * @param contact The contact to be added to the list.
@@ -237,4 +247,6 @@ public class ContactList {
     }
     return true;
   }
+
+  
 }

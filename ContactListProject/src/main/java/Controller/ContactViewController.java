@@ -28,45 +28,58 @@ import javafx.stage.Stage;
  */
 public class ContactViewController implements Initializable {
 
-    
-    @FXML
-    private Button modifyBtn;
-    @FXML
-    private Button deleteBtn;
-    @FXML
-    private Button backBtn;
-    
-    @FXML
-    private Label nameLbl;
-    @FXML
-    private Label surnameLbl;
-    @FXML
-    private Label phoneNumber1Lbl;
-    @FXML
-    private Label phoneNumber2Lbl;
-    @FXML
-    private Label phoneNumber3Lbl;
-    @FXML
-    private Label email1Lbl;
-    @FXML
-    private Label email2Lbl;
-    @FXML
-    private Label email3Lbl;
-    @FXML
-    private Label companyLbl;
-    @FXML
-    private Label IBANLbl;
-    @FXML
-    private Label addressLbl;
-    @FXML
-    private Label websiteLbl;
-    @FXML
-    private Label notesLbl;
-    @FXML
-    private CheckBox favouriteCheck;
-    
-    private Contact contact;
-    
+  @FXML
+  private Button modifyBtn;
+
+  @FXML
+  private Button deleteBtn;
+
+  @FXML
+  private Button backBtn;
+
+  @FXML
+  private Label nameLbl;
+
+  @FXML
+  private Label surnameLbl;
+
+  @FXML
+  private Label phoneNumber1Lbl;
+
+  @FXML
+  private Label phoneNumber2Lbl;
+
+  @FXML
+  private Label phoneNumber3Lbl;
+
+  @FXML
+  private Label email1Lbl;
+
+  @FXML
+  private Label email2Lbl;
+
+  @FXML
+  private Label email3Lbl;
+
+  @FXML
+  private Label companyLbl;
+
+  @FXML
+  private Label IBANLbl;
+
+  @FXML
+  private Label addressLbl;
+
+  @FXML
+  private Label websiteLbl;
+
+  @FXML
+  private Label notesLbl;
+
+  @FXML
+  private CheckBox favouriteCheck;
+
+  private Contact contact;
 
   /**
    * Initializes the controller class.
@@ -76,16 +89,17 @@ public class ContactViewController implements Initializable {
     contact = new Contact();
   }
 
-    @FXML
-    private void handleDelete(ActionEvent click) throws IOException {
-        
-        MainViewController.contactList.delete(contact);
-        App.setRoot("MainView");
-    }
+  @FXML
+  private void handleDelete(ActionEvent click) throws IOException {
+    MainViewController.contactList.delete(contact);
+    App.setRoot("MainView");
+  }
 
   @FXML
   private void handleBack(ActionEvent event) throws IOException {
-    Parent root = FXMLLoader.load(getClass().getResource("/View/MainView.fxml"));
+    Parent root = FXMLLoader.load(
+      getClass().getResource("/View/MainView.fxml")
+    );
     Stage stage = (Stage) backBtn.getScene().getWindow();
     Scene scene = new Scene(root);
     stage.setScene(scene);
@@ -110,14 +124,11 @@ public class ContactViewController implements Initializable {
   }
 
   @FXML
-  private void handleModify(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(
-      getClass().getResource("/View/ContactFormView.fxml")
-    );
+private void handleModify(ActionEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactFormView.fxml"));
     Parent root = loader.load();
 
     ContactFormViewController controller = loader.getController();
-
     contact.setName(nameLbl.getText());
     contact.setSurname(surnameLbl.getText());
     contact.setPhoneNumber1(phoneNumber1Lbl.getText());
@@ -132,15 +143,30 @@ public class ContactViewController implements Initializable {
     contact.setWebsite(websiteLbl.getText());
     contact.setNotes(notesLbl.getText());
     contact.setFavorite(favouriteCheck.isSelected());
-
     controller.setContactForm(contact);
 
     Stage stage = (Stage) modifyBtn.getScene().getWindow();
-
     Scene scene = new Scene(root);
-
     stage.setScene(scene);
-
     stage.show();
-  }
 }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
