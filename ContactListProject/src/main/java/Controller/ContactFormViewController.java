@@ -7,11 +7,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -61,12 +65,18 @@ public class ContactFormViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        contact = new Contact();
     }
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
         clearFields();
-        App.setRoot("MainView");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/MainView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
         
     }
     
@@ -89,7 +99,7 @@ public class ContactFormViewController implements Initializable {
 
     @FXML
     private void handleSave(ActionEvent event) throws IOException {
-       
+     
         String name = nameField.getText();
         String surname = surnameField.getText();
         String phoneNumber1 = phone1Field.getText();
@@ -110,8 +120,12 @@ public class ContactFormViewController implements Initializable {
                 email1, email2, email3, company, IBAN, address, website, notes, favourite);
 
         MainViewController.contactList.addContact(contact);
-
-        App.setRoot("MainView");
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/View/MainView.fxml"));
+        Stage stage = (Stage) saveBtn.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
@@ -130,7 +144,7 @@ public class ContactFormViewController implements Initializable {
         addressField.setText(contact.getAddress());
         websiteField.setText(contact.getWebsite());
         notesField.setText(contact.getNotes());
-        isFavourite.setSelected(contact.isFavourite());
+        favouriteCheck.setSelected(contact.isFavourite());
       }
 
 

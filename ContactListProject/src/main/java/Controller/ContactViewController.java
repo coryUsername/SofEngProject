@@ -127,7 +127,7 @@ public class ContactViewController implements Initializable {
     contact.setAddress(addressLbl.getText());
     contact.setWebsite(websiteLbl.getText());
     contact.setNotes(notesLbl.getText());
-    contact.setFavorite(favourite.isSelected());
+    contact.setFavorite(favouriteCheck.isSelected());
 
     controller.setContactForm(contact);
 

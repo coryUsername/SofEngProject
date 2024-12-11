@@ -77,8 +77,15 @@ public class MainViewController implements Initializable {
 
     @FXML
     private void handleAddContact(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactFormView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) addBtn.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
         App.setRoot("ContactFormView");
     }
+    @FXML
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
