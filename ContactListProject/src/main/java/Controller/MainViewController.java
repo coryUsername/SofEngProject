@@ -70,12 +70,13 @@ public class MainViewController implements Initializable {
         contactName.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getName()));
         contactSurname.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getSurname()));
     }
+    
+    
 
     @FXML
-    private void handleAddContact(ActionEvent click) throws IOException {
+    private void handleAddContact(ActionEvent event) throws IOException {
         App.setRoot("ContactFormView");
     }
-    @FXML
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
@@ -85,25 +86,20 @@ public class MainViewController implements Initializable {
             contacts.setItems(contactList.getContacts());
         }
     }
-    @FXML
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
         contacts.setItems(contactList.getContacts());
     }
-    @FXML
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
         contacts.setItems(contactList.getContacts());
     }
-    @FXML
     private void handleFilterByFavourite(ActionEvent event) {
         contacts.setItems(contactList.filter("favourite"));
     }
-    @FXML
     private void handleFilterByNumber(ActionEvent event) {
         contacts.setItems(contactList.filter("number"));
     }
-    @FXML
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }
