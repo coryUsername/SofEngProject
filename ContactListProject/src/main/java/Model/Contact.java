@@ -303,6 +303,22 @@ public class Contact {
     
     }
 
+    public String toCsv() {
+        return String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s",
+                name, surname, formatPhoneNumber(phoneNumber1), formatPhoneNumber(phoneNumber2), formatPhoneNumber(phoneNumber3), 
+                formatEmail(email1), formatEmail(email2), formatEmail(email3), company, IBAN, address, website, notes);
+    }
+
+    private String formatPhoneNumber(String phoneNumber) {
+        return phoneNumber != null && phoneNumber.matches("\\d{10}")
+                ? String.format("%s %s", phoneNumber.substring(0, 3), phoneNumber.substring(3))
+                : phoneNumber;
+    }
+
+    private String formatEmail(String email) {
+        return email != null ? email.toLowerCase() : email;
+    }
+
 
     
   @Override

@@ -251,6 +251,12 @@ public class ContactList {
     }
     return true;
   }
+  public void updateContact(Contact contact, Contact updatedContact) {
+    int index = contacts.indexOf(contact);
+    if (index != -1) {
+      contacts.set(index, updatedContact);
+    }
+  }
 
   
 }
