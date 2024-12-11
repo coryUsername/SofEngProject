@@ -84,10 +84,10 @@ public class Contact {
      * null.
      */
     public void check() {
-        if ((name == null || name.isEmpty()) && (surname == null || surname.isEmpty())) {
-            throw new IllegalArgumentException("Please enter a name and a surname"); // or*
-        }
+    if ((name == null || name.isEmpty()) && (surname == null || surname.isEmpty())) {
+        throw new IllegalArgumentException("Please enter a name or a surname");
     }
+}
 
     /**
      * @brief Getter method to return the name of the contact.
@@ -259,7 +259,7 @@ public class Contact {
         this.notes = notes;
     }
 
-    public void setFavorite(boolean favorite) {
+    public void setFavorite(boolean favourite) {
         this.favourite = favourite;
 
     }

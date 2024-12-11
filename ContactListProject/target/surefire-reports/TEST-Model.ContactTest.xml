@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="30" failures="30" name="Model.ContactTest" time="0.03" errors="0" skipped="0">
+<testsuite tests="30" failures="1" name="Model.ContactTest" time="0.016" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.20+9-LTS-256"/>
@@ -66,214 +66,42 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetNotes" time="0.013">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetNotes(ContactTest.java:397)
-</failure>
-    <system-out>setNotes
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetAddress" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetAddress(ContactTest.java:371)
-</failure>
-    <system-out>setAddress
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetIBAN" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetIBAN(ContactTest.java:358)
-</failure>
-    <system-out>setIBAN
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail1" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetEmail1(ContactTest.java:306)
-</failure>
-    <system-out>setEmail1
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testToString" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testToString(ContactTest.java:437)
-</failure>
-    <system-out>toString
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail2" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetEmail2(ContactTest.java:319)
-</failure>
-    <system-out>setEmail2
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testIsFavourite" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testIsFavourite(ContactTest.java:423)
-</failure>
-    <system-out>isFavourite
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetFavorite" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetFavorite(ContactTest.java:410)
-</failure>
-    <system-out>setFavorite
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail3" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetEmail3(ContactTest.java:332)
-</failure>
-    <system-out>setEmail3
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetWebsite" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetWebsite(ContactTest.java:384)
-</failure>
-    <system-out>setWebsite
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetCompany" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetCompany(ContactTest.java:345)
-</failure>
-    <system-out>setCompany
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testCheck" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testCheck(ContactTest.java:46)
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber1" time="0.005"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber3" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber2" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber3" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber2" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber1" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetNotes" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetName" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail2" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail3" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetIBAN" time="0.002"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetAddress" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail1" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetAddress" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetNotes" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testIsFavourite" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetSurname" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testCheck" time="0.008">
+    <failure message="Please enter a name or a surname" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Please enter a name or a surname
+	at Model.Contact.check(Contact.java:88)
+	at Model.Contact.&lt;init&gt;(Contact.java:78)
+	at Model.ContactTest.testCheck(ContactTest.java:57)
 </failure>
     <system-out>check
 </system-out>
   </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetSurname" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetSurname(ContactTest.java:73)
-</failure>
-    <system-out>getSurname
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetAddress" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetAddress(ContactTest.java:199)
-</failure>
-    <system-out>getAddress
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetName" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetName(ContactTest.java:59)
-</failure>
-    <system-out>getName
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetSurname" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetSurname(ContactTest.java:254)
-</failure>
-    <system-out>setSurname
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetIBAN" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetIBAN(ContactTest.java:185)
-</failure>
-    <system-out>getIBAN
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetName" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetName(ContactTest.java:241)
-</failure>
-    <system-out>setName
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail3" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetEmail3(ContactTest.java:157)
-</failure>
-    <system-out>getEmail3
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetCompany" time="0.006">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetCompany(ContactTest.java:171)
-</failure>
-    <system-out>getCompany
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetWebsite" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetWebsite(ContactTest.java:213)
-</failure>
-    <system-out>getWebsite
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetNotes" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetNotes(ContactTest.java:227)
-</failure>
-    <system-out>getNotes
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail1" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetEmail1(ContactTest.java:129)
-</failure>
-    <system-out>getEmail1
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail2" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetEmail2(ContactTest.java:143)
-</failure>
-    <system-out>getEmail2
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber1" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetPhoneNumber1(ContactTest.java:87)
-</failure>
-    <system-out>getPhoneNumber1
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber2" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetPhoneNumber2(ContactTest.java:101)
-</failure>
-    <system-out>getPhoneNumber2
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber1" time="0.002">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetPhoneNumber1(ContactTest.java:267)
-</failure>
-    <system-out>setPhoneNumber1
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber2" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetPhoneNumber2(ContactTest.java:280)
-</failure>
-    <system-out>setPhoneNumber2
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetPhoneNumber3" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testGetPhoneNumber3(ContactTest.java:115)
-</failure>
-    <system-out>getPhoneNumber3
-</system-out>
-  </testcase>
-  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetPhoneNumber3" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at Model.ContactTest.testSetPhoneNumber3(ContactTest.java:293)
-</failure>
-    <system-out>setPhoneNumber3
-</system-out>
-  </testcase>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetWebsite" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testToString" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail3" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetSurname" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetFavorite" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetCompany" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetCompany" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testSetEmail2" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetName" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetWebsite" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetEmail1" time="0"/>
+  <testcase classname="Model.ContactTest" name="Model.ContactTest.testGetIBAN" time="0.001"/>
 </testsuite>
