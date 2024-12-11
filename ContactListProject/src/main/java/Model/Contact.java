@@ -78,6 +78,28 @@ public class Contact {
         check();
     }
 
+
+    /**
+     * @brief Default constructor without parameters.
+     * Initializes all the fields with their default values.
+     */
+    public Contact() {
+        this.name = "";
+        this.surname = "";
+        this.phoneNumber1 = "";
+        this.phoneNumber2 = "";
+        this.phoneNumber3 = "";
+        this.email1 = "";
+        this.email2 = "";
+        this.email3 = "";
+        this.company = "";
+        this.IBAN = "";
+        this.address = "";
+        this.website = "";
+        this.notes = "";
+        this.favourite = false;
+    }
+
     /**
      * @brief Checks if the contact has a name or a surname.
      * @throws IllegalArgumentException if both name and surname are empty or

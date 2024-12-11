@@ -12,10 +12,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -63,18 +68,13 @@ public class ContactViewController implements Initializable {
     private Contact contact;
     
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-    }
-
-    @FXML
-    private void handleModify(ActionEvent click) throws IOException {
-        App.setRoot("ContactFormView");
-    }
+  /**
+   * Initializes the controller class.
+   */
+  @Override
+  public void initialize(URL url, ResourceBundle rb) {
+    contact = new Contact();
+  }
 
     @FXML
     private void handleDelete(ActionEvent click) throws IOException {
@@ -83,28 +83,60 @@ public class ContactViewController implements Initializable {
         App.setRoot("MainView");
     }
 
-    @FXML
-    private void handleBack(ActionEvent click) throws IOException {
-        
-        App.setRoot("MainView");
-        
-    }
+  @FXML
+  private void handleBack(ActionEvent event) throws IOException {
+    App.setRoot("MainView");
+  }
 
-    public void setContact(Contact contact) {
-        nameLbl.setText(contact.getName());
-        surnameLbl.setText(contact.getSurname());
-        phoneNumber1Lbl.setText(contact.getPhoneNumber1());
-        phoneNumber2Lbl.setText(contact.getPhoneNumber2());
-        phoneNumber3Lbl.setText(contact.getPhoneNumber3());
-        email1Lbl.setText(contact.getEmail1());
-        email2Lbl.setText(contact.getEmail2());
-        email3Lbl.setText(contact.getEmail3());
-        companyLbl.setText(contact.getCompany());
-        IBANLbl.setText(contact.getIBAN());
-        addressLbl.setText(contact.getAddress());
-        websiteLbl.setText(contact.getWebsite());
-        notesLbl.setText(contact.getNotes());
-        favouriteCheck.setSelected(contact.isFavourite());
-    }
+  public void setContact(Contact contact) {
+    nameLbl.setText(contact.getName());
+    surnameLbl.setText(contact.getSurname());
+    phoneNumber1Lbl.setText(contact.getPhoneNumber1());
+    phoneNumber2Lbl.setText(contact.getPhoneNumber2());
+    phoneNumber3Lbl.setText(contact.getPhoneNumber3());
+    email1Lbl.setText(contact.getEmail1());
+    email2Lbl.setText(contact.getEmail2());
+    email3Lbl.setText(contact.getEmail3());
+    companyLbl.setText(contact.getCompany());
+    IBANLbl.setText(contact.getIBAN());
+    addressLbl.setText(contact.getAddress());
+    websiteLbl.setText(contact.getWebsite());
+    notesLbl.setText(contact.getNotes());
+    favouriteCheck.setSelected(contact.isFavourite());
+  }
 
+  @FXML
+  private void handleModify(ActionEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+      getClass().getResource("/View/ContactFormView.fxml")
+    );
+    Parent root = loader.load();
+
+    ContactFormViewController controller = loader.getController();
+
+    contact.setName(nameLbl.getText());
+    contact.setSurname(surnameLbl.getText());
+    contact.setPhoneNumber1(phoneNumber1Lbl.getText());
+    contact.setPhoneNumber2(phoneNumber2Lbl.getText());
+    contact.setPhoneNumber3(phoneNumber3Lbl.getText());
+    contact.setEmail1(email1Lbl.getText());
+    contact.setEmail2(email2Lbl.getText());
+    contact.setEmail3(email3Lbl.getText());
+    contact.setCompany(companyLbl.getText());
+    contact.setIBAN(IBANLbl.getText());
+    contact.setAddress(addressLbl.getText());
+    contact.setWebsite(websiteLbl.getText());
+    contact.setNotes(notesLbl.getText());
+    contact.setFavorite(favourite.isSelected());
+
+    controller.setContactForm(contact);
+
+    Stage stage = (Stage) modifyBtn.getScene().getWindow();
+
+    Scene scene = new Scene(root);
+
+    stage.setScene(scene);
+
+    stage.show();
+  }
 }
