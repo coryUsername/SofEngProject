@@ -75,7 +75,7 @@ public class MainViewController implements Initializable {
     private void handleAddContact(ActionEvent click) throws IOException {
         App.setRoot("ContactFormView");
     }
-
+    @FXML
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
@@ -85,29 +85,29 @@ public class MainViewController implements Initializable {
             contacts.setItems(contactList.getContacts());
         }
     }
-
+    @FXML
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
         contacts.setItems(contactList.getContacts());
     }
-
+    @FXML
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
         contacts.setItems(contactList.getContacts());
     }
-
+    @FXML
     private void handleFilterByFavourite(ActionEvent event) {
         contacts.setItems(contactList.filter("favourite"));
     }
-
+    @FXML
     private void handleFilterByNumber(ActionEvent event) {
         contacts.setItems(contactList.filter("number"));
     }
-
+    @FXML
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }
-
+    @FXML
     private void openContact(MouseEvent event) throws IOException {
         if (event.getClickCount() == 2) {
             Contact selectedContact = contacts.getSelectionModel().getSelectedItem();
@@ -118,9 +118,10 @@ public class MainViewController implements Initializable {
     private void showContactDetails(Contact contact) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
-        System.out.println("Errore nel caricamento del file FXML.");
         Parent root = loader.load();
+        
         ContactViewController controller = loader.getController();
+    
         controller.setContact(contact);
         Stage stage = (Stage) contacts.getScene().getWindow();
         Scene scene = new Scene(root);

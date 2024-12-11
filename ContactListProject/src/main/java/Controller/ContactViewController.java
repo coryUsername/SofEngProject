@@ -74,10 +74,10 @@ public class ContactViewController implements Initializable {
     }
 
     @FXML
-    private void handleDelete(ActionEvent event) {
+    private void handleDelete(ActionEvent event) throws IOException {
         
         MainViewController.contactList.delete(contact);
-        
+        App.setRoot("mainView");
     }
 
     @FXML
