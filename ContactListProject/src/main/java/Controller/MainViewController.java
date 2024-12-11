@@ -44,17 +44,19 @@ public class MainViewController implements Initializable {
     @FXML
     private Button sortBySurname;
     @FXML
-    private Button filerByFavourite;
-    @FXML
-    private Button filerByNumber;
-    @FXML
-    private Button filerByEmail;
-    @FXML
     private Button importBtn;
     @FXML
     private Button addBtn;
     @FXML
     private Button exportBtn;
+    @FXML
+    private Button filterByFavourite;
+    @FXML
+    private Button filterByNumber;
+    @FXML
+    private Button filterByEmail;
+    @FXML
+    private Button clearBtn;
 
     /**
      * Initializes the controller class.
@@ -70,12 +72,13 @@ public class MainViewController implements Initializable {
         contactName.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getName()));
         contactSurname.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getSurname()));
     }
+    
+    
 
     @FXML
-    private void handleAddContact(ActionEvent click) throws IOException {
+    private void handleAddContact(ActionEvent event) throws IOException {
         App.setRoot("ContactFormView");
     }
-    @FXML
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
@@ -127,6 +130,21 @@ public class MainViewController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void handleImportBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleExportBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleClearBtn(ActionEvent event) {
+        
+        contacts.setItems(contactList.getContacts());
+        
     }
 
 }

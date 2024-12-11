@@ -23,14 +23,14 @@ import javafx.scene.control.Label;
  */
 public class ContactViewController implements Initializable {
 
-    @FXML
-    private CheckBox favourite;
+    
     @FXML
     private Button modifyBtn;
     @FXML
     private Button deleteBtn;
     @FXML
     private Button backBtn;
+    
     @FXML
     private Label nameLbl;
     @FXML
@@ -57,8 +57,11 @@ public class ContactViewController implements Initializable {
     private Label websiteLbl;
     @FXML
     private Label notesLbl;
+    @FXML
+    private CheckBox favouriteCheck;
     
     private Contact contact;
+    
 
     /**
      * Initializes the controller class.
@@ -69,19 +72,19 @@ public class ContactViewController implements Initializable {
     }
 
     @FXML
-    private void handleModify(ActionEvent event) throws IOException {
+    private void handleModify(ActionEvent click) throws IOException {
         App.setRoot("ContactFormView");
     }
 
     @FXML
-    private void handleDelete(ActionEvent event) throws IOException {
+    private void handleDelete(ActionEvent click) throws IOException {
         
         MainViewController.contactList.delete(contact);
-        App.setRoot("mainView");
+        App.setRoot("MainView");
     }
 
     @FXML
-    private void handleBack(ActionEvent event) throws IOException {
+    private void handleBack(ActionEvent click) throws IOException {
         
         App.setRoot("MainView");
         
@@ -101,7 +104,7 @@ public class ContactViewController implements Initializable {
         addressLbl.setText(contact.getAddress());
         websiteLbl.setText(contact.getWebsite());
         notesLbl.setText(contact.getNotes());
-        favourite.setSelected(contact.isFavourite());
+        favouriteCheck.setSelected(contact.isFavourite());
     }
 
 }

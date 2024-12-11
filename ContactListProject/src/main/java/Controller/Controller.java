@@ -105,7 +105,7 @@ public class Controller implements Initializable{
         contactControllerList.add(ora );
     }*/
     
-    
+    //copiato
      private void updateTableView(LinkedList<Contact> contactsList) {
         ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);
         contacts.setItems(observableList);

@@ -92,9 +92,9 @@ public class ContactList {
         contacts
           .stream()
           .filter(contact ->
-            contact.getPhoneNumber1() != null ||
-            contact.getPhoneNumber2() != null ||
-            contact.getPhoneNumber3() != null
+            (contact.getPhoneNumber1() != null && !contact.getPhoneNumber1().isEmpty()) ||
+            (contact.getPhoneNumber2() != null && !contact.getPhoneNumber2().isEmpty()) ||
+            (contact.getPhoneNumber3() != null && !contact.getPhoneNumber3().isEmpty())
           )
           .collect(Collectors.toList())
       );
@@ -103,9 +103,9 @@ public class ContactList {
         contacts
           .stream()
           .filter(contact ->
-            contact.getEmail1() != null ||
-            contact.getEmail2() != null ||
-            contact.getEmail3() != null
+            (contact.getEmail1() != null && !contact.getEmail1().isEmpty()) ||
+            (contact.getEmail2() != null && !contact.getEmail2().isEmpty()) ||
+            (contact.getEmail3() != null && !contact.getEmail3().isEmpty())
           )
           .collect(Collectors.toList())
       );
