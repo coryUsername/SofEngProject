@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Contact;
 import View.App;
 import java.io.IOException;
 import java.net.URL;
@@ -23,61 +24,84 @@ import javafx.scene.control.Label;
 public class ContactViewController implements Initializable {
 
     @FXML
-    private Button modify;
-    @FXML
-    private Button delete;
-    @FXML
-    private Button back;
-    @FXML
     private CheckBox favourite;
     @FXML
-    private Label name;
+    private Button modifyBtn;
     @FXML
-    private Label Surname;
+    private Button deleteBtn;
     @FXML
-    private Label phoneNumber1;
+    private Button backBtn;
     @FXML
-    private Label phoneNumber2;
+    private Label nameLbl;
     @FXML
-    private Label phoneNumber3;
+    private Label surnameLbl;
     @FXML
-    private Label email1;
+    private Label phoneNumber1Lbl;
     @FXML
-    private Label email2;
+    private Label phoneNumber2Lbl;
     @FXML
-    private Label email3;
+    private Label phoneNumber3Lbl;
     @FXML
-    private Label company;
+    private Label email1Lbl;
     @FXML
-    private Label IBAN;
+    private Label email2Lbl;
     @FXML
-    private Label address;
+    private Label email3Lbl;
     @FXML
-    private Label website;
+    private Label companyLbl;
     @FXML
-    private Label notes;
+    private Label IBANLbl;
+    @FXML
+    private Label addressLbl;
+    @FXML
+    private Label websiteLbl;
+    @FXML
+    private Label notesLbl;
+    
+    private Contact contact;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+    }
 
     @FXML
     private void handleModify(ActionEvent event) throws IOException {
-    
         App.setRoot("ContactFormView");
-    
     }
 
     @FXML
     private void handleDelete(ActionEvent event) {
+        
+        MainViewController.contactList.delete(contact);
+        
     }
 
     @FXML
-    private void handleBack(ActionEvent event) {
+    private void handleBack(ActionEvent event) throws IOException {
+        
+        App.setRoot("MainView");
+        
     }
-    
+
+    public void setContact(Contact contact) {
+        nameLbl.setText(contact.getName());
+        surnameLbl.setText(contact.getSurname());
+        phoneNumber1Lbl.setText(contact.getPhoneNumber1());
+        phoneNumber2Lbl.setText(contact.getPhoneNumber2());
+        phoneNumber3Lbl.setText(contact.getPhoneNumber3());
+        email1Lbl.setText(contact.getEmail1());
+        email2Lbl.setText(contact.getEmail2());
+        email3Lbl.setText(contact.getEmail3());
+        companyLbl.setText(contact.getCompany());
+        IBANLbl.setText(contact.getIBAN());
+        addressLbl.setText(contact.getAddress());
+        websiteLbl.setText(contact.getWebsite());
+        notesLbl.setText(contact.getNotes());
+        favourite.setSelected(contact.isFavourite());
+    }
+
 }

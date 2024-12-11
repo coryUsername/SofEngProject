@@ -41,6 +41,7 @@ public class ContactList {
   /**
    * Adds a new contact to the contact list.
    * @param contact The contact to be added to the list.
+   * @throws java.io.IOException
    */
   public void addContact(Contact contact) throws IOException {
     if (contact == null) {

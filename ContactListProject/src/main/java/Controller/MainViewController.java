@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.Contact;
@@ -12,127 +7,94 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+public class MainViewController implements Initializable {
 
-
-public class MainViewController implements Initializable{
-
+    @FXML
     private TextField search;
+    @FXML
     private TableView<Contact> contacts;
+
+    @FXML
     private TableColumn<Contact, String> contactName;
+    @FXML
     private TableColumn<Contact, String> contactSurname;
 
-    //creazione di un oggetto di tipo ContactList
+    public static ContactList contactList;
 
-    private ContactList contactList;
     @FXML
-    private Button modify;
+    private Button sortByName;
     @FXML
-    private Button delete;
+    private Button sortBySurname;
     @FXML
-    private Button back;
+    private Button filerByFavourite;
     @FXML
-    private CheckBox favourite;
+    private Button filerByNumber;
     @FXML
-    private Label name;
+    private Button filerByEmail;
     @FXML
-    private Label Surname;
+    private Button importBtn;
     @FXML
-    private Label phoneNumber1;
+    private Button addBtn;
     @FXML
-    private Label phoneNumber2;
-    @FXML
-    private Label phoneNumber3;
-    @FXML
-    private Label email1;
-    @FXML
-    private Label email2;
-    @FXML
-    private Label email3;
-    @FXML
-    private Label company;
-    @FXML
-    private Label IBAN;
-    @FXML
-    private Label address;
-    @FXML
-    private Label website;
-    @FXML
-    private Label notes;
-    
-    
+    private Button exportBtn;
+
     /**
      * Initializes the controller class.
-     * Initialize the data within the table columns.
-     * The method called on the columns specifies the steps required to retrieve data from a contact: 
-     * cellData contains the data for the row currently being read. 
-     * This is achieved by creating an observable property that automatically updates the objects within the table when they are modified.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        contactList=new ContactList();
-        
-        contacts.setItems(contactList.getContacts());
-        contactName.setCellValueFactory(c -> {return new SimpleStringProperty (c.getValue().getName());});
-        contactSurname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurname()));
+        if (contactList == null) {
+            contactList = new ContactList();
+        }
 
-    }  
-    
-    /*va messo nel controller della contact fomr view
-     @FXML
-    private void addContact(ActionEvent event) {
-        contactControllerList.add();
+        contacts.setItems(contactList.getContacts());
+
+        contactName.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getName()));
+        contactSurname.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getSurname()));
     }
-    */
-    
-    
-    /*
-    private void addStudent(ActionEvent event) {
-        contactControllerList.add(ora );
-    }*/
-    
-    
-     private void updateTableView(LinkedList<Contact> contactsList) {
-        ObservableList<Contact> observableList = FXCollections.observableArrayList(contactsList);
-        contacts.setItems(observableList);
-    }
-    
-    
-    private void handleAddContact(ActionEvent event) throws IOException {
+
+    @FXML
+    private void handleAddContact(ActionEvent click) throws IOException {
         App.setRoot("ContactFormView");
     }
-    
+
     private void handleSearch(ActionEvent event) {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
-            ObservableList<Contact> searchResults=contactList.search(substring);
-            contacts.setItems(searchResults); // Aggiorna i dati della TableView
-    } else {
-        // Se la barra di ricerca è vuota, mostra tutti i contatti
-        contacts.setItems(contactList.getContacts());
+            ObservableList<Contact> searchResults = contactList.search(substring);
+            contacts.setItems(searchResults);
+        } else {
+            contacts.setItems(contactList.getContacts());
         }
     }
-    
+
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
-      contacts.setItems(contactList.getContacts());  }
+        contacts.setItems(contactList.getContacts());
+    }
 
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
-      contacts.setItems(contactList.getContacts());  }
+        contacts.setItems(contactList.getContacts());
+    }
 
     private void handleFilterByFavourite(ActionEvent event) {
         contacts.setItems(contactList.filter("favourite"));
@@ -141,7 +103,29 @@ public class MainViewController implements Initializable{
     private void handleFilterByNumber(ActionEvent event) {
         contacts.setItems(contactList.filter("number"));
     }
+
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }
+
+    private void openContact(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 2) {
+            Contact selectedContact = contacts.getSelectionModel().getSelectedItem();
+            showContactDetails(selectedContact);
+        }
+    }
+
+    private void showContactDetails(Contact contact) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
+        System.out.println("Errore nel caricamento del file FXML.");
+        Parent root = loader.load();
+        ContactViewController controller = loader.getController();
+        controller.setContact(contact);
+        Stage stage = (Stage) contacts.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
