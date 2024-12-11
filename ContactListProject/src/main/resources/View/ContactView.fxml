@@ -55,7 +55,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="favourite" mnemonicParsing="false" text="Favourite">
+                  <CheckBox fx:id="favouriteCheck" mnemonicParsing="false" text="Favourite">
                      <HBox.margin>
                         <Insets left="220.0" top="10.0" />
                      </HBox.margin>

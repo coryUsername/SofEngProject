@@ -28,58 +28,45 @@ import javafx.stage.Stage;
  */
 public class ContactViewController implements Initializable {
 
-  @FXML
-  private CheckBox favourite;
-
-  @FXML
-  private Button modifyBtn;
-
-  @FXML
-  private Button deleteBtn;
-
-  @FXML
-  private Button backBtn;
-
-  @FXML
-  private Label nameLbl;
-
-  @FXML
-  private Label surnameLbl;
-
-  @FXML
-  private Label phoneNumber1Lbl;
-
-  @FXML
-  private Label phoneNumber2Lbl;
-
-  @FXML
-  private Label phoneNumber3Lbl;
-
-  @FXML
-  private Label email1Lbl;
-
-  @FXML
-  private Label email2Lbl;
-
-  @FXML
-  private Label email3Lbl;
-
-  @FXML
-  private Label companyLbl;
-
-  @FXML
-  private Label IBANLbl;
-
-  @FXML
-  private Label addressLbl;
-
-  @FXML
-  private Label websiteLbl;
-
-  @FXML
-  private Label notesLbl;
-
-  private Contact contact;
+    
+    @FXML
+    private Button modifyBtn;
+    @FXML
+    private Button deleteBtn;
+    @FXML
+    private Button backBtn;
+    
+    @FXML
+    private Label nameLbl;
+    @FXML
+    private Label surnameLbl;
+    @FXML
+    private Label phoneNumber1Lbl;
+    @FXML
+    private Label phoneNumber2Lbl;
+    @FXML
+    private Label phoneNumber3Lbl;
+    @FXML
+    private Label email1Lbl;
+    @FXML
+    private Label email2Lbl;
+    @FXML
+    private Label email3Lbl;
+    @FXML
+    private Label companyLbl;
+    @FXML
+    private Label IBANLbl;
+    @FXML
+    private Label addressLbl;
+    @FXML
+    private Label websiteLbl;
+    @FXML
+    private Label notesLbl;
+    @FXML
+    private CheckBox favouriteCheck;
+    
+    private Contact contact;
+    
 
   /**
    * Initializes the controller class.
@@ -89,11 +76,12 @@ public class ContactViewController implements Initializable {
     contact = new Contact();
   }
 
-  @FXML
-  private void handleDelete(ActionEvent event) throws IOException {
-    MainViewController.contactList.delete(contact);
-    App.setRoot("mainView");
-  }
+    @FXML
+    private void handleDelete(ActionEvent click) throws IOException {
+        
+        MainViewController.contactList.delete(contact);
+        App.setRoot("MainView");
+    }
 
   @FXML
   private void handleBack(ActionEvent event) throws IOException {
@@ -114,7 +102,7 @@ public class ContactViewController implements Initializable {
     addressLbl.setText(contact.getAddress());
     websiteLbl.setText(contact.getWebsite());
     notesLbl.setText(contact.getNotes());
-    favourite.setSelected(contact.isFavourite());
+    favouriteCheck.setSelected(contact.isFavourite());
   }
 
   @FXML

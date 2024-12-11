@@ -52,11 +52,21 @@ public class ContactTest {
      * Test of check method, of class Contact.
      */
     @Test
-    public void testCheck() {
-        System.out.println("check");
-        Contact instance = null;
-        instance.check();
-    }
+public void testCheck() {
+    System.out.println("check");
+    Contact instance = new Contact(
+        null, null, 
+        "123456789", "987654321", "1122334455", 
+        "c.rossi@studenti.unisa.it", "chiararossi2@gmail.com", "rossiconstruction@gmail.com", 
+        "Rossi Construction.", "IT123456789987654321", 
+        "Via Roma 89, Salerno(Sa)", "www.rossiconstruction.com", 
+        "Chiama il contatto venerdì 20 dicembre per avere info sul progetto.", false
+    );
+
+    // Testa che venga lanciata l'IllegalArgumentException quando nome e cognome sono nulli o vuoti
+    IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, instance::check);
+    assertEquals("Please enter a name or a surname", thrown.getMessage());
+}
 
     /**
      * Test of getName method, of class Contact.
@@ -110,7 +120,7 @@ public class ContactTest {
     public void testGetPhoneNumber3() {
         System.out.println("getPhoneNumber3");
         Contact instance = createTestContact();
-        String expResult = "";
+        String expResult = "1122334455";
         String result = instance.getPhoneNumber3();
         assertEquals(expResult, result, "The third phone number was not returned correctly.");
     }

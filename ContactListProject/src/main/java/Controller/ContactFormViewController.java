@@ -18,12 +18,7 @@ import javafx.scene.control.TextField;
  */
 public class ContactFormViewController implements Initializable {
 
-    @FXML
-    private Button save;
-    @FXML
-    private Button noSave;
-    @FXML
-    private CheckBox isFavourite;
+    
     @FXML
     private TextField nameField;
     @FXML
@@ -50,8 +45,16 @@ public class ContactFormViewController implements Initializable {
     private TextField websiteField;
     @FXML
     private TextArea notesField;
-
+    @FXML
+    private CheckBox favouriteCheck;
+    @FXML
+    private Button backBtn;
+    @FXML
+    private Button saveBtn;
+    
     private Contact contact;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -62,7 +65,26 @@ public class ContactFormViewController implements Initializable {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
+        clearFields();
         App.setRoot("MainView");
+        
+    }
+    
+    private void clearFields(){
+        nameField.setText("");
+        surnameField.setText("");
+        phone1Field.setText("");
+        phone2Field.setText("");
+        phone3Field.setText("");
+        email1Field.setText("");
+        email2Field.setText("");
+        email3Field.setText("");
+        companyField.setText("");
+        ibanField.setText("");
+        addressField.setText("");
+        notesField.setText("");
+        favouriteCheck.setSelected(false);
+        
     }
 
     @FXML
@@ -81,7 +103,7 @@ public class ContactFormViewController implements Initializable {
         String address = addressField.getText();
         String website = websiteField.getText();
         String notes = notesField.getText();
-        boolean favourite = isFavourite.isSelected();
+        boolean favourite = favouriteCheck.isSelected();
 
    
         contact = new Contact(name, surname, phoneNumber1, phoneNumber2, phoneNumber3,
