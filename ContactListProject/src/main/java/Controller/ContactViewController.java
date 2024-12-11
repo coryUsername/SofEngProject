@@ -88,10 +88,35 @@ public class ContactViewController implements Initializable {
     contact = new Contact();
   }
 
+  private void setContactlbl() {
+    contact.setName(nameLbl.getText());
+    contact.setSurname(surnameLbl.getText());
+    contact.setPhoneNumber1(phoneNumber1Lbl.getText());
+    contact.setPhoneNumber2(phoneNumber2Lbl.getText());
+    contact.setPhoneNumber3(phoneNumber3Lbl.getText());
+    contact.setEmail1(email1Lbl.getText());
+    contact.setEmail2(email2Lbl.getText());
+    contact.setEmail3(email3Lbl.getText());
+    contact.setCompany(companyLbl.getText());
+    contact.setIBAN(IBANLbl.getText());
+    contact.setAddress(addressLbl.getText());
+    contact.setWebsite(websiteLbl.getText());
+    contact.setNotes(notesLbl.getText());
+    contact.setFavorite(favouriteCheck.isSelected());
+  }
+
+  
   @FXML
   private void handleDelete(ActionEvent click) throws IOException {
+    setContactlbl();
     MainViewController.contactList.delete(contact);
-    App.setRoot("MainView");
+    Parent root = FXMLLoader.load(
+      getClass().getResource("/View/MainView.fxml")
+    );
+    Stage stage = (Stage) backBtn.getScene().getWindow();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
   }
 
   @FXML
