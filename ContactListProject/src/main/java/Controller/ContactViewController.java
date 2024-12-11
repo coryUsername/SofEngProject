@@ -85,7 +85,11 @@ public class ContactViewController implements Initializable {
 
   @FXML
   private void handleBack(ActionEvent event) throws IOException {
-    App.setRoot("MainView");
+    Parent root = FXMLLoader.load(getClass().getResource("/View/MainView.fxml"));
+    Stage stage = (Stage) backBtn.getScene().getWindow();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
   }
 
   public void setContact(Contact contact) {
