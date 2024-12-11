@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.io.File;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -80,8 +81,16 @@ public class ContactListTest {
     @Test
     public void testSearch() {
         System.out.println("search");
-        Contact c1=
-        Contact c2=
+        Contact c1=new Contact("Luigi", "Rossi", "1234567890", "0987654321", "1122334455", 
+                "luigi.rossi@example.com", "luigi.rossi2@example.com", "luigi.rossi3@example.com",
+                "Rossi Enterprises", "IT123456789", "123 Street, City", 
+                "www.rossi.com", "Luigi is a client", true);
+      
+        Contact c2=new Contact(
+            "Giuseppe", "Esposito", "333444555", "666777888", "999000111",
+            "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
+            "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
+        
         contactList.addContact(c1);
         contactList.addContact(c2);
         
@@ -117,11 +126,26 @@ public class ContactListTest {
     @Test
     public void testSort() {
         System.out.println("sort");
-        String criteria = "";
-        ContactList instance = new ContactList();
-        instance.sort(criteria);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
+                "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
+                "Rossi Enterprises", "IT123456789", "123 Street, City", 
+                "www.rossi.com", "Luigi is a client", true);
+      
+        Contact c2=new Contact(
+            "Giuseppe", "Esposito", "333444555", "666777888", "999000111",
+            "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
+            "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
+        
+        contactList.addContact(c1);
+        contactList.addContact(c2);
+        
+        contactList.sort("name");
+        assertEquals("Giuseppe", contactList.getContacts().get(0).getName(), "The first contact after sorting by name should be 'Eve'.");
+        
+        // Test ordinamento per cognome
+        contactList.sort("surname");
+        assertEquals("Annunziata", contactList.getContacts().get(0).getName(), "The first contact after sorting by surname should be 'Frank'.");
+  
     }
 
     /**
@@ -130,13 +154,16 @@ public class ContactListTest {
     @Test
     public void testDelete() {
         System.out.println("delete");
-        Contact contact = null;
-        ContactList instance = new ContactList();
-        boolean expResult = false;
-        boolean result = instance.delete(contact);
+        Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
+                "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
+                "Rossi Enterprises", "IT123456789", "123 Street, City", 
+                "www.rossi.com", "Luigi is a client", true);
+      contactList.addContact(c1);
+      
+        boolean expResult = true;
+        boolean result = contactList.delete(c1);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -145,12 +172,12 @@ public class ContactListTest {
     @Test
     public void testImportContacts() {
         System.out.println("importContacts");
-        ContactList instance = new ContactList();
-        boolean expResult = false;
-        boolean result = instance.importContacts();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        boolean expResult = true;
+        boolean result = contactList.importContacts();
+        assertTrue(result, "Contacts should be imported successfully.");
+        assertTrue(contactList.getContacts().size() > 0, "There should be at least one contact after importing.");
+
     }
 
     /**
@@ -159,12 +186,16 @@ public class ContactListTest {
     @Test
     public void testExportContacts() {
         System.out.println("exportContacts");
-        ContactList instance = new ContactList();
-        boolean expResult = false;
-        boolean result = instance.exportContacts();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+                boolean result = contactList.importContacts();
+            Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
+            "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
+            "Rossi Enterprises", "IT123456789", "123 Street, City", 
+            "www.rossi.com", "Luigi is a client", true);
+        contactList.addContact(c1);
+       boolean exported = contactList.exportContacts();
+        assertTrue(exported, "Contacts should be exported successfully.");
+        File file = new File("contactList.csv");
+        assertTrue(file.exists(), "The export file 'contactList.csv' should exist.");
     }
     
 }
