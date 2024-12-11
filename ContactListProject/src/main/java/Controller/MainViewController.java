@@ -44,17 +44,19 @@ public class MainViewController implements Initializable {
     @FXML
     private Button sortBySurname;
     @FXML
-    private Button filerByFavourite;
-    @FXML
-    private Button filerByNumber;
-    @FXML
-    private Button filerByEmail;
-    @FXML
     private Button importBtn;
     @FXML
     private Button addBtn;
     @FXML
     private Button exportBtn;
+    @FXML
+    private Button filterByFavourite;
+    @FXML
+    private Button filterByNumber;
+    @FXML
+    private Button filterByEmail;
+    @FXML
+    private Button clearBtn;
 
     /**
      * Initializes the controller class.
@@ -86,20 +88,25 @@ public class MainViewController implements Initializable {
             contacts.setItems(contactList.getContacts());
         }
     }
+    @FXML
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
         contacts.setItems(contactList.getContacts());
     }
+    @FXML
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
         contacts.setItems(contactList.getContacts());
     }
+    @FXML
     private void handleFilterByFavourite(ActionEvent event) {
         contacts.setItems(contactList.filter("favourite"));
     }
+    @FXML
     private void handleFilterByNumber(ActionEvent event) {
         contacts.setItems(contactList.filter("number"));
     }
+    @FXML
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }
@@ -123,6 +130,21 @@ public class MainViewController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void handleImportBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleExportBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleClearBtn(ActionEvent event) {
+        
+        contacts.setItems(contactList.getContacts());
+        
     }
 
 }

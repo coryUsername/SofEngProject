@@ -26,10 +26,10 @@
                <children>
                   <Label prefHeight="27.0" prefWidth="126.0" text="Sort by">
                      <VBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="sortByName" mnemonicParsing="false" prefHeight="37.0" prefWidth="63.0" text="name" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="sortByName" mnemonicParsing="false" onAction="#handleSortByName" prefHeight="37.0" prefWidth="63.0" text="name" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -37,9 +37,9 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sortBySurname" mnemonicParsing="false" prefWidth="85.0" text="surname" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="sortBySurname" mnemonicParsing="false" onAction="#handleSortBySurname" prefWidth="85.0" text="surname" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
-                        <Insets top="7.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="16.0" />
@@ -50,50 +50,58 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="filerByFavourite" mnemonicParsing="false" text="favourites" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="filterByFavourite" mnemonicParsing="false" onAction="#handleFilterByFavourite" text="favourites" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
-                        <Insets top="5.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="filerByNumber" mnemonicParsing="false" text="number" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="filterByNumber" mnemonicParsing="false" onAction="#handleFilterByNumber" text="number" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
-                        <Insets top="7.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="filerByEmail" mnemonicParsing="false" text="e-mail" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="filterByEmail" mnemonicParsing="false" onAction="#handleFilterByEmail" text="e-mail" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
-                        <Insets bottom="30.0" top="7.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="importBtn" mnemonicParsing="false" prefHeight="70.0" text="Import contacts" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClearBtn" text="Clear">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="importBtn" mnemonicParsing="false" onAction="#handleImportBtn" prefHeight="70.0" text="Import contacts" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="exportBtn" mnemonicParsing="false" prefHeight="70.0" text="Export contacts" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="exportBtn" mnemonicParsing="false" onAction="#handleExportBtn" prefHeight="70.0" text="Export contacts" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="5.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
                </children>
                <BorderPane.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </BorderPane.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </VBox>
          </left>
          <top>
@@ -109,14 +117,14 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="58.0" prefWidth="800.0" spacing="10.0">
                      <children>
-                        <Region prefHeight="25.0" prefWidth="127.0" />
+                        <Region prefHeight="58.0" prefWidth="131.0" />
                         <TextField fx:id="search" prefHeight="39.0" prefWidth="332.0" promptText="Search contact">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </TextField>
-                        <Region prefHeight="58.0" prefWidth="251.0" />
-                        <Button fx:id="addBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddContact" prefHeight="45.0" prefWidth="45.0" style="-fx-background-radius: 90;" text="+" textAlignment="CENTER" wrapText="true">
+                        <Region prefHeight="58.0" prefWidth="155.0" />
+                        <Button fx:id="addBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddContact" prefHeight="45.0" prefWidth="45.0" style="-fx-background-radius: 90;" text="+" textAlignment="CENTER" wrapText="true">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
