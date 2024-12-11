@@ -6,11 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
 import java.util.stream.Collectors;
+
 import javafx.collections.FXCollections;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.ObservableList;
 
 /**
@@ -44,7 +42,13 @@ public class ContactList {
 }
 
 
-
+/**
+ *  Sets the contacts in the contact list.
+   * @param contacts The contacts to be set in the list.
+ */
+    public void setContacts(ObservableList<Contact> contacts) {
+        this.contacts = contacts;
+    }
 
 
 

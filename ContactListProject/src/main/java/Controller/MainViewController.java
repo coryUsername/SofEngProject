@@ -1,15 +1,13 @@
 package Controller;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import Model.Contact;
 import Model.ContactList;
 import View.App;
-import java.io.IOException;
-import java.net.URL;
-import java.util.LinkedList;
-import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +20,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class MainViewController implements Initializable {
@@ -31,6 +28,19 @@ public class MainViewController implements Initializable {
     private TextField search;
     @FXML
     private TableView<Contact> contacts;
+   
+   /**
+    *  for Test
+    * */ 
+public TableView<Contact> getContacts() {
+    return contacts;
+}  public void setContacts(ObservableList<Contact> contacts) {
+    this.contacts.setItems(contacts);
+}
+    public void setContacts(TableView<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
 
     @FXML
     private TableColumn<Contact, String> contactName;
@@ -151,5 +161,6 @@ public class MainViewController implements Initializable {
         contacts.setItems(contactList.getContacts());
         
     }
+
 
 }
