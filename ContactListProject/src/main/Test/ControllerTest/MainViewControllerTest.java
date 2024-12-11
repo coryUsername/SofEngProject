@@ -69,7 +69,7 @@ controller.setContacts(contactList.getContacts());
     public void testHandleSearch() {
         // Test the search functionality
         controller.search = new javafx.scene.control.TextField();
-        controller.search.setText("John");
+        controller.search.setText("Maria");
 
         controller.handleSearch(null);
 
