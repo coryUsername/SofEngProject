@@ -19,7 +19,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -124,8 +123,10 @@ public class ContactViewController implements Initializable {
   }
 
   @FXML
-private void handleModify(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactFormView.fxml"));
+  private void handleModify(ActionEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+      getClass().getResource("/View/ContactFormView.fxml")
+    );
     Parent root = loader.load();
 
     ContactFormViewController controller = loader.getController();
@@ -143,30 +144,11 @@ private void handleModify(ActionEvent event) throws IOException {
     contact.setWebsite(websiteLbl.getText());
     contact.setNotes(notesLbl.getText());
     contact.setFavorite(favouriteCheck.isSelected());
-    controller.setContactForm(contact);
+    controller.setContact(contact, true); // Pass boolean to indicate modification
 
     Stage stage = (Stage) modifyBtn.getScene().getWindow();
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
 }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

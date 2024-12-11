@@ -69,7 +69,6 @@ public class ContactFormViewController implements Initializable {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        clearFields();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/MainView.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) backBtn.getScene().getWindow();
@@ -78,56 +77,29 @@ public class ContactFormViewController implements Initializable {
         stage.show();
     }
     
-    private void clearFields() {
-        nameField.setText("");
-        surnameField.setText("");
-        phone1Field.setText("");
-        phone2Field.setText("");
-        phone3Field.setText("");
-        email1Field.setText("");
-        email2Field.setText("");
-        email3Field.setText("");
-        companyField.setText("");
-        ibanField.setText("");
-        addressField.setText("");
-        notesField.setText("");
-        favouriteCheck.setSelected(false);
-    }
-
     @FXML
     private void handleSave(ActionEvent event) throws IOException {
-        String name = nameField.getText();
-        String surname = surnameField.getText();
-        String phoneNumber1 = phone1Field.getText();
-        String phoneNumber2 = phone2Field.getText();
-        String phoneNumber3 = phone3Field.getText();
-        String email1 = email1Field.getText();
-        String email2 = email2Field.getText();
-        String email3 = email3Field.getText();
-        String company = companyField.getText();
-        String IBAN = ibanField.getText();
-        String address = addressField.getText();
-        String website = websiteField.getText();
-        String notes = notesField.getText();
-        boolean favourite = favouriteCheck.isSelected();
+        Contact updatedContact = new Contact(
+                nameField.getText(),
+                surnameField.getText(),
+                phone1Field.getText(),
+                phone2Field.getText(),
+                phone3Field.getText(),
+                email1Field.getText(),
+                email2Field.getText(),
+                email3Field.getText(),
+                companyField.getText(),
+                ibanField.getText(),
+                addressField.getText(),
+                websiteField.getText(),
+                notesField.getText(),
+                favouriteCheck.isSelected()
+        );
 
-        contact.setName(name);
-        contact.setSurname(surname);
-        contact.setPhoneNumber1(phoneNumber1);
-        contact.setPhoneNumber2(phoneNumber2);
-        contact.setPhoneNumber3(phoneNumber3);
-        contact.setEmail1(email1);
-        contact.setEmail2(email2);
-        contact.setEmail3(email3);
-        contact.setCompany(company);
-        contact.setIBAN(IBAN);
-        contact.setAddress(address);
-        contact.setWebsite(website);
-        contact.setNotes(notes);
-        contact.setFavorite(favourite);
-
-        if (!isModification && !MainViewController.contactList.contains(contact)) {
-            MainViewController.contactList.addContact(contact);
+        if (isModification) {
+            MainViewController.contactList.updateContact(contact, updatedContact);
+        } else {
+            MainViewController.contactList.addContact(updatedContact);
         }
 
         Parent root = FXMLLoader.load(getClass().getResource("/View/MainView.fxml"));

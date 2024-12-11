@@ -6,9 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 import java.util.stream.Collectors;
-
 import javafx.collections.FXCollections;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableList;
 
 /**
@@ -42,13 +44,7 @@ public class ContactList {
 }
 
 
-/**
- *  Sets the contacts in the contact list.
-   * @param contacts The contacts to be set in the list.
- */
-    public void setContacts(ObservableList<Contact> contacts) {
-        this.contacts = contacts;
-    }
+
 
 
 
@@ -216,24 +212,15 @@ public class ContactList {
       for (Contact c : contacts) {
         writer.print(
           c.getName() +
-          ";" +
-          c.getSurname() +
-          ";" +
-          c.getPhoneNumber1() +
-          ";" +
-          c.getPhoneNumber2() +
-          ";" +
-          c.getPhoneNumber3() +
-          ";" +
-          c.getEmail1() +
-          ";" +
-          c.getEmail2() +
-          ";" +
-          c.getEmail3() +
-          ";" +
-          c.getCompany() +
-          ";" +
-          c.getIBAN() +
+          ";" + c.getSurname() +
+          ";" +c.getPhoneNumber1() +
+          ";" +c.getPhoneNumber2() +
+          ";" +c.getPhoneNumber3() +
+          ";" +c.getEmail1() +
+          ";" +c.getEmail2() +
+          ";" +c.getEmail3() +
+          ";" +c.getCompany() +
+          ";" +c.getIBAN() +
           ";" +
           c.getAddress() +
           ";" +
@@ -251,12 +238,14 @@ public class ContactList {
     }
     return true;
   }
+
   public void updateContact(Contact contact, Contact updatedContact) {
     int index = contacts.indexOf(contact);
     if (index != -1) {
       contacts.set(index, updatedContact);
     }
   }
+
 
   
 }

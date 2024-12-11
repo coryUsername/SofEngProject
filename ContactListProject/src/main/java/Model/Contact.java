@@ -303,6 +303,18 @@ public class Contact {
     
     }
 
+
+    
+  @Override
+  public boolean equals(Object obj) {
+      if (this == obj) return true;
+      if (obj == null || getClass() != obj.getClass()) return false;
+      Contact contact = (Contact) obj;
+      return name.equalsIgnoreCase(contact.name) &&
+             surname.equalsIgnoreCase(contact.surname);
+  }
+
+
     public String toCsv() {
         return String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s",
                 name, surname, formatPhoneNumber(phoneNumber1), formatPhoneNumber(phoneNumber2), formatPhoneNumber(phoneNumber3), 
@@ -319,16 +331,6 @@ public class Contact {
         return email != null ? email.toLowerCase() : email;
     }
 
-
-    
-  @Override
-  public boolean equals(Object obj) {
-      if (this == obj) return true;
-      if (obj == null || getClass() != obj.getClass()) return false;
-      Contact contact = (Contact) obj;
-      return name.equalsIgnoreCase(contact.name) &&
-             surname.equalsIgnoreCase(contact.surname);
-  }
 
 
 }

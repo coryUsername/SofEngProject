@@ -7,6 +7,15 @@ import java.util.ResourceBundle;
 import Model.Contact;
 import Model.ContactList;
 import View.App;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.util.LinkedList;
+import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class MainViewController implements Initializable {
@@ -137,10 +147,10 @@ public TableView<Contact> getContacts() {
 
     private void showContactDetails(Contact contact) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactFormView.fxml"));
-        Parent root = loader.load(); 
-        ContactFormViewController controller = loader.getController();
-        controller.setContact(contact, true);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
+        Parent root = loader.load();
+        ContactViewController controller = loader.getController();
+        controller.setContact(contact);
         Stage stage = (Stage) contacts.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -152,7 +162,19 @@ public TableView<Contact> getContacts() {
     }
 
     @FXML
-    private void handleExportBtn(ActionEvent event) {
+    private void handleExportBtn(ActionEvent event) throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialFileName("contatti");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File csv", "*.csv"));
+        File selectedFile = fileChooser.showSaveDialog(contacts.getScene().getWindow());
+        if (selectedFile != null) {
+            try (PrintWriter writer = new PrintWriter(selectedFile)) {
+                writer.println("nome;cognome;telefono1;telefono2;telefono3;email1;email2;email3;azienda;iban;indirizzo;sito;note");
+                for (Contact contact : contactList.getContacts()) {
+                    writer.println(contact.toCsv());
+                }
+            }
+        }
     }
 
     @FXML
