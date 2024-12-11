@@ -91,4 +91,27 @@ public class ContactFormViewController implements Initializable {
 
         App.setRoot("MainView");
     }
+
+
+    public void setContactForm(Contact contact) {
+        this.contact = contact;
+        nameField.setText(contact.getName());
+        surnameField.setText(contact.getSurname());
+        phone1Field.setText(contact.getPhoneNumber1());
+        phone2Field.setText(contact.getPhoneNumber2());
+        phone3Field.setText(contact.getPhoneNumber3());
+        email1Field.setText(contact.getEmail1());
+        email2Field.setText(contact.getEmail2());
+        email3Field.setText(contact.getEmail3());
+        companyField.setText(contact.getCompany());
+        ibanField.setText(contact.getIBAN());
+        addressField.setText(contact.getAddress());
+        websiteField.setText(contact.getWebsite());
+        notesField.setText(contact.getNotes());
+        isFavourite.setSelected(contact.isFavourite());
+      }
+
+
+
+
 }
