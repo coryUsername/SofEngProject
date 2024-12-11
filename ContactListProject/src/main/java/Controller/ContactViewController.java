@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Contact;
 import View.App;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import javafx.scene.control.Label;
  */
 public class ContactViewController implements Initializable {
 
+
     @FXML
     private Button modify;
     @FXML
@@ -33,7 +35,7 @@ public class ContactViewController implements Initializable {
     @FXML
     private Label name;
     @FXML
-    private Label Surname;
+    private Label surname;
     @FXML
     private Label phoneNumber1;
     @FXML
@@ -62,12 +64,11 @@ public class ContactViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 
     @FXML
     private void handleModify(ActionEvent event) throws IOException {
-    
         App.setRoot("ContactFormView");
     
     }
@@ -78,6 +79,22 @@ public class ContactViewController implements Initializable {
 
     @FXML
     private void handleBack(ActionEvent event) {
+    }
+    public void setContact(Contact contact) {
+        name.setText(contact.getName());
+        surname.setText(contact.getSurname());
+        phoneNumber1.setText(contact.getPhoneNumber1());
+        phoneNumber2.setText(contact.getPhoneNumber2());
+        phoneNumber3.setText(contact.getPhoneNumber3());
+        email1.setText(contact.getEmail1());
+        email2.setText(contact.getEmail2());
+        email3.setText(contact.getEmail3());
+        company.setText(contact.getCompany());
+        IBAN.setText(contact.getIBAN());
+        address.setText(contact.getAddress());
+        website.setText(contact.getWebsite());
+        notes.setText(contact.getNotes());
+        favourite.setSelected(contact.isFavourite());
     }
     
 }

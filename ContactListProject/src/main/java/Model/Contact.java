@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.List;
-import java.util.LinkedList;
 
 /**
  * @file Contact.java
