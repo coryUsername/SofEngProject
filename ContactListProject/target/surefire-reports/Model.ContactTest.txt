@@ -1,0 +1,124 @@
+-------------------------------------------------------------------------------
+Test set: Model.ContactTest
+-------------------------------------------------------------------------------
+Tests run: 30, Failures: 30, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec <<< FAILURE!
+Model.ContactTest.testSetNotes()  Time elapsed: 0.013 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetNotes(ContactTest.java:397)
+
+Model.ContactTest.testSetAddress()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetAddress(ContactTest.java:371)
+
+Model.ContactTest.testSetIBAN()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetIBAN(ContactTest.java:358)
+
+Model.ContactTest.testSetEmail1()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetEmail1(ContactTest.java:306)
+
+Model.ContactTest.testToString()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testToString(ContactTest.java:437)
+
+Model.ContactTest.testSetEmail2()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetEmail2(ContactTest.java:319)
+
+Model.ContactTest.testIsFavourite()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testIsFavourite(ContactTest.java:423)
+
+Model.ContactTest.testSetFavorite()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetFavorite(ContactTest.java:410)
+
+Model.ContactTest.testSetEmail3()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetEmail3(ContactTest.java:332)
+
+Model.ContactTest.testSetWebsite()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetWebsite(ContactTest.java:384)
+
+Model.ContactTest.testSetCompany()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetCompany(ContactTest.java:345)
+
+Model.ContactTest.testCheck()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testCheck(ContactTest.java:46)
+
+Model.ContactTest.testGetSurname()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetSurname(ContactTest.java:73)
+
+Model.ContactTest.testGetAddress()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetAddress(ContactTest.java:199)
+
+Model.ContactTest.testGetName()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetName(ContactTest.java:59)
+
+Model.ContactTest.testSetSurname()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetSurname(ContactTest.java:254)
+
+Model.ContactTest.testGetIBAN()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetIBAN(ContactTest.java:185)
+
+Model.ContactTest.testSetName()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetName(ContactTest.java:241)
+
+Model.ContactTest.testGetEmail3()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetEmail3(ContactTest.java:157)
+
+Model.ContactTest.testGetCompany()  Time elapsed: 0.006 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetCompany(ContactTest.java:171)
+
+Model.ContactTest.testGetWebsite()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetWebsite(ContactTest.java:213)
+
+Model.ContactTest.testGetNotes()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetNotes(ContactTest.java:227)
+
+Model.ContactTest.testGetEmail1()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetEmail1(ContactTest.java:129)
+
+Model.ContactTest.testGetEmail2()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetEmail2(ContactTest.java:143)
+
+Model.ContactTest.testGetPhoneNumber1()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetPhoneNumber1(ContactTest.java:87)
+
+Model.ContactTest.testGetPhoneNumber2()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetPhoneNumber2(ContactTest.java:101)
+
+Model.ContactTest.testSetPhoneNumber1()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetPhoneNumber1(ContactTest.java:267)
+
+Model.ContactTest.testSetPhoneNumber2()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetPhoneNumber2(ContactTest.java:280)
+
+Model.ContactTest.testGetPhoneNumber3()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testGetPhoneNumber3(ContactTest.java:115)
+
+Model.ContactTest.testSetPhoneNumber3()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at Model.ContactTest.testSetPhoneNumber3(ContactTest.java:293)
+
