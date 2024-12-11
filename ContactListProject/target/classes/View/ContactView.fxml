@@ -16,7 +16,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="129.0" spacing="5.0" style="-fx-background-color: lightgray; -fx-border-radius: 40;">
          <children>
-            <Button fx:id="modify" mnemonicParsing="false" onAction="#handleModify" prefHeight="70.0" prefWidth="100.0" text="Modify contact" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="modifyBtn" mnemonicParsing="false" onAction="#handleModify" prefHeight="70.0" prefWidth="100.0" text="Modify contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="80.0" prefWidth="100.0" text="Delete Contact" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#handleDelete" prefHeight="80.0" prefWidth="100.0" text="Delete Contact" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -33,7 +33,7 @@
                </font>
             </Button>
             <Region prefHeight="309.0" prefWidth="122.0" />
-            <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#handleBack" prefHeight="40.0" prefWidth="100.0" text="← back" textAlignment="CENTER" wrapText="true">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -73,8 +73,8 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="name" prefHeight="41.0" prefWidth="99.0" text="Nome" />
-                  <Label fx:id="Surname" prefHeight="41.0" prefWidth="96.0" text="Surname" />
+                  <Label fx:id="nameLbl" prefHeight="41.0" prefWidth="99.0" text="Nome" />
+                  <Label fx:id="surnameLbl" prefHeight="41.0" prefWidth="96.0" text="Surname" />
                </children>
             </HBox>
             <Label prefHeight="27.0" prefWidth="211.0" text="Phone numbers" wrapText="true">
@@ -83,12 +83,12 @@
                </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label fx:id="phoneNumber1" prefWidth="140.0" text="phoneNumber 1" />
-                  <Label fx:id="phoneNumber2" prefWidth="140.0" text="phoneNumber 2">
+                  <Label fx:id="phoneNumber1Lbl" prefWidth="140.0" text="phoneNumber 1" />
+                  <Label fx:id="phoneNumber2Lbl" prefWidth="140.0" text="phoneNumber 2">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Label>
-                  <Label fx:id="phoneNumber3" prefWidth="140.0" text="phoneNumber 3">
+                  <Label fx:id="phoneNumber3Lbl" prefWidth="140.0" text="phoneNumber 3">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Label>
@@ -100,12 +100,12 @@
                </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label fx:id="email1" prefHeight="17.0" prefWidth="140.0" text="E-mail 1" />
-                  <Label fx:id="email2" prefHeight="17.0" prefWidth="140.0" text="E-mail 2">
+                  <Label fx:id="email1Lbl" prefHeight="17.0" prefWidth="140.0" text="E-mail 1" />
+                  <Label fx:id="email2Lbl" prefHeight="17.0" prefWidth="140.0" text="E-mail 2">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Label>
-                  <Label fx:id="email3" prefHeight="17.0" prefWidth="140.0" text="Email 3">
+                  <Label fx:id="email3Lbl" prefHeight="17.0" prefWidth="140.0" text="Email 3">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Label>
@@ -128,8 +128,8 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="company" text="company" />
-                  <Label fx:id="IBAN" text="IBAN">
+                  <Label fx:id="companyLbl" text="company" />
+                  <Label fx:id="IBANLbl" text="IBAN">
                      <HBox.margin>
                         <Insets left="195.0" />
                      </HBox.margin></Label>
@@ -152,8 +152,8 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="address" text="address" />
-                  <Label fx:id="website" text="website">
+                  <Label fx:id="addressLbl" text="address" />
+                  <Label fx:id="websiteLbl" text="website">
                      <HBox.margin>
                         <Insets left="205.0" />
                      </HBox.margin></Label>
@@ -166,7 +166,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="notes" prefHeight="120.0" prefWidth="476.0" style="-fx-background-color: #BFC9C2;" wrapText="true">
+            <Label fx:id="notesLbl" prefHeight="120.0" prefWidth="476.0" style="-fx-background-color: #BFC9C2;" wrapText="true">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Label>

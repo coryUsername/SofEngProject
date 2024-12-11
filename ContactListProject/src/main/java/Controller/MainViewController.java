@@ -31,17 +31,14 @@ public class MainViewController implements Initializable {
     private TextField search;
     @FXML
     private TableView<Contact> contacts;
-    
+
     @FXML
     private TableColumn<Contact, String> contactName;
     @FXML
     private TableColumn<Contact, String> contactSurname;
 
-  
     public static ContactList contactList;
 
-    @FXML
-    private Button add;
     @FXML
     private Button sortByName;
     @FXML
@@ -54,6 +51,10 @@ public class MainViewController implements Initializable {
     private Button filerByEmail;
     @FXML
     private Button importBtn;
+    @FXML
+    private Button addBtn;
+    @FXML
+    private Button exportBtn;
 
     /**
      * Initializes the controller class.
@@ -71,7 +72,7 @@ public class MainViewController implements Initializable {
     }
 
     @FXML
-    private void handleAddContact(ActionEvent event) throws IOException {
+    private void handleAddContact(ActionEvent click) throws IOException {
         App.setRoot("ContactFormView");
     }
 
@@ -79,7 +80,7 @@ public class MainViewController implements Initializable {
         String substring = search.getText();
         if (substring != null && !substring.isEmpty()) {
             ObservableList<Contact> searchResults = contactList.search(substring);
-            contacts.setItems(searchResults); 
+            contacts.setItems(searchResults);
         } else {
             contacts.setItems(contactList.getContacts());
         }
@@ -87,12 +88,12 @@ public class MainViewController implements Initializable {
 
     private void handleSortByName(ActionEvent event) {
         contactList.sort("name");
-        contacts.setItems(contactList.getContacts()); 
+        contacts.setItems(contactList.getContacts());
     }
 
     private void handleSortBySurname(ActionEvent event) {
         contactList.sort("surname");
-        contacts.setItems(contactList.getContacts()); 
+        contacts.setItems(contactList.getContacts());
     }
 
     private void handleFilterByFavourite(ActionEvent event) {
@@ -100,38 +101,31 @@ public class MainViewController implements Initializable {
     }
 
     private void handleFilterByNumber(ActionEvent event) {
-        contacts.setItems(contactList.filter("number")); 
+        contacts.setItems(contactList.filter("number"));
     }
 
     private void handleFilterByEmail(ActionEvent event) {
         contacts.setItems(contactList.filter("email"));
     }
 
-   @FXML
-private void openContact(MouseEvent event) throws IOException {
-    if (event.getClickCount() == 2) {
-        Contact selectedContact = contacts.getSelectionModel().getSelectedItem();
-        showContactDetails(selectedContact); 
+    private void openContact(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 2) {
+            Contact selectedContact = contacts.getSelectionModel().getSelectedItem();
+            showContactDetails(selectedContact);
+        }
     }
-}
 
-    
-   private void showContactDetails(Contact contact) throws IOException {
+    private void showContactDetails(Contact contact) throws IOException {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
-    System.out.println("Errore nel caricamento del file FXML.");
-    Parent root = loader.load();
-    ContactViewController controller = loader.getController();  
-    controller.setContact(contact);
-    Stage stage = (Stage) contacts.getScene().getWindow();
-    Scene scene = new Scene(root); 
-    stage.setScene(scene);
-    stage.show(); 
-}
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/ContactView.fxml"));
+        System.out.println("Errore nel caricamento del file FXML.");
+        Parent root = loader.load();
+        ContactViewController controller = loader.getController();
+        controller.setContact(contact);
+        Stage stage = (Stage) contacts.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
-
-
-
-    
-    
 }
