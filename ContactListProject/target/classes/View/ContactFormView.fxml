@@ -81,21 +81,20 @@
                </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <TextField fx:id="phone1Field" promptText="Phone number 1">
+                  <TextField fx:id="phone1Field" onInputMethodTextChanged="#handlePhoneFieldsKey" onKeyPressed="#handlePhoneFieldsKey" onKeyReleased="#handlePhoneFieldsKey" onKeyTyped="#handlePhoneFieldsKey" promptText="Phone number 1">
                      <HBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </HBox.margin></TextField>
-                  <TextField fx:id="phone2Field" layoutX="10.0" layoutY="14.0" promptText="Phone number 2">
+                  <TextField fx:id="phone2Field" layoutX="10.0" layoutY="14.0" onInputMethodTextChanged="#handlePhoneFieldsKey" onKeyPressed="#handlePhoneFieldsKey" onKeyReleased="#handlePhoneFieldsKey" onKeyTyped="#handlePhoneFieldsKey" promptText="Phone number 2">
                      <HBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </HBox.margin></TextField>
-                  <TextField fx:id="phone3Field" layoutX="234.0" layoutY="14.0" promptText="Phone number 3">
+                  <TextField fx:id="phone3Field" layoutX="234.0" layoutY="14.0" onInputMethodTextChanged="#handlePhoneFieldsKey" onKeyPressed="#handlePhoneFieldsKey" onKeyReleased="#handlePhoneFieldsKey" onKeyTyped="#handlePhoneFieldsKey" promptText="Phone number 3">
                      <HBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <Label fx:id="errorLbl" text="Label" />
             <Label prefHeight="39.0" prefWidth="97.0" text="E-mail:" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />

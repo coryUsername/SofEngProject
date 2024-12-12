@@ -315,11 +315,11 @@ public class Contact {
              surname.equalsIgnoreCase(contact.surname);
   }
 
-    //Metodo per l'export in csv
+    //Metodo per l'export in csv (formatta in csv)
     public String toCsv() {
-        return String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s",
+        return String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s",
                 name, surname, formatPhoneNumber(phoneNumber1), formatPhoneNumber(phoneNumber2), formatPhoneNumber(phoneNumber3), 
-                formatEmail(email1), formatEmail(email2), formatEmail(email3), company, IBAN, address, website, notes);
+                formatEmail(email1), formatEmail(email2), formatEmail(email3), company, IBAN, address, website, notes, favourite);
     }
 
 /**
