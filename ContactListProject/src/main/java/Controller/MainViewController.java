@@ -46,11 +46,11 @@ public class MainViewController implements Initializable {
     return contacts;
   }
 
-  public void setContacts(ObservableList<Contact> contacts) {
+  public void setContactsObservable(ObservableList<Contact> contacts) {
     this.contacts.setItems(contacts);
   }
 
-  public void setContacts(TableView<Contact> contacts) {
+  public void setContactsTable(TableView<Contact> contacts) {
     this.contacts = contacts;
   }
 

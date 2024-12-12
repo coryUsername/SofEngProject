@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.stream.Collectors;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -30,6 +31,9 @@ public class ContactList {
     this.contacts = FXCollections.observableArrayList();
   }
 
+public void setContactsObservable(ObservableList<Contact> contacts) {
+    this.contacts = contacts;
+}
   public ObservableList<Contact> getContacts() {
     return contacts;
   }

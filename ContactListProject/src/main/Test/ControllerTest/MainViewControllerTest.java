@@ -44,15 +44,15 @@ public class MainViewControllerTest{
         contacts.add(new Contact("Cory", "Senatore"));
         contacts.add(new Contact("Mario", "Stanco"));
         contacts.add(new Contact("Ursula", "Iannone"));
-        contactList.setContacts(contacts);
+        contactList.setContactsObservable(contacts);
 
         // Instantiate the controller
         controller = new MainViewController();
         MainViewController.contactList = contactList;
 
         // Mock JavaFX TableView and columns
-        controller.setContacts( new TableView<>());
-controller.setContacts(contactList.getContacts());
+        controller.setContactsTable( new TableView<>());
+controller.setContactsObservable(contactList.getContacts());
         
 
     }
