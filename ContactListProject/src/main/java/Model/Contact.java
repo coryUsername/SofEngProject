@@ -296,6 +296,7 @@ public class Contact {
     }
     
     //@Override(?) + ci serve un to string particolare per l'export?
+    @Override
     public String toString() {
         return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favourite;
     
@@ -314,19 +315,36 @@ public class Contact {
              surname.equalsIgnoreCase(contact.surname);
   }
 
-
+    //Metodo per l'export in csv
     public String toCsv() {
         return String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s",
                 name, surname, formatPhoneNumber(phoneNumber1), formatPhoneNumber(phoneNumber2), formatPhoneNumber(phoneNumber3), 
                 formatEmail(email1), formatEmail(email2), formatEmail(email3), company, IBAN, address, website, notes);
     }
 
+/**
+ * Formats a phone number by adding spaces after the third and sixth digits.
+ * If the phone number is null or does not match the expected format of a
+ * ten-digit number, it returns the original phone number.
+ * @param phoneNumber The phone number to format.
+ * @return The formatted phone number, or the original phone number if it
+ *         does not match the ten-digit pattern.
+ */
     private String formatPhoneNumber(String phoneNumber) {
         return phoneNumber != null && phoneNumber.matches("\\d{10}")
-                ? String.format("%s %s", phoneNumber.substring(0, 3), phoneNumber.substring(3))
+                ? String.format("%s %s %s", phoneNumber.substring(0, 3), phoneNumber.substring(3, 6), phoneNumber.substring(6))
                 : phoneNumber;
     }
 
+
+
+     /**
+     * Formats an email address by converting it to lower case.
+     * If the email address is null, it returns the original email address.
+     * @param email The email address to format.
+     * @return The formatted email address, or the original email address if it
+     *         is null.
+     */
     private String formatEmail(String email) {
         return email != null ? email.toLowerCase() : email;
     }

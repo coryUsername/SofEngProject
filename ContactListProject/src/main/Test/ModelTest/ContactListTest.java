@@ -5,6 +5,7 @@
 package Model;
 
 import java.io.File;
+import java.io.IOException;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -79,7 +80,7 @@ public class ContactListTest {
      * Test of search method, of class ContactList.
      */
     @Test
-    public void testSearch() {
+    public void testSearch() throws IOException {
         System.out.println("search");
         Contact c1=new Contact("Luigi", "Rossi", "1234567890", "0987654321", "1122334455", 
                 "luigi.rossi@example.com", "luigi.rossi2@example.com", "luigi.rossi3@example.com",
@@ -124,7 +125,7 @@ public class ContactListTest {
      * Test of sort method, of class ContactList.
      */
     @Test
-    public void testSort() {
+    public void testSort() throws IOException {
         System.out.println("sort");
         Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
                 "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
@@ -152,7 +153,7 @@ public class ContactListTest {
      * Test of delete method, of class ContactList.
      */
     @Test
-    public void testDelete() {
+    public void testDelete() throws IOException {
         System.out.println("delete");
         Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
                 "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
@@ -184,7 +185,7 @@ public class ContactListTest {
      * Test of exportContacts method, of class ContactList.
      */
     @Test
-    public void testExportContacts() {
+    public void testExportContacts() throws IOException {
         System.out.println("exportContacts");
                 boolean result = contactList.importContacts();
             Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 

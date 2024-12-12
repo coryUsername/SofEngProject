@@ -6,11 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.ObservableList;
 
 /**
@@ -31,22 +28,15 @@ public class ContactList {
    */
   public ContactList() {
     this.contacts = FXCollections.observableArrayList();
-   
   }
 
   public ObservableList<Contact> getContacts() {
     return contacts;
   }
 
-  
   public boolean contains(Contact contact) {
     return contacts.stream().anyMatch(c -> c.equals(contact));
-}
-
-
-
-
-
+  }
 
   /**
    * Adds a new contact to the contact list.
@@ -102,9 +92,18 @@ public class ContactList {
         contacts
           .stream()
           .filter(contact ->
-            (contact.getPhoneNumber1() != null && !contact.getPhoneNumber1().isEmpty()) ||
-            (contact.getPhoneNumber2() != null && !contact.getPhoneNumber2().isEmpty()) ||
-            (contact.getPhoneNumber3() != null && !contact.getPhoneNumber3().isEmpty())
+            (
+              contact.getPhoneNumber1() != null &&
+              !contact.getPhoneNumber1().isEmpty()
+            ) ||
+            (
+              contact.getPhoneNumber2() != null &&
+              !contact.getPhoneNumber2().isEmpty()
+            ) ||
+            (
+              contact.getPhoneNumber3() != null &&
+              !contact.getPhoneNumber3().isEmpty()
+            )
           )
           .collect(Collectors.toList())
       );
@@ -212,15 +211,24 @@ public class ContactList {
       for (Contact c : contacts) {
         writer.print(
           c.getName() +
-          ";" + c.getSurname() +
-          ";" +c.getPhoneNumber1() +
-          ";" +c.getPhoneNumber2() +
-          ";" +c.getPhoneNumber3() +
-          ";" +c.getEmail1() +
-          ";" +c.getEmail2() +
-          ";" +c.getEmail3() +
-          ";" +c.getCompany() +
-          ";" +c.getIBAN() +
+          ";" +
+          c.getSurname() +
+          ";" +
+          c.getPhoneNumber1() +
+          ";" +
+          c.getPhoneNumber2() +
+          ";" +
+          c.getPhoneNumber3() +
+          ";" +
+          c.getEmail1() +
+          ";" +
+          c.getEmail2() +
+          ";" +
+          c.getEmail3() +
+          ";" +
+          c.getCompany() +
+          ";" +
+          c.getIBAN() +
           ";" +
           c.getAddress() +
           ";" +
@@ -245,7 +253,4 @@ public class ContactList {
       contacts.set(index, updatedContact);
     }
   }
-
-
-  
 }

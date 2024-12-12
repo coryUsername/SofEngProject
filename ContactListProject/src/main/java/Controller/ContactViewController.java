@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.Contact;
-import View.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,10 +20,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- */
 public class ContactViewController implements Initializable {
 
   @FXML
@@ -105,7 +100,7 @@ public class ContactViewController implements Initializable {
     contact.setFavorite(favouriteCheck.isSelected());
   }
 
-  
+
   @FXML
   private void handleDelete(ActionEvent click) throws IOException {
     setContactlbl();
