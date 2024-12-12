@@ -145,6 +145,9 @@ public void handleSearchPublic(ActionEvent event) {
     contacts.setItems(sortedContacts);
   }
 
+public void handleSortBySurnamePublic(ActionEvent event) {
+  handleSortBySurname(event);
+}
   @FXML
   private void handleSortBySurname(ActionEvent event) {
     ObservableList<Contact> sortedContacts = FXCollections.observableArrayList(contacts.getItems());

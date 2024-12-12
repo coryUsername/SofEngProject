@@ -6,11 +6,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyCode;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
+
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +38,9 @@ public class MainViewControllerTest{
     
     @AfterEach
     public void tearDown() {
+        contactList.getContacts().clear();
     }
+
 
     @BeforeEach
     public void setUp() {
@@ -53,7 +59,7 @@ public class MainViewControllerTest{
         // Mock JavaFX TableView and columns
         controller.setContactsTable( new TableView<>());
 controller.setContactsObservable(contactList.getContacts());
-        
+     controller.search = new TextField();   
 
     }
 
@@ -68,7 +74,7 @@ controller.setContactsObservable(contactList.getContacts());
     @Test
     public void testHandleSearch() {
         // Test the search functionality
-        controller.search = new javafx.scene.control.TextField();
+       // controller.search = new javafx.scene.control.TextField();
         controller.search.setText("Maria");
 
         controller.handleSearchPublic(null);
@@ -76,6 +82,9 @@ controller.setContactsObservable(contactList.getContacts());
         ObservableList<Contact> filteredContacts = controller.getContacts().getItems();
         assertEquals(1, filteredContacts.size(), "Search should return 1 contact.");
         assertEquals("Maria", filteredContacts.get(0).getName(), "The contact name should be 'Maria'.");
+    controller.search.setText("");
+        controller.handleSearchPublic(null);
+        assertEquals(4, controller.getContacts().getItems().size(), "La lista dei contatti dovrebbe tornare alla dimensione originale.");
     }
 
     @Test
@@ -88,6 +97,18 @@ controller.setContactsObservable(contactList.getContacts());
         assertEquals("Cory", sortedContacts.get(1).getName(), "The second contact should be 'Cory' after sorting by name.");
         assertEquals("Mario", sortedContacts.get(2).getName(), "The third contact should be 'Mario' after sorting by name.");
         assertEquals("Ursula", sortedContacts.get(3).getName(), "The fourth contact should be 'Ursula' after sorting by name.");
+    }
+
+@Test
+    public void testHandleSortBySurname() {
+        // Test ordinamento per cognome
+        controller.handleSortBySurnamePublic(null);
+       ObservableList<Contact> sortedContacts = controller.getContacts().getItems();
+
+        assertEquals("Iannone", sortedContacts.get(0).getSurname(), "Il primo cognome dovrebbe essere 'Iannone' dopo l'ordinamento.");
+        assertEquals("Pagano", sortedContacts.get(1).getSurname());
+        assertEquals("Senatore", sortedContacts.get(2).getSurname());
+        assertEquals("Stanco", sortedContacts.get(3).getSurname());
     }
 
     @Test
