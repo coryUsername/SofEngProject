@@ -15,9 +15,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
-
 
 public class ContactFormViewController implements Initializable {
 
@@ -93,6 +92,17 @@ public class ContactFormViewController implements Initializable {
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
+
+  @FXML
+  private void handlePhoneFieldsKey(KeyEvent event) {
+    TextField textField = (TextField) event.getSource();
+    if (!textField.getText().matches("[0-9]{0,10}")) {
+      textField.setText(textField.getText().replaceAll("[^0-9]", ""));
+      if (textField.getText().length() > 10) {
+        textField.setText(textField.getText().substring(0, 10));
+      }
+    }
   }
 
   

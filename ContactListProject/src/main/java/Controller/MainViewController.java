@@ -2,12 +2,18 @@ package Controller;
 
 import Model.Contact;
 import Model.ContactList;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -183,7 +190,49 @@ public class MainViewController implements Initializable {
   }
 
   @FXML
-  private void handleImportBtn(ActionEvent event) {}
+  private void handleImportBtn(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setInitialFileName("contatti");
+    fileChooser
+      .getExtensionFilters()
+      .add(new FileChooser.ExtensionFilter("File csv", "*.csv"));
+    File selectedFile = fileChooser.showOpenDialog(
+      contacts.getScene().getWindow()
+    );
+    if (selectedFile != null) {
+      try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+        String line;
+        reader.readLine();
+        while ((line = reader.readLine()) != null) {
+          String[] fields = line.split(";");
+
+          Contact contact = new Contact(
+            fields.length > 0 ? fields[0] : "",
+            fields.length > 1 ? fields[1] : "",
+            fields.length > 2 ? fields[2] : "",
+            fields.length > 3 ? fields[3] : "",
+            fields.length > 4 ? fields[4] : "",
+            fields.length > 5 ? fields[5] : "",
+            fields.length > 6 ? fields[6] : "",
+            fields.length > 7 ? fields[7] : "",
+            fields.length > 8 ? fields[8] : "",
+            fields.length > 9 ? fields[9] : "",
+            fields.length > 10 ? fields[10] : "",
+            fields.length > 11 ? fields[11] : "",
+            fields.length > 12 ? fields[12] : "",
+            fields.length > 13 ? Boolean.parseBoolean(fields[13]) : false
+          );
+
+          contactList.addContact(contact);
+        }
+        contacts.setItems(contactList.getContacts());
+      } catch (IOException ex) {
+        System.out.println("Error reading file: " + ex.getMessage());
+      }
+    }
+  }
+
+
 
   
   @FXML
@@ -199,7 +248,7 @@ public class MainViewController implements Initializable {
     if (selectedFile != null) {
       try (PrintWriter writer = new PrintWriter(selectedFile)) {
         writer.println(
-          "nome;cognome;telefono1;telefono2;telefono3;email1;email2;email3;azienda;iban;indirizzo;sito;note"
+          "nome;cognome;telefono1;telefono2;telefono3;email1;email2;email3;azienda;iban;indirizzo;sito;note;favourite"
         );
         for (Contact contact : contactList.getContacts()) {
           writer.println(contact.toCsv());
@@ -212,4 +261,6 @@ public class MainViewController implements Initializable {
   private void handleClearBtn(ActionEvent event) {
     contacts.setItems(contactList.getContacts());
   }
+
+   
 }

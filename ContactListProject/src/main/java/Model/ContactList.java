@@ -2,11 +2,16 @@ package Model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
+import Controller.MainViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -147,56 +152,11 @@ public class ContactList {
    * Imports contacts into the contact list from a source (e.g., file, database).
    * @return true if the contacts are successfully imported, false otherwise.
    */
-  public boolean importContacts() {
-    try (
-      BufferedReader reader = new BufferedReader(
-        new FileReader("contactList.csv")
-      )
-    ) {
-      String line;
-      while ((line = reader.readLine()) != null) {
-        String[] dati = line.split(";");
-        if (dati.length == 14) {
-          String name = dati[0];
-          String surname = dati[1];
-          String phoneNumber1 = dati[2];
-          String phoneNumber2 = dati[3];
-          String phoneNumber3 = dati[4];
-          String email1 = dati[5];
-          String email2 = dati[6];
-          String email3 = dati[7];
-          String company = dati[8];
-          String IBAN = dati[9];
-          String address = dati[10];
-          String website = dati[11];
-          String notes = dati[12];
-          boolean favourite = Boolean.parseBoolean(dati[13]);
-          contacts.add(
-            new Contact(
-              name,
-              surname,
-              phoneNumber1,
-              phoneNumber2,
-              phoneNumber3,
-              email1,
-              email2,
-              email3,
-              company,
-              IBAN,
-              address,
-              website,
-              notes,
-              favourite
-            )
-          );
-        }
-      }
-      return true;
-    } catch (Exception e) {
-      System.out.println("errore");
-      return false;
-    }
-  }
+  public boolean importContacts(File selectedFile) {
+    return false;
+
+}
+
 
   /**
    * Exports the contact list to a destination (e.g., file, database).
