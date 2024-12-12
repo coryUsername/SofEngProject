@@ -1,2 +1,6 @@
 Model\Contact.class
+Model\ContactList.class
+Controller\MainViewController.class
+Controller\ContactViewController.class
+Controller\ContactFormViewController.class
 View\App.class

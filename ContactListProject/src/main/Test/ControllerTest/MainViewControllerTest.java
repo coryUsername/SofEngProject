@@ -1,26 +1,24 @@
 package Controller;
 
+import java.io.File;
+import java.io.PrintWriter;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import Model.Contact;
 import Model.ContactList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
-import javafx.scene.input.KeyCode;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.testfx.framework.junit5.ApplicationTest;
-
-import java.net.URL;
-import java.util.Observable;
-import java.util.ResourceBundle;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
 
 public class MainViewControllerTest{
@@ -47,8 +45,8 @@ public class MainViewControllerTest{
         contactList = new ContactList();
         ObservableList<Contact> contacts = FXCollections.observableArrayList();
         contacts.add(new Contact("Maria", "Pagano", null, null, null, null, null, null, null, null, null, null, null, false));
-contacts.add(new Contact("Cory", "Senatore", null, null, null, null, null, null, null, null, null, null, null, false));
-contacts.add(new Contact("Mario", "Stanco", null, null, null, null, null, null, null, null, null, null, null, false));
+contacts.add(new Contact("Cory", "Senatore", null, "3332406997", null, null, null, null, null, null, null, null, null, false));
+contacts.add(new Contact("Mario",null, null, null, null, null, "m.stanco@gmail.com", null, null, null, null, null, null, false));
 contacts.add(new Contact("Ursula", "Iannone", null, null, null, null, null, null, null, null, null, null, null, false));
         contactList.setContactsObservable(contacts);
 
@@ -59,7 +57,7 @@ contacts.add(new Contact("Ursula", "Iannone", null, null, null, null, null, null
         // Mock JavaFX TableView and columns
         controller.setContactsTable( new TableView<>());
 controller.setContactsObservable(contactList.getContacts());
-     controller.search = new TextField();   
+     controller.setSearch(new TextField());
 
     }
 
@@ -75,14 +73,14 @@ controller.setContactsObservable(contactList.getContacts());
     public void testHandleSearch() {
         // Test the search functionality
        // controller.search = new javafx.scene.control.TextField();
-        controller.search.setText("Maria");
+        controller.getSearch().setText("Maria");
 
         controller.handleSearchPublic(null);
 
         ObservableList<Contact> filteredContacts = controller.getContacts().getItems();
         assertEquals(1, filteredContacts.size(), "Search should return 1 contact.");
         assertEquals("Maria", filteredContacts.get(0).getName(), "The contact name should be 'Maria'.");
-    controller.search.setText("");
+    controller.getSearch().setText("");
         controller.handleSearchPublic(null);
         assertEquals(4, controller.getContacts().getItems().size(), "La lista dei contatti dovrebbe tornare alla dimensione originale.");
     }
@@ -114,7 +112,7 @@ controller.setContactsObservable(contactList.getContacts());
     @Test
     public void testHandleClearBtn() {
         // Simulate filtering and clearing the filter
-        controller.contacts.setItems(FXCollections.observableArrayList(new Contact("Filtered", "Contact")));
+        controller.getContacts().setItems(FXCollections.observableArrayList(new Contact("Filtered", "Contact",null, null, null, null, null, null, null, null, null, null, null, false)));
 
         controller.handleClearBtnPublic(null);
         ObservableList<Contact> allContacts = controller.getContacts().getItems();
@@ -125,8 +123,8 @@ controller.setContactsObservable(contactList.getContacts());
     @Test
     public void testHandleFilterByFavourite() {
         // Add a favourite contact and test filtering by favourite
-        Contact favouriteContact = new Contact("Favorite", "Person");
-        favouriteContact.setFavourite(true);
+        Contact favouriteContact = new Contact("Favorite", "Person", null, null, null, null, null, null, null, null, null, null, null, true);
+        favouriteContact.setFavorite(true);
         contactList.getContacts().add(favouriteContact);
 
         controller.handleFilterByFavouritePublic(null);
@@ -139,15 +137,15 @@ controller.setContactsObservable(contactList.getContacts());
      @Test
     public void testHandleExportBtn() throws Exception {
         // Test dell'esportazione
-        FileChooser mockFileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         File tempFile = File.createTempFile("test_contacts", ".csv");
         tempFile.deleteOnExit();
 
         try (PrintWriter writer = new PrintWriter(tempFile)) {
-            controller.handleExportBtn(null);
+            controller.handleExportBtnPublic(null);
             writer.println("nome;cognome");
 
-            List<Contact> exportedContacts = contactList.getContacts();
+            ObservableList<Contact> exportedContacts = contactList.getContacts();
             assertEquals(4, exportedContacts.size(), "Il file esportato dovrebbe contenere 4 contatti.");
         }
     }

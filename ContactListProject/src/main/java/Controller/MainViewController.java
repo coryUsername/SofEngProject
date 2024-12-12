@@ -1,8 +1,5 @@
 package Controller;
 
-import Model.Contact;
-import Model.ContactList;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +24,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -44,21 +40,6 @@ public class MainViewController implements Initializable {
 
   @FXML
   private TableView<Contact> contacts;
-
-  /**
-   *  for Test
-   * */
-  public TableView<Contact> getContacts() {
-    return contacts;
-  }
-
-  public void setContactsObservable(ObservableList<Contact> contacts) {
-    this.contacts.setItems(contacts);
-  }
-
-  public void setContactsTable(TableView<Contact> contacts) {
-    this.contacts = contacts;
-  }
 
   @FXML
   private TableColumn<Contact, String> contactName;
@@ -126,9 +107,8 @@ public class MainViewController implements Initializable {
     stage.show();
   }
 
-public void handleSearchPublic(ActionEvent event) {
-  handleSearch(event);
-}
+
+
   @FXML
   private void handleSearch(ActionEvent event) {
     String substring = search.getText();
@@ -140,9 +120,7 @@ public void handleSearchPublic(ActionEvent event) {
     }
   }
 
-  public void handleSortByNamePublic(ActionEvent event) {
-    handleSortByName(event);
-  }
+  
 
   @FXML
   private void handleSortByName(ActionEvent event) {
@@ -151,9 +129,7 @@ public void handleSearchPublic(ActionEvent event) {
     contacts.setItems(sortedContacts);
   }
 
-public void handleSortBySurnamePublic(ActionEvent event) {
-  handleSortBySurname(event);
-}
+
   @FXML
   private void handleSortBySurname(ActionEvent event) {
     ObservableList<Contact> sortedContacts = FXCollections.observableArrayList(contacts.getItems());
@@ -161,9 +137,7 @@ public void handleSortBySurnamePublic(ActionEvent event) {
     contacts.setItems(sortedContacts);
   }
 
-public void handleFilterByFavouritePublic(ActionEvent event) {
-  handleFilterByFavourite(event);
-}
+
   @FXML
   private void handleFilterByFavourite(ActionEvent event) {
     contacts.setItems(contactList.filter("favourite"));
@@ -272,14 +246,55 @@ public void handleFilterByFavouritePublic(ActionEvent event) {
   }
 
 
-  public void handleClearBtnPublic(ActionEvent event) {
-    handleClearBtn(event);
-  }
+  
 
   @FXML
   private void handleClearBtn(ActionEvent event) {
     contacts.setItems(contactList.getContacts());
   }
 
-   
+
+
+
+/**
+ * metodi usati per il test
+ * 
+ */
+  public TableView<Contact> getContacts() {
+    return contacts;
+  }
+public void handleSortByNamePublic(ActionEvent event) {
+    handleSortByName(event);
+  }
+public void handleSearchPublic(ActionEvent event) {
+  handleSearch(event);
+}
+ public void setContactsObservable(ObservableList<Contact> contacts) {
+    this.contacts.setItems(contacts);
+  }
+
+  public void setContactsTable(TableView<Contact> contacts) {
+    this.contacts = contacts;
+  }
+
+public TextField getSearch() {
+    return search;
+}
+public void setSearch(TextField search) {
+    this.search = search;
+}
+public void handleFilterByFavouritePublic(ActionEvent event) {
+  handleFilterByFavourite(event);
+}
+  public void handleClearBtnPublic(ActionEvent event) {
+    handleClearBtn(event);
+  }
+   public void handleExportBtnPublic(ActionEvent event) throws FileNotFoundException {
+     handleExportBtn(event);
+  }
+  public void handleSortBySurnamePublic(ActionEvent event) {
+  handleSortBySurname(event);
+}
+
+
 }
