@@ -46,10 +46,10 @@ public class MainViewControllerTest{
     public void setUp() {
         contactList = new ContactList();
         ObservableList<Contact> contacts = FXCollections.observableArrayList();
-        contacts.add(new Contact("Maria", "Pagano"));
-        contacts.add(new Contact("Cory", "Senatore"));
-        contacts.add(new Contact("Mario", "Stanco"));
-        contacts.add(new Contact("Ursula", "Iannone"));
+        contacts.add(new Contact("Maria", "Pagano", null, null, null, null, null, null, null, null, null, null, null, false));
+contacts.add(new Contact("Cory", "Senatore", null, null, null, null, null, null, null, null, null, null, null, false));
+contacts.add(new Contact("Mario", "Stanco", null, null, null, null, null, null, null, null, null, null, null, false));
+contacts.add(new Contact("Ursula", "Iannone", null, null, null, null, null, null, null, null, null, null, null, false));
         contactList.setContactsObservable(contacts);
 
         // Instantiate the controller
@@ -134,5 +134,21 @@ controller.setContactsObservable(contactList.getContacts());
 
         assertEquals(1, filteredContacts.size(), "The filter should return 1 favourite contact.");
         assertTrue(filteredContacts.get(0).isFavourite(), "The contact should be marked as favourite.");
+    }
+
+     @Test
+    public void testHandleExportBtn() throws Exception {
+        // Test dell'esportazione
+        FileChooser mockFileChooser = new FileChooser();
+        File tempFile = File.createTempFile("test_contacts", ".csv");
+        tempFile.deleteOnExit();
+
+        try (PrintWriter writer = new PrintWriter(tempFile)) {
+            controller.handleExportBtn(null);
+            writer.println("nome;cognome");
+
+            List<Contact> exportedContacts = contactList.getContacts();
+            assertEquals(4, exportedContacts.size(), "Il file esportato dovrebbe contenere 4 contatti.");
+        }
     }
 }
