@@ -189,6 +189,7 @@ public void handleFilterByFavouritePublic(ActionEvent event) {
   }
 
   
+  
   private void showContactDetails(Contact contact) throws IOException {
     FXMLLoader loader = new FXMLLoader(
       getClass().getResource("/View/ContactView.fxml")
