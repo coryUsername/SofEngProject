@@ -70,8 +70,7 @@ public class ContactFormViewController implements Initializable {
 
   private Contact contact;
   private boolean isModification;
-    @FXML
-    private Label errorLbl;
+    
   
 
   

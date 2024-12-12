@@ -295,7 +295,7 @@ public class Contact {
         return favourite;
     }
     
-    //@Override(?) + ci serve un to string particolare per l'export?
+    
     @Override
     public String toString() {
         return "Name: " + name + " Surname: " + surname + " Company: " + company + " IBAN: " + IBAN + " Address: " + address + " Website: " + website + " Notes: " + notes + " Favorite: " + favourite;
@@ -352,69 +352,3 @@ public class Contact {
 
 
 }
-
-
-/**
- * @brief Adds an email address to the contact's list of email addresses.
- * @param email The email address to be added to the contact's list.
- */
-/*public void addEmail(String email) {
-  if (emails.size() >= 3) {
-            throw new IllegalStateException("Error: A contact can have a maximum of 3 emails.");
-        }
-    emails.add(email);
-  }*/
-/**
- * @brief Adds a phone number to the contact's list of phone numbers.
- * @param phoneNumber The phone number to be added to the contact's list. public
- * void addPhoneNumber(String phoneNumber) { if (phoneNumbers.size() >= 3) {
- * throw new IllegalStateException("Error: A contact can have a maximum of 3
- * phone numbers."); } phoneNumbers.add(phoneNumber); }
-    /
- **
- * @brief Adds an email address to the contact's list of email addresses.
- * @param email The email address to be added to the contact's list. public void
- * addEmail(String email) { if (emails.size() >= 3) { throw new
- * IllegalStateException("Error: A contact can have a maximum of 3 emails."); }
- * emails.add(email); }
- * @brief Removes a phone number from the contact's list of phone numbers.
- * @param phoneNumber The phone number to be removed from the contact's list.
- *
- * public void removePhoneNumber(String phoneNumber) {
- * phoneNumbers.remove(phoneNumber); }
-    /
- **
- * @brief Removes an email address from the contact's list of email addresses.
- * @param email The email address to be removed from the contact's list.
- *
- * public void removeEmail(String email) { emails.remove(email); }
-    /
- **
- * @brief Sets the favorite status of the contact.
- * @param favorite The favorite status to be set for the contact.
- */
-/**
- * @brief Checks if two contacts are equal based on their phone numbers and
- * email addresses.
- * @param o The object to compare with the contact.
- * @return true if the objects are equal, false otherwise.
- */
-/*@Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Contact contact = (Contact) o;
-    return phoneNumbers.equals(contact.phoneNumbers) && emails.equals(contact.emails);
-  }*/
-/**
- * @brief Computes the hash code for the contact based on its phone numbers and
- * email addresses.
- * @return The hash code for the contact.
- */
-/*public int hashCode() {
-    return phoneNumbers.hashCode() + emails.hashCode();} */
-
-/**
- * @brief Returns a string representation of the contact.
- * @return A string representation of the contact.
- */

@@ -145,14 +145,8 @@ public void setContactsObservable(ObservableList<Contact> contacts) {
     return contacts.remove(contact);
   }
 
-  /**
-   * Imports contacts into the contact list from a source (e.g., file, database).
-   * @return true if the contacts are successfully imported, false otherwise.
-   */
-  public boolean importContacts(File selectedFile) {
-    return false;
-
-}
+  
+ 
 
 
   /**

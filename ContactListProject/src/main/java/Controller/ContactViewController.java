@@ -164,7 +164,7 @@ public class ContactViewController implements Initializable {
     contact.setWebsite(websiteLbl.getText());
     contact.setNotes(notesLbl.getText());
     contact.setFavorite(favouriteCheck.isSelected());
-    controller.setContact(contact, true); // Pass boolean to indicate modification
+    controller.setContact(contact, true); 
 
     Stage stage = (Stage) modifyBtn.getScene().getWindow();
     Scene scene = new Scene(root);
