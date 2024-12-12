@@ -30,54 +30,56 @@ import javafx.stage.Stage;
 
 /**
  * @file MainViewController.java
- * @brief FXML Controller class
- * @author gruppo 3
+ * @brief Controller for the main view, managing contact list interactions such as adding, 
+ * sorting, searching, filtering, importing, and exporting contacts.
+ * 
  */
 public class MainViewController implements Initializable {
 
   @FXML
-  private TextField search;
+  private TextField search; // Search field for filtering contacts by name or surname.
 
   @FXML
-  private TableView<Contact> contacts;
+  private TableView<Contact> contacts; // Table view displaying the contact list.
 
   @FXML
-  private TableColumn<Contact, String> contactName;
+  private TableColumn<Contact, String> contactName; // Table column for displaying contact names.
 
   @FXML
-  private TableColumn<Contact, String> contactSurname;
+  private TableColumn<Contact, String> contactSurname;// Table column for displaying contact surnames.
 
-  public static ContactList contactList;
-
-  @FXML
-  private Button sortByName;
+  public static ContactList contactList; // Static contact list to hold all contacts.
 
   @FXML
-  private Button sortBySurname;
+  private Button sortByName; // Button for sorting contacts by name.
 
   @FXML
-  private Button importBtn;
+  private Button sortBySurname; // Button for sorting contacts by surname.
 
   @FXML
-  private Button addBtn;
+  private Button importBtn; // Button for importing contacts from a CSV file.
 
   @FXML
-  private Button exportBtn;
+  private Button addBtn; // Button for adding a new contact.
 
   @FXML
-  private Button filterByFavourite;
+  private Button exportBtn; // Button for exporting contacts to a CSV file.
 
   @FXML
-  private Button filterByNumber;
+  private Button filterByFavourite; // Button for filtering contacts by favourite status.
 
   @FXML
-  private Button filterByEmail;
+  private Button filterByNumber; // Button for filtering contacts by phone number.
 
   @FXML
-  private Button clearBtn;
+  private Button filterByEmail; // Button for filtering contacts by email address.
+
+  @FXML
+  private Button clearBtn; // Button to clear all filters and reset the contact list.
 
   /**
    * Initializes the controller class.
+   * 
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {
@@ -95,6 +97,12 @@ public class MainViewController implements Initializable {
     );
   }
 
+   /**
+   * Handles the action of adding a new contact by opening the contact form view.
+   *
+   * @param event the ActionEvent triggered by the add button.
+   * @throws IOException if there is an error loading the contact form FXML file.
+   */
   @FXML
   private void handleAddContact(ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader(
@@ -108,7 +116,12 @@ public class MainViewController implements Initializable {
   }
 
 
-
+  /**
+   * Handles the action of searching contacts by a substring entered in the search field.
+   * Filters contacts based on the substring.
+   *
+   * @param event the ActionEvent triggered by the search action.
+   */
   @FXML
   private void handleSearch(ActionEvent event) {
     String substring = search.getText();
@@ -121,7 +134,11 @@ public class MainViewController implements Initializable {
   }
 
   
-
+  /**
+   * Handles sorting the contact list by name.
+   *
+   * @param event the ActionEvent triggered by the sort by name button.
+   */
   @FXML
   private void handleSortByName(ActionEvent event) {
     ObservableList<Contact> sortedContacts = FXCollections.observableArrayList(contacts.getItems());
@@ -129,7 +146,11 @@ public class MainViewController implements Initializable {
     contacts.setItems(sortedContacts);
   }
 
-
+  /**
+   * Handles sorting the contact list by surname.
+   *
+   * @param event the ActionEvent triggered by the sort by surname button.
+   */
   @FXML
   private void handleSortBySurname(ActionEvent event) {
     ObservableList<Contact> sortedContacts = FXCollections.observableArrayList(contacts.getItems());
@@ -138,22 +159,42 @@ public class MainViewController implements Initializable {
   }
 
 
+   /**
+   * Filters the contact list to display only favourite contacts.
+   *
+   * @param event the ActionEvent triggered by the filter by favourite button.
+   */
   @FXML
   private void handleFilterByFavourite(ActionEvent event) {
     contacts.setItems(contactList.filter("favourite"));
   }
-
+  
+  /**
+   * Filters the contact list to display contacts with phone numbers.
+   *
+   * @param event the ActionEvent triggered by the filter by number button.
+   */
   @FXML
   private void handleFilterByNumber(ActionEvent event) {
     contacts.setItems(contactList.filter("number"));
   }
 
+  /**
+   * Filters the contact list to display contacts with email addresses.
+   *
+   * @param event the ActionEvent triggered by the filter by email button.
+   */
   @FXML
   private void handleFilterByEmail(ActionEvent event) {
     contacts.setItems(contactList.filter("email"));
   }
 
-  
+  /**
+   * Opens the contact details view when a contact is double-clicked.
+   *
+   * @param event the MouseEvent triggered by a double-click on a contact in the table.
+   * @throws IOException if there is an error loading the contact details view FXML file.
+   */
   @FXML
   private void openContact(MouseEvent event) throws IOException {
     if (event.getClickCount() == 2) {
@@ -161,9 +202,13 @@ public class MainViewController implements Initializable {
       showContactDetails(selectedContact);
     }
   }
-
   
-  
+  /**
+   * Shows the details of the selected contact by loading the contact view.
+   *
+   * @param contact the selected contact whose details will be displayed.
+   * @throws IOException if there is an error loading the contact view FXML file.
+   */
   private void showContactDetails(Contact contact) throws IOException {
     FXMLLoader loader = new FXMLLoader(
       getClass().getResource("/View/ContactView.fxml")
@@ -177,6 +222,11 @@ public class MainViewController implements Initializable {
     stage.show();
   }
 
+  /**
+   * Handles the action of importing contacts from a CSV file.
+   *
+   * @param event the ActionEvent triggered by the import button.
+   */
   @FXML
   private void handleImportBtn(ActionEvent event) {
     FileChooser fileChooser = new FileChooser();
@@ -219,10 +269,15 @@ public class MainViewController implements Initializable {
       }
     }
   }
-
-
-
   
+  /**
+   * Handles the action of exporting the contact list to a CSV file.
+   * The user selects the destination file, and the contact list is written 
+   * in CSV format.
+   * 
+   * @param event the ActionEvent triggered by the export button.
+   * @throws FileNotFoundException if the file cannot be found or created during the export process.
+   */
   @FXML
   private void handleExportBtn(ActionEvent event) throws FileNotFoundException {
     FileChooser fileChooser = new FileChooser();
@@ -246,8 +301,11 @@ public class MainViewController implements Initializable {
   }
 
 
-  
-
+   /**
+   * Clears any applied filters and resets the table to show all contacts.
+   * 
+   * @param event the ActionEvent triggered by the clear button.
+   */
   @FXML
   private void handleClearBtn(ActionEvent event) {
     contacts.setItems(contactList.getContacts());
