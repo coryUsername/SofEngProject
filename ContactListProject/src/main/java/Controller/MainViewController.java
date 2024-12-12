@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import Model.Contact;
+import Model.ContactList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,11 +52,11 @@ public class MainViewController implements Initializable {
     return contacts;
   }
 
-  public void setContacts(ObservableList<Contact> contacts) {
+  public void setContactsObservable(ObservableList<Contact> contacts) {
     this.contacts.setItems(contacts);
   }
 
-  public void setContacts(TableView<Contact> contacts) {
+  public void setContactsTable(TableView<Contact> contacts) {
     this.contacts = contacts;
   }
 
@@ -126,6 +126,9 @@ public class MainViewController implements Initializable {
     stage.show();
   }
 
+public void handleSearchPublic(ActionEvent event) {
+  handleSearch(event);
+}
   @FXML
   private void handleSearch(ActionEvent event) {
     String substring = search.getText();
@@ -135,6 +138,10 @@ public class MainViewController implements Initializable {
     } else {
       contacts.setItems(contactList.getContacts());
     }
+  }
+
+  public void handleSortByNamePublic(ActionEvent event) {
+    handleSortByName(event);
   }
 
   @FXML
@@ -151,6 +158,9 @@ public class MainViewController implements Initializable {
     contacts.setItems(sortedContacts);
   }
 
+public void handleFilterByFavouritePublic(ActionEvent event) {
+  handleFilterByFavourite(event);
+}
   @FXML
   private void handleFilterByFavourite(ActionEvent event) {
     contacts.setItems(contactList.filter("favourite"));
@@ -255,6 +265,11 @@ public class MainViewController implements Initializable {
         }
       }
     }
+  }
+
+
+  public void handleClearBtnPublic(ActionEvent event) {
+    handleClearBtn(event);
   }
 
   @FXML

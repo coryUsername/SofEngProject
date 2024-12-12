@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import Controller.MainViewController;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -35,6 +36,9 @@ public class ContactList {
     this.contacts = FXCollections.observableArrayList();
   }
 
+public void setContactsObservable(ObservableList<Contact> contacts) {
+    this.contacts = contacts;
+}
   public ObservableList<Contact> getContacts() {
     return contacts;
   }

@@ -44,15 +44,15 @@ public class MainViewControllerTest{
         contacts.add(new Contact("Cory", "Senatore"));
         contacts.add(new Contact("Mario", "Stanco"));
         contacts.add(new Contact("Ursula", "Iannone"));
-        contactList.setContacts(contacts);
+        contactList.setContactsObservable(contacts);
 
         // Instantiate the controller
         controller = new MainViewController();
         MainViewController.contactList = contactList;
 
         // Mock JavaFX TableView and columns
-        controller.setContacts( new TableView<>());
-controller.setContacts(contactList.getContacts());
+        controller.setContactsTable( new TableView<>());
+controller.setContactsObservable(contactList.getContacts());
         
 
     }
@@ -71,7 +71,7 @@ controller.setContacts(contactList.getContacts());
         controller.search = new javafx.scene.control.TextField();
         controller.search.setText("Maria");
 
-        controller.handleSearch(null);
+        controller.handleSearchPublic(null);
 
         ObservableList<Contact> filteredContacts = controller.getContacts().getItems();
         assertEquals(1, filteredContacts.size(), "Search should return 1 contact.");
@@ -81,7 +81,7 @@ controller.setContacts(contactList.getContacts());
     @Test
     public void testHandleSortByName() {
         // Test sorting by name
-        controller.handleSortByName(null);
+        controller.handleSortByNamePublic(null);
         ObservableList<Contact> sortedContacts = controller.getContacts().getItems();
 
         assertEquals("Maria", sortedContacts.get(0).getName(), "The first contact should be 'Maria' after sorting by name.");
@@ -95,8 +95,8 @@ controller.setContacts(contactList.getContacts());
         // Simulate filtering and clearing the filter
         controller.contacts.setItems(FXCollections.observableArrayList(new Contact("Filtered", "Contact")));
 
-        controller.handleClearBtn(null);
-        ObservableList<Contact> allContacts = controller.contacts.getItems();
+        controller.handleClearBtnPublic(null);
+        ObservableList<Contact> allContacts = controller.getContacts().getItems();
 
         assertEquals(2, allContacts.size(), "The contact list should be reset to the original size.");
     }
@@ -106,9 +106,9 @@ controller.setContacts(contactList.getContacts());
         // Add a favourite contact and test filtering by favourite
         Contact favouriteContact = new Contact("Favorite", "Person");
         favouriteContact.setFavourite(true);
-        mockContactList.getContacts().add(favouriteContact);
+        contactList.getContacts().add(favouriteContact);
 
-        controller.handleFilterByFavourite(null);
+        controller.handleFilterByFavouritePublic(null);
         ObservableList<Contact> filteredContacts = controller.getContacts().getItems();
 
         assertEquals(1, filteredContacts.size(), "The filter should return 1 favourite contact.");
