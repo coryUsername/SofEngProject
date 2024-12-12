@@ -1,13 +1,14 @@
 package Controller;
 
-import Model.Contact;
-import Model.ContactList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Contact;
+import Model.ContactList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -119,6 +120,9 @@ public class MainViewController implements Initializable {
     stage.show();
   }
 
+public void handleSearchPublic(ActionEvent event) {
+  handleSearch(event);
+}
   @FXML
   private void handleSearch(ActionEvent event) {
     String substring = search.getText();
@@ -128,6 +132,10 @@ public class MainViewController implements Initializable {
     } else {
       contacts.setItems(contactList.getContacts());
     }
+  }
+
+  public void handleSortByNamePublic(ActionEvent event) {
+    handleSortByName(event);
   }
 
   @FXML
@@ -144,6 +152,9 @@ public class MainViewController implements Initializable {
     contacts.setItems(sortedContacts);
   }
 
+public void handleFilterByFavouritePublic(ActionEvent event) {
+  handleFilterByFavourite(event);
+}
   @FXML
   private void handleFilterByFavourite(ActionEvent event) {
     contacts.setItems(contactList.filter("favourite"));
@@ -206,6 +217,11 @@ public class MainViewController implements Initializable {
         }
       }
     }
+  }
+
+
+  public void handleClearBtnPublic(ActionEvent event) {
+    handleClearBtn(event);
   }
 
   @FXML
