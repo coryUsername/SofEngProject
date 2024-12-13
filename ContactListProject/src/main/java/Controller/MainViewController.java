@@ -256,10 +256,15 @@ public class MainViewController implements Initializable {
         reader.readLine();
         while ((line = reader.readLine()) != null) {
           String[] fields = line.split(";");
-
+          
+          String name = fields.length > 0 ? fields[0] : "";
+          String surname = fields.length > 1 ? fields[1] : "";
+          if (name.isEmpty() && surname.isEmpty()) {
+            name = "Sconosciuto";
+          }
           Contact contact = new Contact(
-            fields.length > 0 ? fields[0] : "",
-            fields.length > 1 ? fields[1] : "",
+            name,
+            surname,
             fields.length > 2 ? fields[2] : "",
             fields.length > 3 ? fields[3] : "",
             fields.length > 4 ? fields[4] : "",

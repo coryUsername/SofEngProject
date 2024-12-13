@@ -29,9 +29,10 @@ public class ContactList {
     this.contacts = FXCollections.observableArrayList();
   }
 
-public void setContactsObservable(ObservableList<Contact> contacts) {
+  public void setContactsObservable(ObservableList<Contact> contacts) {
     this.contacts = contacts;
-}
+  }
+
   public ObservableList<Contact> getContacts() {
     return contacts;
   }
@@ -145,10 +146,6 @@ public void setContactsObservable(ObservableList<Contact> contacts) {
     return contacts.remove(contact);
   }
 
-  
- 
-
-
   /**
    * Exports the contact list to a destination (e.g., file, database).
    * @return true if the contacts are successfully exported, false otherwise.
@@ -159,37 +156,8 @@ public void setContactsObservable(ObservableList<Contact> contacts) {
         new BufferedWriter(new FileWriter("contactList.csv"))
       )
     ) {
-      for (Contact c : contacts) {
-        writer.print(
-          c.getName() +
-          ";" +
-          c.getSurname() +
-          ";" +
-          c.getPhoneNumber1() +
-          ";" +
-          c.getPhoneNumber2() +
-          ";" +
-          c.getPhoneNumber3() +
-          ";" +
-          c.getEmail1() +
-          ";" +
-          c.getEmail2() +
-          ";" +
-          c.getEmail3() +
-          ";" +
-          c.getCompany() +
-          ";" +
-          c.getIBAN() +
-          ";" +
-          c.getAddress() +
-          ";" +
-          c.getWebsite() +
-          ";" +
-          c.getNotes() +
-          ";" +
-          c.isFavourite() +
-          ";\n"
-        );
+      for (Contact contact : contacts) {
+        writer.println(contact.toCsv());
       }
       System.out.println("Contacts successfully exported.");
     } catch (Exception e) {
