@@ -1,9 +1,10 @@
 package Controller;
 
-import Model.Contact;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Contact;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,11 @@ import javafx.stage.Stage;
  */
 public class ContactViewController implements Initializable {
 
+/**
+ * @file ContactViewController.java
+ * @brief Controller for the contact view. Handles the display and manipulation of contact details, including modifying, deleting, or navigating back to the main view.
+ * FXML elements for the contact view.
+ */
     @FXML
     private Button modifyBtn; // Button for modifying the current contact.
 
@@ -75,16 +81,22 @@ public class ContactViewController implements Initializable {
 
     private Contact contact; // The current contact being displayed.
 
+    
+
     /**
-     * Initializes the controller class.
+     * @brief Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         contact = new Contact();
     }
 
+   
     /**
-     * Sets the contact object with values from the labels in the UI.
+     * @brief Sets the contact object with values from the labels in the UI.
+     * 
      */
     private void setContactlbl() {
         contact.setName(nameLbl.getText());

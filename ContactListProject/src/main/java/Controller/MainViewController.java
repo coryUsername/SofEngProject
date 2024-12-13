@@ -312,47 +312,4 @@ public class MainViewController implements Initializable {
   }
 
 
-
-
-/**
- * metodi usati per il test
- * 
- */
-  public TableView<Contact> getContacts() {
-    return contacts;
-  }
-public void handleSortByNamePublic(ActionEvent event) {
-    handleSortByName(event);
-  }
-public void handleSearchPublic(ActionEvent event) {
-  handleSearch(event);
-}
- public void setContactsObservable(ObservableList<Contact> contacts) {
-    this.contacts.setItems(contacts);
-  }
-
-  public void setContactsTable(TableView<Contact> contacts) {
-    this.contacts = contacts;
-  }
-
-public TextField getSearch() {
-    return search;
-}
-public void setSearch(TextField search) {
-    this.search = search;
-}
-public void handleFilterByFavouritePublic(ActionEvent event) {
-  handleFilterByFavourite(event);
-}
-  public void handleClearBtnPublic(ActionEvent event) {
-    handleClearBtn(event);
-  }
-   public void handleExportBtnPublic(ActionEvent event) throws FileNotFoundException {
-     handleExportBtn(event);
-  }
-  public void handleSortBySurnamePublic(ActionEvent event) {
-  handleSortBySurname(event);
-}
-
-
 }
