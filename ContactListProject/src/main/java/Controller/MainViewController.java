@@ -36,50 +36,63 @@ import javafx.stage.Stage;
  */
 public class MainViewController implements Initializable {
 
+  /// Search field for filtering contacts by name or surname.
   @FXML
-  private TextField search; // Search field for filtering contacts by name or surname.
+  private TextField search; 
 
+  /// Table view displaying the contact list.
   @FXML
-  private TableView<Contact> contacts; // Table view displaying the contact list.
+  private TableView<Contact> contacts; 
 
+  /// Table column for displaying contact names.
   @FXML
-  private TableColumn<Contact, String> contactName; // Table column for displaying contact names.
+  private TableColumn<Contact, String> contactName; 
 
+  /// Table column for displaying contact surnames.
   @FXML
-  private TableColumn<Contact, String> contactSurname;// Table column for displaying contact surnames.
+  private TableColumn<Contact, String> contactSurname;
 
-  public static ContactList contactList; // Static contact list to hold all contacts.
+  /// Static contact list to hold all contacts.
+  public static ContactList contactList; 
 
+  /// Button for sorting contacts by name.
   @FXML
-  private Button sortByName; // Button for sorting contacts by name.
+  private Button sortByName; 
 
+  /// Button for sorting contacts by surname.
   @FXML
-  private Button sortBySurname; // Button for sorting contacts by surname.
+  private Button sortBySurname; 
 
+  /// Button for importing contacts from a CSV file.
   @FXML
-  private Button importBtn; // Button for importing contacts from a CSV file.
+  private Button importBtn; 
 
+  /// Button for adding a new contact.
   @FXML
-  private Button addBtn; // Button for adding a new contact.
+  private Button addBtn; 
 
+  /// Button for exporting contacts to a CSV file.
   @FXML
-  private Button exportBtn; // Button for exporting contacts to a CSV file.
+  private Button exportBtn; 
 
+  /// Button for filtering contacts by favourite status.
   @FXML
-  private Button filterByFavourite; // Button for filtering contacts by favourite status.
+  private Button filterByFavourite; 
+  
+  /// Button for filtering contacts by phone number.
+  @FXML
+  private Button filterByNumber; 
 
+  /// Button for filtering contacts by email address.
   @FXML
-  private Button filterByNumber; // Button for filtering contacts by phone number.
+  private Button filterByEmail; 
 
+  /// Button to clear all filters and reset the contact list.
   @FXML
-  private Button filterByEmail; // Button for filtering contacts by email address.
-
-  @FXML
-  private Button clearBtn; // Button to clear all filters and reset the contact list.
+  private Button clearBtn;
 
   /**
    * Initializes the controller class.
-   * 
    */
   @Override
   public void initialize(URL url, ResourceBundle rb) {

@@ -17,71 +17,83 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * Controller for the contact view. Handles the display and manipulation of
- * contact details, including modifying, deleting, or navigating back to the
- * main view.
+ * @file ContactViewController.java
+ * @brief Controller for the contact view. Handles the display and manipulation
+ * of contact details, including modifying, deleting, or navigating back to the
+ * main view. FXML elements for the contact view.
  */
 public class ContactViewController implements Initializable {
 
-/**
- * @file ContactViewController.java
- * @brief Controller for the contact view. Handles the display and manipulation of contact details, including modifying, deleting, or navigating back to the main view.
- * FXML elements for the contact view.
- */
+    /// Button for modifying the current contact.
     @FXML
-    private Button modifyBtn; // Button for modifying the current contact.
+    private Button modifyBtn;
 
+    /// Button for deleting the current contact.
     @FXML
-    private Button deleteBtn; // Button for deleting the current contact.
+    private Button deleteBtn;
 
+    /// Button for navigating back to the main view.
     @FXML
-    private Button backBtn; // Button for navigating back to the main view.
+    private Button backBtn;
 
+    /// Label to display the contact's name.
     @FXML
-    private Label nameLbl; // Label to display the contact's name.
+    private Label nameLbl;
 
+    /// Label to display the contact's surname.
     @FXML
-    private Label surnameLbl; // Label to display the contact's surname.
+    private Label surnameLbl;
 
+    /// Label to display the first phone number.
     @FXML
-    private Label phoneNumber1Lbl; // Label to display the first phone number.
+    private Label phoneNumber1Lbl;
 
+    /// Label to display the second phone number.
     @FXML
-    private Label phoneNumber2Lbl; // Label to display the second phone number.
+    private Label phoneNumber2Lbl;
 
+    /// Label to display the third phone number.
     @FXML
-    private Label phoneNumber3Lbl; // Label to display the third phone number.
+    private Label phoneNumber3Lbl;
 
+    /// Label to display the first email address.
     @FXML
-    private Label email1Lbl; // Label to display the first email address.
+    private Label email1Lbl;
 
+    /// Label to display the first email address.
     @FXML
-    private Label email2Lbl; // Label to display the first email address.
+    private Label email2Lbl;
 
+    /// Label to display the third email address.
     @FXML
-    private Label email3Lbl; // Label to display the third email address.
+    private Label email3Lbl;
 
+    /// Label to display the company name.
     @FXML
-    private Label companyLbl; // Label to display the company name.
+    private Label companyLbl;
 
+    /// Label to display the IBAN.
     @FXML
-    private Label IBANLbl; // Label to display the IBAN.
+    private Label IBANLbl;
 
+    /// Label to display the address.
     @FXML
-    private Label addressLbl; // Label to display the address.
+    private Label addressLbl;
 
+    /// Label to display the website URL.
     @FXML
-    private Label websiteLbl; // Label to display the website URL.
+    private Label websiteLbl;
 
+    /// Label to display additional notes.
     @FXML
-    private Label notesLbl; // Label to display additional notes.
+    private Label notesLbl;
 
+    /// Checkbox indicating if the contact is marked as favorite.
     @FXML
-    private CheckBox favouriteCheck; // Checkbox indicating if the contact is marked as favorite.
+    private CheckBox favouriteCheck;
 
-    private Contact contact; // The current contact being displayed.
-
-    
+    /// The current contact being displayed.
+    private Contact contact;
 
     /**
      * @brief Initializes the controller class.
@@ -93,10 +105,8 @@ public class ContactViewController implements Initializable {
         contact = new Contact();
     }
 
-   
     /**
      * @brief Sets the contact object with values from the labels in the UI.
-     * 
      */
     private void setContactlbl() {
         contact.setName(nameLbl.getText());

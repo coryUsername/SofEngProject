@@ -24,56 +24,75 @@ import javafx.stage.Stage;
  * ContactFormView.
  */
 public class ContactFormViewController implements Initializable {
-
+    
+    /// TextField for the contact's name.
     @FXML
     private TextField nameField;
-
+    
+    /// TextField for the contact's surname.
     @FXML
     private TextField surnameField;
-
+    
+    /// TextField for the contact's first phone number.
     @FXML
     private TextField phone1Field;
 
+    /// TextField for the contact's second phone number.
     @FXML
     private TextField phone2Field;
 
+    /// TextField for the contact's third phone number.
     @FXML
     private TextField phone3Field;
 
+    /// TextField for the contact's first email address.
     @FXML
     private TextField email1Field;
 
+    /// TextField for the contact's second email address.
     @FXML
     private TextField email2Field;
 
+    /// TextField for the contact's third email address.
     @FXML
     private TextField email3Field;
 
+    /// TextField for the contact's company.
     @FXML
     private TextField companyField;
 
+    /// TextField for the contact's IBAN.
     @FXML
     private TextField ibanField;
 
+    /// TextField for the contact's address.
     @FXML
     private TextField addressField;
 
+    /// TextField for the contact's website.
     @FXML
     private TextField websiteField;
 
+    /// TextArea for additional information about the contact. 
     @FXML
     private TextArea notesField;
 
+    /// Checkbox to mark the contact as favourite.
     @FXML
     private CheckBox favouriteCheck;
 
+    /// Button to cancel the operation. 
     @FXML
     private Button backBtn;
 
+    /// Button to save the changes made. 
     @FXML
     private Button saveBtn;
 
+    /// Istance of the current modified/created contact.
     private Contact contact;
+    
+    /// Boolean true if the operation is a modification. 
     private boolean isModification;
 
     /**
