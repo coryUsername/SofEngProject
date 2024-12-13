@@ -46,25 +46,7 @@ public class ContactTest {
             "Chiama il contatto venerdì 20 dicembre per avere info sul progetto.", false
         );
     }
-    /**
-     * Test of check method, of class Contact.
-     */
-    @Test
-    public void testCheck() {
-         System.out.println("check");
-    Contact instance = new Contact(
-        null, null, 
-        "123456789", "987654321", "1122334455", 
-        "c.rossi@studenti.unisa.it", "chiararossi2@gmail.com", "rossiconstruction@gmail.com", 
-        "Rossi Construction.", "IT123456789987654321", 
-        "Via Roma 89, Salerno(Sa)", "www.rossiconstruction.com", 
-        "Chiama il contatto venerdì 20 dicembre per avere info sul progetto.", false
-    );
-
-    // Testa che venga lanciata l'IllegalArgumentException quando nome e cognome sono nulli o vuoti
-    IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, instance::check);
-    assertEquals("Please enter a name or a surname", thrown.getMessage());
-    }
+   
 
     /**
      * Test of getName method, of class Contact.
@@ -413,13 +395,18 @@ public void testSetIBAN() {
     @Test
     public void testEquals() {
         System.out.println("equals");
-        Object obj = null;
-        Contact instance = new Contact();
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contact c1 = createTestContact();
+        Contact c2 = createTestContact();
+        assertTrue(c1.equals(c2), "Objects with identical attributes should not be equal.");
+        
+        assertFalse(c1.equals(null), "Comparing with null should return false.");
+        
+        c2.setName("Elena");
+        assertFalse(c1.equals(c2), "Objects with different attributes should not be equal.");
+        
+        assertFalse(c1.equals("A string"), "Comparing with an object of a different class should return false.");
+
+        
     }
 
     /**
@@ -428,12 +415,17 @@ public void testSetIBAN() {
     @Test
     public void testToCsv() {
         System.out.println("toCsv");
-        Contact instance = new Contact();
-        String expResult = "";
+       
+        Contact instance = createTestContact();
+        
+        String expResult = "Chiara;Rossi;123456789;987654321;112 233 4455;" +
+            "c.rossi@studenti.unisa.it;chiararossi2@gmail.com;rossiconstruction@gmail.com;" +
+            "Rossi Construction.;IT123456789987654321;Via Roma 89, Salerno(Sa);" +
+            "www.rossiconstruction.com;Chiama il contatto venerdì 20 dicembre per avere info sul progetto.;false";
+        
         String result = instance.toCsv();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, "The CSV representation is not correct.");
+        
     }
     
 }

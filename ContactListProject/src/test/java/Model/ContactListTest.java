@@ -1,16 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package Model;
 
 import java.io.File;
 import java.io.IOException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,25 +14,28 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author URSULA
  */
 public class ContactListTest {
-    
-    public ContactListTest() {
-    }
-        private ContactList contactList;
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
+
+
     @BeforeEach
     public void setUp() {
-        contactList= new ContactList();
     }
-    
+
     @AfterEach
     public void tearDown() {
+    }
+
+    /**
+     * Crea un contatto di test per evitare di scrivere i dati ripetutamente.
+     */
+    private Contact createTestContact() {
+        return new Contact(
+            "Chiara", "Rossi", 
+            "123456789", "987654321", "1122334455", 
+            "c.rossi@studenti.unisa.it", "chiararossi2@gmail.com", "rossiconstruction@gmail.com", 
+            "Rossi Construction.", "IT123456789987654321", 
+            "Via Roma 89, Salerno(Sa)", "www.rossiconstruction.com", 
+            "Chiama il contatto venerdì 20 dicembre per avere info sul progetto.", false
+        );
     }
 
     /**
@@ -46,102 +44,95 @@ public class ContactListTest {
     @Test
     public void testSetContactsObservable() {
         System.out.println("setContactsObservable");
-        ObservableList<Contact> contacts = null;
-        ContactList instance = new ContactList();
-        instance.setContactsObservable(contacts);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ObservableList<Contact> contacts = FXCollections.observableArrayList(createTestContact());
+        ContactList contactList = new ContactList();
+        contactList.setContactsObservable(contacts);
+        assertEquals(1, contactList.getContacts().size(), "The contacts list should contain one contact.");
     }
 
     /**
      * Test of getContacts method, of class ContactList.
      */
-     @Test
-    public void testGetContacts() {
+    @Test
+    public void testGetContacts() throws IOException {
         System.out.println("getContacts");
         ContactList instance = new ContactList();
-        ObservableList<Contact> expResult = null;
+        Contact contact = createTestContact();
+       
+        instance.addContact(contact);
         ObservableList<Contact> result = instance.getContacts();
-        assertEquals(expResult, result);
+        assertEquals(1, result.size());
     }
 
     /**
      * Test of contains method, of class ContactList.
      */
     @Test
-    public void testContains() {
+    public void testContains() throws IOException {
         System.out.println("contains");
-        Contact contact = null;
-        ContactList instance = new ContactList();
-        boolean expResult = false;
-        boolean result = instance.contains(contact);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contact contact = createTestContact();
+        ContactList contactList = new ContactList();
+        contactList.addContact(contact);
+        boolean result = contactList.contains(contact);
+        assertTrue(result, "Contact should be contained in the list.");
     }
 
     /**
      * Test of addContact method, of class ContactList.
      */
     @Test
-     public void testAddContact() throws IOException {
+    public void testAddContact() throws IOException {
         System.out.println("addContact");
-         
-        Contact contact = new Contact( "Chiara","Rossi","123456789", "987654321", "1122334455", 
-        "c.rossi@studenti.unisa.it", "chiararossi2@gmail.com", "rossiconstruction@gmail.com", 
-        "Rossi Construction.", "IT123456789987654321", 
-        "Via Roma 89, Salerno(Sa)", "www.rossiconstruction.com", 
-        "Chiama il contatto venerdì 20 dicembre per avere info sul progetto.", false);
-        
+        Contact contact = createTestContact();
+        ContactList contactList = new ContactList();
         contactList.addContact(contact);
-        
-        ObservableList <Contact> contacts= contactList.getContacts();
+
+        ObservableList<Contact> contacts = contactList.getContacts();
         assertEquals(1, contacts.size(), "Contact list size should be 1 after adding a contact.");
         assertEquals("Chiara", contacts.get(0).getName(), "The name of the first contact doesn't match.");
         assertEquals("Rossi", contacts.get(0).getSurname(), "The surname of the first contact doesn't match.");
-            }
+    }
 
     /**
      * Test of search method, of class ContactList.
      */
     @Test
-     public void testSearch() throws IOException {
+    public void testSearch() throws IOException {
         System.out.println("search");
-        Contact c1=new Contact("Luigi", "Rossi", "1234567890", "0987654321", "1122334455", 
-                "luigi.rossi@example.com", "luigi.rossi2@example.com", "luigi.rossi3@example.com",
-                "Rossi Enterprises", "IT123456789", "123 Street, City", 
-                "www.rossi.com", "Luigi is a client", true);
-      
-        Contact c2=new Contact(
-            "Giuseppe", "Esposito", "333444555", "666777888", "999000111",
-            "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
-            "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
-        
+        Contact c1 = createTestContact();
+        Contact c2 = new Contact("Giuseppe", "Esposito", "333444555", "666777888", "999000111",
+                                 "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
+                                 "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
+         ContactList contactList = new ContactList();
         contactList.addContact(c1);
         contactList.addContact(c2);
-        
- 
-        ObservableList<Contact> result = contactList.search("Luigi");
+
+        ObservableList<Contact> result = contactList.search("Chiara");
         assertEquals(1, result.size(), "Search should return 1 contact.");
-         assertEquals("Luigi", result.get(0).getName(), "The searched contact should be 'Alice'.");
-         
+        assertEquals("Chiara", result.get(0).getName(), "The searched contact should be 'Chiara'.");
+
         result = contactList.search("Esposito");
         assertEquals(1, result.size(), "Search should return 1 contact.");
-        assertEquals("Esposito", result.get(0).getSurname(), "The searched contact should be 'Brown'.");
- 
+        assertEquals("Esposito", result.get(0).getSurname(), "The searched contact should be 'Esposito'.");
     }
 
     /**
      * Test of filter method, of class ContactList.
      */
     @Test
-    public void testFilter() {
-         System.out.println("filter");
-        String criteria = "";
-        ContactList instance = new ContactList();
-        ObservableList<Contact> expResult = null;
-        ObservableList<Contact> result = instance.filter(criteria);
-        assertEquals(expResult, result);
+    public void testFilter() throws IOException {
+        System.out.println("filter");
+        Contact c1 = createTestContact();
+        Contact c2 = new Contact("Giuseppe", "Esposito", "12345", "98765", "", "", "", "", "", "", "", "", "", true);
+        ContactList contactList = new ContactList();
+        contactList.addContact(c1);
+        contactList.addContact(c2);
+
+        ObservableList<Contact> favouriteContacts = contactList.filter("favourite");
+        assertEquals(1, favouriteContacts.size(), "There should be 1 favourite contact.");
+
+        ObservableList<Contact> numberContacts = contactList.filter("number");
+        assertEquals(2, numberContacts.size(), "There should be 2 contacts with a number.");
     }
 
     /**
@@ -150,26 +141,19 @@ public class ContactListTest {
     @Test
     public void testSort() throws IOException {
         System.out.println("sort");
-        Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
-                "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
-                "Rossi Enterprises", "IT123456789", "123 Street, City", 
-                "www.rossi.com", "Luigi is a client", true);
-      
-        Contact c2=new Contact(
-            "Giuseppe", "Esposito", "333444555", "666777888", "999000111",
-            "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
-            "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
-        
+        Contact c1 = createTestContact();
+        Contact c2 = new Contact("Giuseppe", "Esposito", "333444555", "666777888", "999000111",
+                                 "giuseppe.esposito@example.com", "giuseppe.esposito2@example.com", "giuseppe.esposito3@example.com",
+                                 "Esposito Group", "IT9876543210", "Corso Italia 2, Napoli", "www.esposito.com", "Notes for Giuseppe", true);
+        ContactList contactList = new ContactList();
         contactList.addContact(c1);
         contactList.addContact(c2);
-        
+
         contactList.sort("name");
-        assertEquals("Giuseppe", contactList.getContacts().get(0).getName(), "The first contact after sorting by name should be 'Eve'.");
-        
-        // Test ordinamento per cognome
+        assertEquals("Chiara", contactList.getContacts().get(0).getName(), "After sorting by name, the first contact should be 'Giuseppe'.");
+
         contactList.sort("surname");
-        assertEquals("Annunziata", contactList.getContacts().get(0).getName(), "The first contact after sorting by surname should be 'Frank'.");
-  
+        assertEquals("Esposito", contactList.getContacts().get(0).getSurname(), "After sorting by surname, the first contact should be 'Esposito'.");
     }
 
     /**
@@ -178,16 +162,12 @@ public class ContactListTest {
     @Test
     public void testDelete() throws IOException {
         System.out.println("delete");
-        Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
-                "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
-                "Rossi Enterprises", "IT123456789", "123 Street, City", 
-                "www.rossi.com", "Luigi is a client", true);
-      contactList.addContact(c1);
-      
-        boolean expResult = true;
+        Contact c1 = createTestContact();
+        ContactList contactList = new ContactList();
+        contactList.addContact(c1);
+
         boolean result = contactList.delete(c1);
-        assertEquals(expResult, result);
-       
+        assertTrue(result, "Contact should be deleted.");
     }
 
     /**
@@ -196,13 +176,13 @@ public class ContactListTest {
     @Test
     public void testExportContacts() throws IOException {
         System.out.println("exportContacts");
-         Contact c1=new Contact("Luigi", "Annunziata", "1234567890", "0987654321", "1122334455", 
-            "luigi.annunziata@example.com", "luigi.annunziata548@example.com", "luigi.annunziata3@example.com",
-            "Rossi Enterprises", "IT123456789", "123 Street, City", 
-            "www.rossi.com", "Luigi is a client", true);
+        Contact c1 = createTestContact();
+        ContactList contactList = new ContactList();
         contactList.addContact(c1);
-       boolean exported = contactList.exportContacts();
+
+        boolean exported = contactList.exportContacts();
         assertTrue(exported, "Contacts should be exported successfully.");
+
         File file = new File("contactList.csv");
         assertTrue(file.exists(), "The export file 'contactList.csv' should exist.");
     }
@@ -211,14 +191,16 @@ public class ContactListTest {
      * Test of updateContact method, of class ContactList.
      */
     @Test
-    public void testUpdateContact() {
+    public void testUpdateContact() throws IOException {
         System.out.println("updateContact");
-        Contact contact = null;
-        Contact updatedContact = null;
-        ContactList instance = new ContactList();
-        instance.updateContact(contact, updatedContact);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contact contact = createTestContact();
+        ContactList contactList = new ContactList();
+        contactList.addContact(contact);
+
+        Contact updatedContact = new Contact("Chiara", "Rossi", "123456789", "987654321", "1122334455", 
+                                             "c.rossi@newdomain.com", "", "", "Company", "", "", "", "", false);
+        contactList.updateContact(contact, updatedContact);
+
+        assertEquals("c.rossi@newdomain.com", contactList.getContacts().get(0).getEmail1(), "The email should be updated.");
     }
-    
 }
