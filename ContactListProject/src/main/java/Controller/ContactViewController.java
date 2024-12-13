@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 public class ContactViewController implements Initializable {
 
 /**
+ * @file ContactViewController.java
+ * @brief Controller for the contact view. Handles the display and manipulation of contact details, including modifying, deleting, or navigating back to the main view.
  * FXML elements for the contact view.
  */
     @FXML
