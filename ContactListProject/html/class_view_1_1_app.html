@@ -104,19 +104,84 @@ Inheritance diagram for View.App:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a69878711e3d54be66bd34e5739305765" id="r_a69878711e3d54be66bd34e5739305765"><td class="memItemLeft" align="right" valign="top"><a id="a69878711e3d54be66bd34e5739305765" name="a69878711e3d54be66bd34e5739305765"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (Stage stage)  throws IOException </td></tr>
+<tr class="memitem:a69878711e3d54be66bd34e5739305765" id="r_a69878711e3d54be66bd34e5739305765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69878711e3d54be66bd34e5739305765">start</a> (Stage stage)  throws IOException </td></tr>
+<tr class="memdesc:a69878711e3d54be66bd34e5739305765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the application by loading the MainView.fxml file, creating a new scene and setting it on the given stage. The stage is then set to not be resizable and is shown.  <br /></td></tr>
 <tr class="separator:a69878711e3d54be66bd34e5739305765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae178defdf6807d733181c31405e18dff" id="r_ae178defdf6807d733181c31405e18dff"><td class="memItemLeft" align="right" valign="top"><a id="ae178defdf6807d733181c31405e18dff" name="ae178defdf6807d733181c31405e18dff"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (String[] args)</td></tr>
+<tr class="memitem:ae178defdf6807d733181c31405e18dff" id="r_ae178defdf6807d733181c31405e18dff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae178defdf6807d733181c31405e18dff">main</a> (String[] args)</td></tr>
+<tr class="memdesc:ae178defdf6807d733181c31405e18dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main entry point for the JavaFX application. This method launches the application by calling the launch() method, which initializes the JavaFX runtime and triggers the <a class="el" href="#a69878711e3d54be66bd34e5739305765" title="Starts the application by loading the MainView.fxml file, creating a new scene and setting it on the ...">start()</a> method.  <br /></td></tr>
 <tr class="separator:ae178defdf6807d733181c31405e18dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>JavaFX <a class="el" href="class_view_1_1_app.html">App</a> </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>JavaFX <a class="el" href="class_view_1_1_app.html">App</a>. Starts the application loading the file MainView.fxml </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae178defdf6807d733181c31405e18dff" name="ae178defdf6807d733181c31405e18dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae178defdf6807d733181c31405e18dff">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void View.App.main </td>
+          <td>(</td>
+          <td class="paramtype">String[]</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The main entry point for the JavaFX application. This method launches the application by calling the launch() method, which initializes the JavaFX runtime and triggers the <a class="el" href="#a69878711e3d54be66bd34e5739305765" title="Starts the application by loading the MainView.fxml file, creating a new scene and setting it on the ...">start()</a> method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>the command line arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a69878711e3d54be66bd34e5739305765" name="a69878711e3d54be66bd34e5739305765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69878711e3d54be66bd34e5739305765">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void View.App.start </td>
+          <td>(</td>
+          <td class="paramtype">Stage</td>          <td class="paramname"><span class="paramname"><em>stage</em></span></td><td>)</td>
+          <td> throws IOException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the application by loading the MainView.fxml file, creating a new scene and setting it on the given stage. The stage is then set to not be resizable and is shown. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stage</td><td>the stage this application should be started in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IOException</td><td>if the fxml file for the main view cannot be found </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/main/java/View/<b>App.java</b></li>
 </ul>
 </div><!-- contents -->

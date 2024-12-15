@@ -78,7 +78,8 @@ public class ContactList {
     return searchResult;
   }
 
-  /* * Filters the contact list based on a specific criterion.
+  /**
+   * @brief Filters the contact list based on a specific criterion.
    * @param criteria The filtering criterion (e.g. favourite, number or email).
    * @return A list of contacts that match the filtering criterion.
    */
@@ -126,19 +127,21 @@ public class ContactList {
   }
 
   /**
-   * Sorts the contact list based on a given criterion.
+   * @brief Sorts the contact list based on a given criterion.
    * @param criteria The criterion by which to sort (e.g., by name, surname, or company).
    */
   public void sort(String criteria) {
     if (criteria.equals("name")) {
       contacts.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
     } else if (criteria.equals("surname")) {
-      contacts.sort((o1, o2) -> o1.getSurname().compareTo(o2.getSurname()));
+      contacts.sort((o1, o2) ->
+        o1.getSurname().compareTo(o2.getSurname())
+      );
     }
   }
 
   /**
-   * Deletes a contact from the contact list.
+   * @brief Deletes a contact from the contact list.
    * @param contact The contact to be deleted.
    * @return true if the contact was successfully deleted, false otherwise.
    */
@@ -147,7 +150,7 @@ public class ContactList {
   }
 
   /**
-   * Exports the contact list to a destination (e.g., file, database).
+   * @brief Exports the contact list to a destination (e.g., file, database).
    * @return true if the contacts are successfully exported, false otherwise.
    */
   public boolean exportContacts() {
@@ -166,6 +169,12 @@ public class ContactList {
     return true;
   }
 
+  /**
+   * @brief Updates an existing contact in the contact list with new information.
+   *
+   * @param contact The original contact to be updated.
+   * @param updatedContact The contact object containing updated details.
+   */
   public void updateContact(Contact contact, Contact updatedContact) {
     int index = contacts.indexOf(contact);
     if (index != -1) {
